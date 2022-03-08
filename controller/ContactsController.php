@@ -40,7 +40,7 @@ class ContactsController {
                         $this->collectReadAllContacts();
                     break;
             }
-        } catch (Exeption $e) {
+        } catch (Exception $e) {
             throw $e;
         }
 
