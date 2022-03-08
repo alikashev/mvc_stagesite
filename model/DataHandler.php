@@ -1,4 +1,5 @@
 <?php
+
 class DataHandler{
 	private $host;
 	private $dbdriver;
@@ -29,13 +30,13 @@ class DataHandler{
 	}
 
 	public function createData($sql){
-		$this->query($sql);
+		$this->dbh->query($sql);
 		return $this->lastInsertId();
 	}
 
 	public function readData($sql){
-		$this->query($sql);
-		return $this->sth->fetch(PDO::FETCH_ASSOC);
+		return $this->query($sql);
+		// return $this->dbh->query($sql,PDO::FETCH_ASSOC);
 	}
 	public function readsData($sql){
 		// $this->query($sql);
@@ -46,8 +47,16 @@ class DataHandler{
 		return $this->rowCount();
 	}
 	public function deleteData($sql){
-		$this->query($sql);
-		return $this->rowCount();
+		$sth = $this->dbh->query($sql);
+		return $sth->rowCount();
+	}
+	public function query($query){  
+		$this->sth = $this->dbh->prepare($query);
+		return $this->sth->execute();    
+	}
+	public function lastInsertId(){  
+		return $this->dbh->lastInsertId();  
 	}
 }
+
 ?>
