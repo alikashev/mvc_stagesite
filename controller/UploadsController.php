@@ -1,6 +1,6 @@
 <?php
 
-require 'model/UploadsLogic.php';
+require 'Model/UploadsLogic.php';
 
 class UploadsController {
 
@@ -18,8 +18,8 @@ class UploadsController {
             $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
             switch ($action) {
-                case 'create':
-                        $this->collectAddContact($_REQUEST['contact_name'], $_REQUEST['contact_email'], $_REQUEST['contact_adress']);
+                case 'upload':
+                        $this->collectUploadFile($_REQUEST['contact_name'], $_REQUEST['contact_email'], $_REQUEST['contact_adress']);
                     break;
                 case 'read':
                         $this->collectReadAllFiles();
@@ -46,10 +46,10 @@ class UploadsController {
 
     }
 
-    // public function collectAddContact($contact_name, $contact_email, $contact_adress) {
-    //     $contacts = $this->ContactsLogic->addContact($contact_name, $contact_email, $contact_adress);
-    //     include 'View/succes.php';
-    // }
+    public function collectUploadFile($contact_name, $contact_email, $contact_adress) {
+        $contacts = $this->ContactsLogic->addContact($contact_name, $contact_email, $contact_adress);
+        include 'View/succes.php';
+    }
 
     public function collectReadAllFiles() {
         $uploads = $this->UploadsLogic->readAllFiles();
