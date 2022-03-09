@@ -1,5 +1,5 @@
 
-<?php require("header.php")?>
+<?php require_once(APP_DIR . 'view\\' . "header.php")?>
 
 <div class="content-container">
   <a class='btn' href="index.php?action=createform">Maak nieuw contact aan</a>

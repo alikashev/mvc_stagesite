@@ -62,7 +62,7 @@ class AdminController {
     }
 
     public function collectUpdateContact($id) {
-        $contacts = $this->UserLogic->updateContact($id);
+        $contacts = $this->UserLogic->updateUser($id);
         include 'view/AdminView/update.php';
     }
     public function collectDeleteContact($contact_id) {

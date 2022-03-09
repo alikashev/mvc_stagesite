@@ -79,12 +79,12 @@ class UserLogic {
         }
     }
 
-    public function updateContact($contact_id){
+    public function updateUser($id){
 
         try {
 
             $query = "SELECT * FROM gebruikers ";
-            $query .= "WHERE id=$contact_id ";
+            $query .= "WHERE id=$id ";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
             
