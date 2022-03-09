@@ -10,5 +10,5 @@
     <input type="submit" value="Zoek">
   </form>
   <br>
-  <?=$contacts;?>
+  <?=$uploads;?>
 </div>

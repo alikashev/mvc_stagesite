@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Controller/ContactsController.php';
+require_once 'Controller/UploadsController.php';
 
-$controller = new ContactsController();
+$controller = new UploadsController();
 $controller->handleRequest();
 
 ?>
