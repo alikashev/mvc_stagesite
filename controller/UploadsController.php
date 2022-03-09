@@ -40,7 +40,7 @@ class UploadsController {
                         $this->collectReadAllFiles();
                     break;
             }
-        } catch (Exeption $e) {
+        } catch (Exception $e) {
             throw $e;
         }
 

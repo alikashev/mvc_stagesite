@@ -26,9 +26,9 @@ class OutputData {
             			foreach($row as $columns) {
             				$html .= "<td>" . $columns . "</td>";
             			}
-                        $html .= "<td><a class=\"Button-td\" href=\"index.php?action=readone&contact_id=".$row["contact_id"]."\">Read</a></td>";
-                        $html .= "<td><a id=\"Button-td\" href=\"index.php?action=delete&contact_id=".$row["contact_id"]."\">Delete</a></td>";
-                        $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&contact_id=".$row["contact_id"]."\">Update</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"index.php?action=readone&id=".$row["id"]."\">Read</a></td>";
+                        $html .= "<td><a id=\"Button-td\" href=\"index.php?action=delete&id=".$row["id"]."\">Delete</a></td>";
+                        $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&id=".$row["id"]."\">Update</a></td>";
             		$html .= '</tr>';
             	}
         $html .= '</table>';
