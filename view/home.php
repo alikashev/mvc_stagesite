@@ -10,5 +10,6 @@
     <input type="submit" value="Zoek">
   </form>
   <br>
-  <?=$uploads;?>
+  <!-- <?=$uploads;?> -->
+  <?=$obj?>
 </div>

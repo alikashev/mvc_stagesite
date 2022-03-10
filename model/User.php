@@ -3,7 +3,7 @@
 require_once 'Model/datahandler.php';
 require_once 'View/outputData.php';
 
-class UserLogic {
+class User {
 
     public function __construct() {
         $this->datahandler = new datahandler("localhost", "mysql", "stagesite","root", "");
@@ -36,7 +36,8 @@ class UserLogic {
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
-            return $this->outputData->createTable($results);
+            // return $this->outputData->createTable($results);
+            return $this->outputData->createTableAdmin($results);
             
         } catch (PDOException $e) {
 
@@ -46,12 +47,12 @@ class UserLogic {
 
     }
 
-    public function readOneContact($contact_id){
+    public function readOneUser($id){
 
         try {
 
-            $query = "SELECT * FROM contacts ";
-            $query .= "WHERE contact_id=$contact_id ";
+            $query = "SELECT * FROM gebruikers ";
+            $query .= "WHERE id = $id";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -64,12 +65,12 @@ class UserLogic {
         }
     }
 
-    public function deleteContact($contact_id){
+    public function deleteUser($contact_id){
 
         try {
 
-            $query = "DELETE FROM contacts ";
-            $query .= "WHERE contact_id=$contact_id ";
+            $query = "DELETE FROM gebruikers ";
+            $query .= "WHERE id = $contact_id ";
             $result = $this->datahandler->deleteData($query);
             
         } catch (PDOException $e) {

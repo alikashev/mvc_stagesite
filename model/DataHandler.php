@@ -54,6 +54,11 @@ class DataHandler{
 		$this->sth = $this->dbh->prepare($query);
 		return $this->sth->execute();    
 	}
+	public function bindValue($binding, $value)
+	{
+		$this->sth = $this->dbh->bindValue($binding, $value);
+		return $this->sth->execute();
+	}
 	public function lastInsertId(){  
 		return $this->dbh->lastInsertId();  
 	}

@@ -1,15 +1,4 @@
 <?php
-
-// require_once 'Controller/ContactsController.php';
-
-// $controller = new ContactsController();
-// $controller->handleRequest();
-
-// require_once 'Controller/AdminController.php';
-
-// $controller = new AdminController();
-// $controller->handleRequest();
-
 // Defines
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 define('APP_DIR', __DIR__."\\");
