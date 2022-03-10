@@ -1,16 +1,16 @@
 <?php 
 
-require_once 'model/datahandler.php';
-require_once 'view/outputData.php';
+require_once 'model/Datahandler.php';
+require_once 'view/OutputData.php';
 
 class UploadsLogic {
 
-    function __consturct() {
-        $this->datahandler = new datahandler("localhost", "mysql", "stagesite","root", "");
+    function __construct() {
+        $this->dataHandler = new DataHandler("localhost", "mysql", "stagesite","root", "");
         $this->outputData = new OutputData();
     }
 
-    public function upload() {
+    public function uploadFile() {
         //require '../database/database.php';
 
         if (isset($_POST["submit"])) {
@@ -48,9 +48,8 @@ class UploadsLogic {
     public function readAllFiles(){
 
         try {
-
-            $query = "SELECT id, naam, upload_datum, bestand_data, uploader_id FROM bestanden ";
-            $result = $this->datahandler->readsData($query);
+            $query = "SELECT id, naam, upload_datum, bestand_data, uploader_id FROM bestanden";
+            $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
             return $this->outputData->createTable($results);
