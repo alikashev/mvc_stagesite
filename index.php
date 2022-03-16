@@ -2,6 +2,7 @@
 // Defines
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 define('APP_DIR', __DIR__."\\");
+define('SERVER_URL', "/" . "mvc_stagesite");
 // echo APP_DIR;
 
 // Includes
@@ -12,5 +13,4 @@ require(ROOT_DIR .'model/Router.php');
 // global $config;
 // define('BASE_URL', $config['base_url']);
 $start = new Router();
-
 ?>

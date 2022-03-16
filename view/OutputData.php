@@ -37,7 +37,9 @@ class OutputData {
     }
 
     function createTableAdmin($rows) {
-        $html = '<table class="tablerow" border="1">';
+        $html = "<div><a href=\"" . SERVER_URL . "/Admin/CollectAddUser/\">Create new account</a></div>";
+        $html .= "<br>";
+        $html .= '<table class="tablerow" border="1">';
             $html .= '<tr>';
             	foreach($rows[0] as $key => $value){
             		$html .= "<th>" . $key . "</th>";
@@ -48,8 +50,8 @@ class OutputData {
             			foreach($row as $columns) {
             				$html .= "<td>" . $columns . "</td>";
             			}
-                        $html .= "<td><a class=\"Button-td\" href=\"CollectReadOneUser/".$row["id"]. "\">Read</a></td>";
-                        $html .= "<td><a class=\"Button-td\" href=\"CollectUpdateUser/".$row["id"]. "\">Update</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/CollectReadOneUser/".$row["id"]. "\">Read</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/CollectUpdateUser/".$row["id"]. "\">Update</a></td>";
             		$html .= '</tr>';
             	}
         $html .= '</table>';
@@ -62,5 +64,3 @@ class OutputData {
         //todo
     }
 }
-
-?>

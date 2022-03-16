@@ -12,12 +12,15 @@ class User {
 
     public function __destruct(){}
     
-    public function addUser($contact_name, $contact_email, $contact_adress){
+    public function addUser($firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $school, $study){
 
         try {
 
-            $query = "INSERT INTO contacts (contact_name, contact_email, contact_adress)";
-            $query .= "VALUES ('$contact_name', '$contact_email', '$contact_adress');";
+            $query = "INSERT INTO gebruikers (voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_docent, is_persoon_stage, schoolnaam, studie";
+            $password !== '' ? $query .= ", wachtwoord_hash)" : $query .= ")";
+            $password !== '' ? $hash_password = password_hash($password, PASSWORD_BCRYPT) : '';
+            $query .= " VALUES ('$firstName', '$infix', '$lastName', '$email', '$phone', '$isTeacher', '$isSupervisor', '$school', '$study'";
+            $password !== '' ? $query .= ", '$hash_password');" : $query .= ");";
             $result = $this->datahandler->createData($query);
             
         } catch (PDOException $e) {
@@ -36,8 +39,7 @@ class User {
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
-            // return $this->outputData->createTable($results);
-            return $this->outputData->createTableAdmin($results);
+            return $results;
             
         } catch (PDOException $e) {
 
@@ -51,12 +53,12 @@ class User {
 
         try {
 
-            $query = "SELECT * FROM gebruikers ";
+            $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_docent, is_persoon_stage, schoolnaam, studie FROM gebruikers ";
             $query .= "WHERE id = $id";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
-            return $this->outputData->createTable($results);
+            return $results;
             
         } catch (PDOException $e) {
 
@@ -80,19 +82,19 @@ class User {
         }
     }
 
-    public function updateUser($id){
+    public function updateUser($id, $firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $school, $study){
 
         try {
+            // $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_docent, is_persoon_stage, schoolnaam, studie FROM gebruikers ";
+            // $query .= "WHERE id=$id ";
+            // $result = $this->datahandler->readsData($query);
+            // $results = $result->fetchAll();
 
-            $query = "SELECT * FROM gebruikers ";
-            $query .= "WHERE id=$id ";
-            $result = $this->datahandler->readsData($query);
-            $results = $result->fetchAll();
-            
-            var_dump($results); die;
-
-            return $this->outputData->updateTable($results);
-            
+            $query = "UPDATE gebruikers SET voornaam = '$firstName', tussenvoegsel = '$infix', achternaam = '$lastName', email = '$email', telefoonnummer = '$phone', is_docent = '$isTeacher', is_persoon_stage = '$isSupervisor', schoolnaam = '$school', studie = '$study'";
+            $password !== "" ? $hash_password = password_hash($password, PASSWORD_BCRYPT) : "";
+            $password !== "" ? $query .= ", wachtwoord_hash = '$hash_password'" : "";
+            $query .= " WHERE id = $id";
+            $result = $this->datahandler->updateData($query);
         } catch (PDOException $e) {
 
             echo "Fout opgetreden";
