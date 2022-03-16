@@ -24,12 +24,12 @@ class Router
     if(isset($packets[2]) && $packets[2] != ''){
       $classname = $packets[2];
     }else{
-      $classname = "MainController";
+      $classname = "Home";
     }
     if(isset($packets[3]) && $packets[3] != ''){
       $method = $packets[3];
     }else{
-      $method = "read";
+      $method = "Default";
     }
     $params = array_slice($packets, 4);
 

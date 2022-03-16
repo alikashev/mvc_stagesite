@@ -13,6 +13,10 @@ class Admin {
 
     public function __destruct(){}
 
+    public function Default() {
+        header("Location: collectReadAllUsers");
+    }
+
     public function collectAddUser() {
         include 'view/AdminView/create_user.php';
         if (isset($_POST["submit"]))
