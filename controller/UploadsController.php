@@ -11,41 +11,6 @@ class UploadsController {
 
     public function __destruct(){}
 
-    public function handleRequest(){
-        
-        try {
-
-            $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
-
-            switch ($action) {
-                case 'upload':
-                        $this->collectUploadFile($_REQUEST['contact_name'], $_REQUEST['contact_email'], $_REQUEST['contact_adress']);
-                    break;
-                case 'read':
-                        $this->collectReadAllFiles();
-                    break;
-                case 'createform':
-                        require 'View/create.php';
-                    break;
-                case 'readone':
-                        $this->collectReadOneContact($_REQUEST['contact_id']);
-                     break;
-                case 'update':
-                        $this->collectUpdateContact($_REQUEST['contact_id']);
-                    break;
-                case 'delete':
-                        $this->collectDeleteContact($_REQUEST['contact_id']);
-                    break;
-                default:
-                        $this->collectReadAllFiles();
-                    break;
-            }
-        } catch (Exception $e) {
-            throw $e;
-        }
-
-    }
-
     public function collectUploadFile($contact_name, $contact_email, $contact_adress) {
         $contacts = $this->ContactsLogic->addContact($contact_name, $contact_email, $contact_adress);
         include 'View/succes.php';

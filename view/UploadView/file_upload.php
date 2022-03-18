@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action="../../model/uploadLogic.php" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         <label>Filenaam</label>
         <input type="text" name="filename" required >
         <label>File Upload</label>
