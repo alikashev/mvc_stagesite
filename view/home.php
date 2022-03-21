@@ -7,8 +7,7 @@
     <input type="text" name="searchname" placeholder="Zoeken...">
     <input type="submit" value="Zoek">
   </form>
-  <br> -->
-  <!-- <?=$uploads;?> -->
   <br>
+  <!-- <?=$uploads;?> -->
   <?=$obj?>
 </div>

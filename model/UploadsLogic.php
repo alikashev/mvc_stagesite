@@ -10,30 +10,26 @@ class UploadsLogic {
         $this->outputData = new OutputData();
     }
 
-    public function uploadFile() {
+    public function uploadFile($filedesc) {
         //require '../database/database.php';
-
-        if (isset($_POST["submit"])) {
     
             try {
                 #retrieve file title
                 $date = date("Y-m-d h:i:sa");
-                $fileName = $_POST["filename"];
                 $upId = 1;
-             
-                #file name with a random number so that similar dont get replaced
-                $pname = rand(1000,10000)."-".$_FILES["file"]["name"];
-            
-                #temporary file name to store file
+                $filename = rand(1000,10000)."-".$_FILES["file"]["name"];
                 $tname = $_FILES["file"]["tmp_name"];
-            
+             
                 #upload directory path
-                $uploads_dir = '../uploads';
+                $uploads_dir = './uploads';
                 #TO move the uploaded file to specific location
-                move_uploaded_file($tname, $uploads_dir.'/'.$pname);
+                move_uploaded_file($tname, $uploads_dir.'/'.$filename);
          
                 #sql query to insert into database
-                $con->prepare("INSERT INTO bestanden (naam, upload_datum, bestand_data, uploader_id) VALUES('$fileName','$date','$pname', '$upId')")->execute();
+                $sql = "INSERT INTO bestanden (naam, upload_datum, uploader_id, bestand_omschrijving) "; 
+                $sql .= "VALUES('$filename','$date','$upId','$filedesc')";
+                $result = $this->dataHandler->createData($sql);
+                
            } catch (PDOException $e) {
                if ($e->getCode() == 1062) {
                    // Take some action if there is a key constraint violation, i.e. duplicate name
@@ -42,13 +38,12 @@ class UploadsLogic {
                }
            }
             echo "Bestand succevol toegevoegd";  
-        }
     }
 
     public function readAllFiles(){
 
         try {
-            $query = "SELECT id, naam, upload_datum, bestand_data, uploader_id FROM bestanden";
+            $query = "SELECT id, naam, upload_datum, uploader_id FROM bestanden";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 

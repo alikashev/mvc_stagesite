@@ -33,10 +33,14 @@
       padding: 5px;
 }
 
+table tr td {
+  padding: 5px;
+}
+
   table tr:nth-child(even){background-color: #ddd;}
 
   table tr:hover {
-      background-color: wheat;
+      background-color: mediumaquamarine;
       cursor: pointer;
 }
 

@@ -8,11 +8,11 @@
 </head>
 <body>
 
-    <form action="../../model/uploadLogic.php" method="POST" enctype="multipart/form-data">
-        <label>Filenaam</label>
-        <input type="text" name="filename" required >
-        <label>File Upload</label>
-        <input type="File" name="file" required >
+    <form action="../collectUploadFile" method="POST" enctype="multipart/form-data">
+        <label>Filenaam</label><br>
+        <input type="text" name="filedesc" required ><br>
+        <label>File Upload</label><br>
+        <input type="File" name="file" required ><br>
         <input type="submit" name="submit">
     </form>
     
