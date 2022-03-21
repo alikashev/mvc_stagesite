@@ -2,6 +2,11 @@
 
 require 'Model/UploadsLogic.php';
 
+// if (isset($_POST["submit"]) {
+//     $filename = $_REQUEST['filename'];
+//     $file = $_REQUEST['file']; 
+// }
+
 class UploadsController {
 
     public function __construct(){
@@ -11,14 +16,27 @@ class UploadsController {
 
     public function __destruct(){}
 
-    public function collectUploadFile($contact_name, $contact_email, $contact_adress) {
-        $contacts = $this->ContactsLogic->addContact($contact_name, $contact_email, $contact_adress);
-        include 'View/succes.php';
-    }
+    // public function collectUploadFile($filename, $file) {
+    //     $uploads = $this->ContactsLogic->uploadFile($filename, $file);
+    //     include 'View/succes.php';
+    // }
 
     public function collectReadAllFiles() {
         $uploads = $this->UploadsLogic->readAllFiles();
         include 'view/home.php';
+    }
+
+    public function collectUploadFile() {
+        if(isset($_POST["submit"])) {
+
+            $filedesc = $_POST['filedesc'];
+            $uploads = $this->UploadsLogic->uploadFile($filedesc);
+
+        }
+    }
+
+    public function uploadForm() {
+        include 'view/UploadView/file_upload.php';
     }
 
     // public function collectReadOneContact($contact_id) {
