@@ -49,6 +49,30 @@ class User {
 
     }
 
+    public function readAllSupervisors() {
+        try {
+            $query = "SELECT * FROM gebruikers WHERE is_persoon_stage = 1";
+            $result = $this->datahandler->readsData($query);
+            $results = $result->fetchAll();
+
+            return $results;
+        } catch (PDOException $e) {
+            echo "Fout opgetreden: " . $e;
+        }
+    }
+
+    public function readAllTeachers() {
+        try {
+            $query = "SELECT * FROM gebruikers WHERE is_docent = 1";
+            $result = $this->datahandler->readsData($query);
+            $results = $result->fetchAll();
+
+            return $results;
+        } catch (PDOException $e) {
+            echo "Fout opgetreden: " . $e;
+        }
+    }
+
     public function readOneUser($id){
 
         try {
@@ -67,29 +91,24 @@ class User {
         }
     }
 
-    public function deleteUser($contact_id){
+    // public function deleteUser($contact_id){
 
-        try {
+    //     try {
 
-            $query = "DELETE FROM gebruikers ";
-            $query .= "WHERE id = $contact_id ";
-            $result = $this->datahandler->deleteData($query);
+    //         $query = "DELETE FROM gebruikers ";
+    //         $query .= "WHERE id = $contact_id ";
+    //         $result = $this->datahandler->deleteData($query);
             
-        } catch (PDOException $e) {
+    //     } catch (PDOException $e) {
 
-            echo "Fout opgetreden";
+    //         echo "Fout opgetreden";
 
-        }
-    }
+    //     }
+    // }
 
     public function updateUser($id, $firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $school, $study){
 
         try {
-            // $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_docent, is_persoon_stage, schoolnaam, studie FROM gebruikers ";
-            // $query .= "WHERE id=$id ";
-            // $result = $this->datahandler->readsData($query);
-            // $results = $result->fetchAll();
-
             $query = "UPDATE gebruikers SET voornaam = '$firstName', tussenvoegsel = '$infix', achternaam = '$lastName', email = '$email', telefoonnummer = '$phone', is_docent = '$isTeacher', is_persoon_stage = '$isSupervisor', schoolnaam = '$school', studie = '$study'";
             $password !== "" ? $hash_password = password_hash($password, PASSWORD_BCRYPT) : "";
             $password !== "" ? $query .= ", wachtwoord_hash = '$hash_password'" : "";
