@@ -23,17 +23,11 @@ $obj = $obj[0];
   Is afgerond: <input type="checkbox" name="finished" <?=$obj['is_afgerond'] !== 0 ? 'checked' : ''?>>
   <br>
   <br>
-  <!-- Stagebegeleider id: <input name="supervisorId" value="<?=$obj['stagebegeleider_id']?>"> -->
   Stagebegeleider id: <?=$obj2?>
   <br>
   <br> 
-  <!-- Contactpersoon stage id: <input name="teacherId" value="<?=$obj['contactpersoon_stage_id']?>"> -->
-  Contactpersoon stage id: <?=$obj3?>
+  Logboek id: <input name="logId" value="<?=$obj['logboek_id']?>">
   <br>
   <br>
-  <!-- Praktijkbegeleider id: <input name="practicalSupervisorId" value="<?=$obj['praktijkbegeleider_stage_id']?>"> -->
-  <!-- Praktijkbegeleider id: <?=$obj2?>
-  <br>
-  <br> -->
   <input value="Submit" type="submit" name="submit">
 </form>

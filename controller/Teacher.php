@@ -4,13 +4,14 @@ require_once 'Model/User.php';
 require_once 'Model/Contract.php';
 require_once 'View/outputData.php';
 
-class Admin {
+class Teacher {
 
     public function __construct(){
 
         $this->User = new User();
         $this->Contract = new Contract();
         $this->outputData = new OutputData();
+        $this->id = 11;
     }
 
     public function __destruct(){}
@@ -20,7 +21,7 @@ class Admin {
     }
 
     public function collectAddUser() {
-        include 'view/AdminView/create_user.php';
+        include 'view/TeacherView/create_user.php';
         if (isset($_POST["submit"]))
         {
             $firstName = $_POST["firstName"];
@@ -29,12 +30,14 @@ class Admin {
             $email = $_POST["email"];
             $password = $_POST["password"] !== '' ? $_POST["password"] : '';
             $phone = $_POST["phone"];
-            $isTeacher = !empty($_POST["isTeacher"]) ? 1 : 0;
-            $isSupervisor = !empty($_POST["isSupervisor"]) ? 1 : 0;
+            $isTeacher = 0;
+            $isSupervisor = 0;
             $school = $_POST["school"];
             $study = $_POST["study"];
 
-            $this->User->addUser($firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $school, $study);
+            $teacherId = $this->id;
+            $userId = $this->User->addUser($firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $school, $study);
+            $this->Contract->addContract($userId, 1, 680, 0, '2022-03-22', '2022-03-23', 0, $teacherId, $teacherId);
             header("Location: ../collectReadAllUsers/");
         }
     }
@@ -45,7 +48,7 @@ class Admin {
         $obj = $this->outputData->createSupervisorSelectBox($supervisors);
         $obj2 = $this->outputData->createTeacherSelectBox($teachers);
 
-        include 'view/AdminView/create_contract.php';
+        include 'view/TeacherView/create_contract.php';
         if(isset($_POST["submit"])) {
             $internId = $_POST["internId"];
             $companyId = $_POST["companyId"];
@@ -55,22 +58,26 @@ class Admin {
             $endDate = $_POST["endDate"];
             $finished = !empty($_POST["finished"]) ? 1 : 0;
             $supervisorId = $_POST["supervisorId"];
-            $teacherId = $_POST["teacherId"];
+            $teacherId = $this->id;
+            $logId = $_POST["logId"];
 
-            $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId);
+            $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $logId);
             header("Location: ../collectReadAllContracts/");
         }
     }
 
     public function collectReadAllUsers() {
-        $users = $this->User->readAllUsers();
-        $obj = $this->outputData->createTableAdminUsers($users);
+        $teacherId = $this->id;
+        $users = $this->User->readAllUsersByTeacher($teacherId);
+        var_dump($users);
+        $obj = $this->outputData->createTableTeacherUsers($users);
         include 'view/home.php';
     }
 
     public function collectReadAllContracts() {
-        $contracts = $this->Contract->readAllContracts();
-        $obj = $this->outputData->createTableAdminContracts($contracts);
+        $teacherId = $this->id;
+        $contracts = $this->Contract->readAllContractsByTeacherId($teacherId);
+        $obj = $this->outputData->createTableTeacherContracts($contracts);
         include 'view/home.php';
     }
 
@@ -90,7 +97,7 @@ class Admin {
 
     public function collectUpdateUser($id) {
         $obj = $this->User->readOneUser($id);
-        include 'view/AdminView/update_user.php';
+        include 'view/TeacherView/update_user.php';
         if(isset($_POST["submit"])) {
             $firstName = $_POST["firstName"];
             $infix = $_POST["infix"];
@@ -98,8 +105,8 @@ class Admin {
             $email = $_POST["email"];
             $password = $_POST["password"];
             $phone = $_POST["phone"];
-            $isTeacher = !empty($_POST["isTeacher"]) ? 1 : 0;
-            $isSupervisor = !empty($_POST["isSupervisor"]) ? 1 : 0;
+            $isTeacher = 0;
+            $isSupervisor = 0;
             $school = $_POST["school"];
             $study = $_POST["study"];
 
@@ -111,12 +118,11 @@ class Admin {
 
     public function collectUpdateContract($id) {
         $supervisors = $this->User->readAllSupervisors();
-        $teachers =  $this->User->readAllTeachers();
+        $teacherId = $this->id;
         $obj = $this->Contract->readOneContract($id);
         $obj2 = $this->outputData->createSupervisorSelectBox($supervisors);
-        $obj3 = $this->outputData->createTeacherSelectBox($teachers);
 
-        include 'view/AdminView/update_contract.php';
+        include 'view/TeacherView/update_contract.php';
         if(isset($_POST["submit"])) {
             $internId = $_POST["internId"];
             $companyId = $_POST["companyId"];
@@ -126,9 +132,10 @@ class Admin {
             $endDate = $_POST["endDate"];
             $finished = !empty($_POST["finished"]) ? 1 : 0;
             $supervisorId = $_POST["supervisorId"];
-            $teacherId = $_POST["teacherId"];
+            $teacherId = $teacherId;
+            $logId = $_POST["logId"];
 
-            $this->Contract->updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId);
+            $this->Contract->updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $logId);
             header("Location: ../collectReadAllContracts/");
         }
     }

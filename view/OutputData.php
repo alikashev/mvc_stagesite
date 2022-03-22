@@ -102,6 +102,29 @@ class OutputData {
         return $html;
     }
 
+    function createTableTeacherUsers($rows) {
+        $html = "<div><a href=\"" . SERVER_URL . "/Teacher/CollectAddUser/\">Create new account</a></div>";
+        $html .= "<br>";
+        $html .= '<table class="tablerow" border="1">';
+            $html .= '<tr>';
+            	foreach($rows[0] as $key => $value){
+            		$html .= "<th>" . $key . "</th>";
+            	}
+            $html .= "</tr>";
+            	foreach($rows as $row){
+            		$html .= '<tr>';
+            			foreach($row as $columns) {
+            				$html .= "<td>" . $columns . "</td>";
+            			}
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/CollectReadOneUser/".$row["id"]. "\">Read</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/CollectUpdateUser/".$row["id"]. "\">Update</a></td>";
+            		$html .= '</tr>';
+            	}
+        $html .= '</table>';
+
+        return $html;
+    }
+
     function createTableAdminContracts($rows) {
         $html = "<div><a href=\"" . SERVER_URL . "/Admin/collectAddContract/\">Create new contract</a></div>";
         $html .= "<br>";
@@ -119,6 +142,30 @@ class OutputData {
                         $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectReadOneContract/".$row["id"]. "\">Read</a></td>";
                         $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectUpdateContract/".$row["id"]. "\">Update</a></td>";
                         $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectDeleteContract/".$row["id"]. "\">Delete</a></td>";
+            		$html .= '</tr>';
+            	}
+        $html .= '</table>';
+
+        return $html;
+    }
+
+    function createTableTeacherContracts($rows) {
+        $html = "<div><a href=\"" . SERVER_URL . "/Teacher/collectAddContract/\">Create new contract</a></div>";
+        $html .= "<br>";
+        $html .= '<table class="tablerow" border="1">';
+            $html .= '<tr>';
+            	foreach($rows[0] as $key => $value){
+            		$html .= "<th>" . $key . "</th>";
+            	}
+            $html .= "</tr>";
+            	foreach($rows as $row){
+            		$html .= '<tr>';
+            			foreach($row as $columns) {
+            				$html .= "<td>" . $columns . "</td>";
+            			}
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectReadOneContract/".$row["id"]. "\">Read</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectUpdateContract/".$row["id"]. "\">Update</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectDeleteContract/".$row["id"]. "\">Delete</a></td>";
             		$html .= '</tr>';
             	}
         $html .= '</table>';
