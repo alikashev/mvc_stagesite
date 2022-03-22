@@ -30,8 +30,8 @@ class UploadsController {
         if(isset($_POST["submit"])) {
 
             $filedesc = $_POST['filedesc'];
-            $uploads = $this->UploadsLogic->uploadFile($filedesc);
-
+            $obj = $this->UploadsLogic->uploadFile($filedesc);
+            header("Location: ./collectReadAllFiles/");
         }
     }
 
@@ -39,10 +39,10 @@ class UploadsController {
         include 'view/UploadView/file_upload.php';
     }
 
-    // public function collectReadOneContact($contact_id) {
-    //     $contacts = $this->ContactsLogic->readOneContact($contact_id);
-    //     include 'view/home.php';
-    // }
+    public function collectDeleteFile($bestnad_id) {
+        $obj = $this->UploadsLogic->deleteFile($bestand_id);
+        include 'view/home.php';
+    }
 
     // public function collectUpdateContact($contact_id) {
     //     $contacts = $this->ContactsLogic->updateContact($contact_id);

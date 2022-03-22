@@ -41,7 +41,7 @@ class UploadsLogic {
     public function readAllFiles(){
 
         try {
-            $query = "SELECT id, naam, upload_datum, uploader_id FROM bestanden";
+            $query = "SELECT id, naam, upload_datum, uploader_id, bestand_omschrijving FROM bestanden";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -60,7 +60,7 @@ class UploadsLogic {
         try {
 
             $query = "SELECT * FROM contacts ";
-            $query .= "WHERE contact_id=$bestand_id ";
+            $query .= "WHERE contact_id='$bestand_id'";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -77,13 +77,14 @@ class UploadsLogic {
 
         try {
 
-            $query = "DELETE FROM contacts ";
-            $query .= "WHERE contact_id=$bestand_id ";
-            $result = $this->datahandler->deleteData($query);
+            $query = "DELETE * FROM bestanden ";
+            $query .= "WHERE id='$bestand_id'";
+            $result = $this->dataHandler->deleteData($query);
             
         } catch (PDOException $e) {
 
             echo "Fout opgetreden";
+            echo $bestand_id;
 
         }
     }

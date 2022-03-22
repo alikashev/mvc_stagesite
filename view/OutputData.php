@@ -53,7 +53,7 @@ class OutputData {
             				$html .= "<td>" . $columns . "</td>";
             			}
                         $html .= "<td><a class=\"Button-td\" href=\"index.php?action=readone&id=".$row["id"]."\">Read</a></td>";
-                        $html .= "<td><a id=\"Button-td\" href=\"index.php?action=delete&id=".$row["id"]."\">Delete</a></td>";
+                        $html .= "<td><a id=\"Button-td\" href=\"../UploadsController/collectDeleteFile/".$row["id"]."\">Delete</a></td>";
                         $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&id=".$row["id"]."\">Update</a></td>";
                         $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&id=".$row["id"]."\">Download</a></td>";
             		$html .= '</tr>';
