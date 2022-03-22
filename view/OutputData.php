@@ -68,15 +68,22 @@ class OutputData {
             
 
             foreach($results as $row){
-                $path = "http://".$_SERVER['SERVER_NAME']."/".$row['bestand_path'];
-                $file = $row['naam'];
+                $file = "http://".$_SERVER['SERVER_NAME']."/".$row['bestand_path'].$row['naam'];
+                $filename = $row['naam'];
 
             }
 
-        ?>
-        <iframe src="<?php echo $path.$file; ?>" width="100%" height="100%"></iframe>
-        <?php
-
+            // Header content type
+            header('Content-type: application/pdf');
+            
+            header('Content-Disposition: inline; filename="' . $filename . '"');
+            
+            header('Content-Transfer-Encoding: binary');
+            
+            header('Accept-Ranges: bytes');
+            
+            // Read the file
+            @readfile($file);
     }
 
     function createTableAdminUsers($rows) {
