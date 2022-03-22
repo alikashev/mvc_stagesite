@@ -23,10 +23,13 @@ class UploadsLogic {
                 $uploads_dir = './uploads';
                 #TO move the uploaded file to specific location
                 move_uploaded_file($tname, $uploads_dir.'/'.$filename);
+
+                $path = SERVER_URL . '/uploads/';
          
                 #sql query to insert into database
-                $sql = "INSERT INTO bestanden (naam, upload_datum, uploader_id, bestand_omschrijving) "; 
-                $sql .= "VALUES('$filename','$date','$upId','$filedesc')";
+                $sql = "INSERT INTO bestanden (naam, upload_datum, uploader_id, bestand_omschrijving, bestand_path) "; 
+                $sql .= "VALUES('$filename','$date','$upId','$filedesc', '$path')";
+                var_dump($sql);
                 $result = $this->dataHandler->createData($sql);
                 
            } catch (PDOException $e) {
