@@ -11,7 +11,6 @@ class UploadsLogic {
     }
 
     public function uploadFile($filedesc) {
-        //require '../database/database.php';
     
             try {
                 #retrieve file title
@@ -37,7 +36,6 @@ class UploadsLogic {
                    throw $e;
                }
            }
-            echo "Bestand succevol toegevoegd";  
     }
 
     public function readAllFiles(){

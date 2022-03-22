@@ -22,7 +22,7 @@ class UploadsController {
     // }
 
     public function collectReadAllFiles() {
-        $uploads = $this->UploadsLogic->readAllFiles();
+        $obj = $this->UploadsLogic->readAllFiles();
         include 'view/home.php';
     }
 
