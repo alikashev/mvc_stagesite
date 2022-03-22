@@ -21,7 +21,10 @@ class User {
             $password !== '' ? $hash_password = password_hash($password, PASSWORD_BCRYPT) : '';
             $query .= " VALUES ('$firstName', '$infix', '$lastName', '$email', '$phone', '$isTeacher', '$isSupervisor', '$school', '$study'";
             $password !== '' ? $query .= ", '$hash_password');" : $query .= ");";
-            $result = $this->datahandler->createData($query);
+            $this->datahandler->createData($query);
+            $result = $this->datahandler->lastInsertId();
+            return $result;
+            
             
         } catch (PDOException $e) {
 
@@ -36,6 +39,24 @@ class User {
         try {
 
             $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_docent, is_persoon_stage, schoolnaam, studie FROM gebruikers";
+            $result = $this->datahandler->readsData($query);
+            $results = $result->fetchAll();
+
+            return $results;
+            
+        } catch (PDOException $e) {
+
+            echo "Fout opgetreden";
+
+        }
+
+    }
+
+    public function readAllUsersByTeacher($id){
+
+        try {
+
+            $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.stagiair_id WHERE stages.stagebegeleider_id = $id";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 

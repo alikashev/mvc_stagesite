@@ -12,10 +12,13 @@ class Contract {
 
     public function __destruct(){}
     
-    public function AddContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $logId){
+    public function AddContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId){
 
         try {
-
+            $query = "INSERT INTO logboek (aantal_uren, aantal_uren_ingediend)";
+            $query .= " VALUES ('0', '0');";
+            $this->datahandler->createData($query);
+            $logId = $this->datahandler->lastInsertId();
             $query = "INSERT INTO stages (stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, contactpersoon_stage_id, praktijkbegeleider_stage_id, logboek_id)";
             $query .= " VALUES ('$internId', '$companyId', '$mandatoryHours', '$approvedHours', '$startDate', '$endDate', '$finished', '$supervisorId', '$teacherId', '$supervisorId', '$logId');";
             $result = $this->datahandler->createData($query);
@@ -44,6 +47,22 @@ class Contract {
 
         }
 
+    }
+
+    public function readAllContractsByTeacherId($id)
+    {
+        try {
+            $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
+            $query .= "WHERE contactpersoon_stage_id = '$id'";
+            var_dump($query);
+            $result = $this->datahandler->readsData($query);
+            $results = $result->fetchAll();
+
+            return $results;
+
+        } catch (PDOException $e) {
+            echo "Fout opgetreden: " . $e;
+        }
     }
 
     public function readOneContract($id){
@@ -79,10 +98,10 @@ class Contract {
         }
     }
 
-    public function updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $logId){
+    public function updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId){
 
         try {
-            $query = "UPDATE stages SET stagiair_id = '$internId', stage_bedrijven_id = '$companyId', aantal_uren_nodig = '$mandatoryHours', aantal_uren_goedgekeurd = '$approvedHours', start_datum = '$startDate', eind_datum = '$endDate', is_afgerond = '$finished', stagebegeleider_id = '$supervisorId', contactpersoon_stage_id = '$teacherId', praktijkbegeleider_stage_id = '$supervisorId', logboek_id = '$logId'";
+            $query = "UPDATE stages SET stagiair_id = '$internId', stage_bedrijven_id = '$companyId', aantal_uren_nodig = '$mandatoryHours', aantal_uren_goedgekeurd = '$approvedHours', start_datum = '$startDate', eind_datum = '$endDate', is_afgerond = '$finished', stagebegeleider_id = '$supervisorId', contactpersoon_stage_id = '$teacherId', praktijkbegeleider_stage_id = '$supervisorId'";
             $query .= " WHERE id = $id";
             // var_dump($query); die;
             $result = $this->datahandler->updateData($query);
