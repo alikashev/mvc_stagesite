@@ -52,15 +52,31 @@ class OutputData {
             			foreach($row as $columns) {
             				$html .= "<td>" . $columns . "</td>";
             			}
-                        $html .= "<td><a class=\"Button-td\" href=\"index.php?action=readone&id=".$row["id"]."\">Read</a></td>";
-                        $html .= "<td><a id=\"Button-td\" href=\"../UploadsController/collectDeleteFile/".$row["id"]."\">Delete</a></td>";
+                        $html .= "<td><a class=\"Button-td\" href=\"./collectReadFile/".$row["id"]."\">Read</a></td>";
+                        $html .= "<td><a id=\"Button-td\" href=\"./collectDeleteFile/".$row["id"]."\">Delete</a></td>";
                         $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&id=".$row["id"]."\">Update</a></td>";
-                        $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&id=".$row["id"]."\">Download</a></td>";
             		$html .= '</tr>';
             	}
         $html .= '</table>';
 
         return $html;
+    }
+
+    function readFile($results) {
+
+            //$path = 'http://localhost/mvc_stagesite/uploads/';
+            
+
+            foreach($results as $row){
+                $path = "http://".$_SERVER['SERVER_NAME']."/".$row['bestand_path'];
+                $file = $row['naam'];
+
+            }
+
+        ?>
+        <iframe src="<?php echo $path.$file; ?>" width="100%" height="100%"></iframe>
+        <?php
+
     }
 
     function createTableAdminUsers($rows) {

@@ -39,18 +39,18 @@ class UploadsController {
         include 'view/UploadView/file_upload.php';
     }
 
-    public function collectDeleteFile($bestnad_id) {
-        $obj = $this->UploadsLogic->deleteFile($bestand_id);
-        include 'view/home.php';
+    public function collectDeleteFile($id) {
+        $obj = $this->UploadsLogic->deleteFile($id);
+        header("Location: ../collectReadAllFiles/");
+    }
+
+    public function collectReadFile($id) {
+        $obj = $this->UploadsLogic->readFile($id);
     }
 
     // public function collectUpdateContact($contact_id) {
     //     $contacts = $this->ContactsLogic->updateContact($contact_id);
     //     include 'view/update.php';
-    // }
-    // public function collectDeleteContact($contact_id) {
-    //     $contacts = $this->ContactsLogic->deleteContact($contact_id);
-    //     include 'view/succes.php';
     // }
 }
 

@@ -55,16 +55,16 @@ class UploadsLogic {
 
     }
 
-    public function readOneFile($bestand_id){
+    public function readFile($id){
 
         try {
 
-            $query = "SELECT * FROM contacts ";
-            $query .= "WHERE contact_id='$bestand_id'";
-            $result = $this->datahandler->readsData($query);
+            $query = "SELECT naam, bestand_path FROM bestanden ";
+            $query .= "WHERE id='$id'";
+            $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
-            return $this->outputData->createTable($results);
+            return $this->outputData->readFile($results);
             
         } catch (PDOException $e) {
 
@@ -73,18 +73,17 @@ class UploadsLogic {
         }
     }
 
-    public function deleteFile($bestand_id){
+    public function deleteFile($id){
 
         try {
 
-            $query = "DELETE * FROM bestanden ";
-            $query .= "WHERE id='$bestand_id'";
+            $query = "DELETE FROM bestanden ";
+            $query .= "WHERE id=$id";
             $result = $this->dataHandler->deleteData($query);
             
         } catch (PDOException $e) {
 
             echo "Fout opgetreden";
-            echo $bestand_id;
 
         }
     }
