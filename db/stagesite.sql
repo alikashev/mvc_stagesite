@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 09 mrt 2022 om 13:50
+-- Gegenereerd op: 22 mrt 2022 om 10:15
 -- Serverversie: 10.4.22-MariaDB
 -- PHP-versie: 8.1.1
 
@@ -33,16 +33,26 @@ CREATE TABLE `bestanden` (
   `upload_datum` datetime NOT NULL,
   `bestand_data` blob NOT NULL,
   `bestand_path` varchar(200) NOT NULL,
-  `uploader_id` int(11) NOT NULL
+  `uploader_id` int(11) NOT NULL,
+  `bestand_omschrijving` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `bestanden`
 --
 
-INSERT INTO `bestanden` (`id`, `naam`, `upload_datum`, `bestand_data`, `uploader_id`) VALUES
-(1, 'Dit is een demo file ', '2022-03-03 11:45:16', 0x343639342d7064662d746573742e706466, 1),
-(2, 'Dit is een demo file ', '2022-03-03 02:31:14', 0x393434332d7064662d746573742e706466, 1);
+INSERT INTO `bestanden` (`id`, `naam`, `upload_datum`, `bestand_data`, `bestand_path`, `uploader_id`, `bestand_omschrijving`) VALUES
+(6, 'testtttt', '2022-03-21 11:22:43', '', '', 1, ''),
+(7, 'asdd', '2022-03-21 11:23:59', '', '', 1, ''),
+(8, '2913-pdf-test.pdf', '2022-03-21 11:34:27', '', '', 1, ''),
+(9, '8142-pdf-test.pdf', '2022-03-21 11:38:26', '', '', 1, ''),
+(10, '1635-pdf-test.pdf', '2022-03-21 11:38:39', '', '', 1, ''),
+(11, '5663-pdf-test.pdf', '2022-03-21 11:42:38', '', '', 1, ''),
+(12, '7091-pdf-test.pdf', '2022-03-21 11:43:21', '', '', 1, ''),
+(13, '6281-pdf-test.pdf', '2022-03-21 11:44:09', '', '', 1, ''),
+(14, '9582-pdf-test.pdf', '2022-03-21 11:46:26', '', '', 1, 'Dit is een tninsidns'),
+(15, '2469-pdf-test.pdf', '2022-03-21 11:49:17', '', '', 1, 'Dit is een tninsidns'),
+(16, '9817-test.pdf', '2022-03-22 10:08:58', '', '', 1, 'asd');
 
 -- --------------------------------------------------------
 
@@ -194,7 +204,7 @@ ALTER TABLE `stage_bedrijven`
 -- AUTO_INCREMENT voor een tabel `bestanden`
 --
 ALTER TABLE `bestanden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT voor een tabel `gebruikers`
