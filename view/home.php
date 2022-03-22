@@ -8,5 +8,6 @@
     <input type="submit" value="Zoek">
   </form>
   <br>
+-->
   <?=$obj?>
 </div>
