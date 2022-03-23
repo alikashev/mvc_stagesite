@@ -1,6 +1,6 @@
 <?php
-    require_once 'Model/datahandler.php';
-    require_once 'View/outputData.php';
+    require_once 'model/datahandler.php';
+    require_once 'view/outputData.php';
 
     class StudentModel {
 

@@ -1,6 +1,6 @@
 <?php
-    require_once 'Model/StudentModel.php';
-    require_once 'View/stageInfo.php';
+    require_once 'model/StudentController.php';
+    require_once 'view/stageInfo.php';
 
     class StudentController {
 
@@ -8,6 +8,10 @@
         }
 
         public function __destruct(){   
+        }
+
+        public function Default() {
+            self::showInfoBoxes(1);
         }
 
         public function showInfoBoxes($stageId) {
@@ -54,8 +58,9 @@
 
             $StageInfo = new StageInfo();
             $InfoBoxes = $StageInfo->MaakInfoBoxes($varArray);
-            
-            return $InfoBoxes;
+
+            echo $InfoBoxes;
+            // return $InfoBoxes;
         }
     }
 ?>
