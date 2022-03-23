@@ -9,7 +9,7 @@
                     <div id='container'>
                         <div class='infobox'>
                             <div class='header'>
-                                <h5>Stage:</h5>
+                                Stage:
                             </div>
                             <div class='content'>
                                 <p class='Q'>Start datum:</p><p class='A'>$varArray[startDatum]</p>
@@ -22,20 +22,20 @@
 
                         <div class='infobox'>
                             <div class='header'>
-                                <h5>Stagebedrijf:</h5>
+                                Stagebedrijf:
                             </div>
                             <div class='content'>
                                 <p class='Q'>Naam:</p><p class='A'>$varArray[stagebedrijfNaam]</p>
                                 <p class='Q'>Email:</p><p class='A'>$varArray[stagebedrijfEmail]</p>
                                 <p class='Q'>Telefoonnummer:</p><p class='A'>$varArray[stagebedrijfTelefoonnummer]</p>
-                                <p class='Q'>Website URL:</p><p class='A'>$varArray[stagebedrijfURL]</p>
+                                <p class='Q'>Website URL:</p><p class='A'><a href='$varArray[stagebedrijfURL]'>$varArray[stagebedrijfURL]</a></p>
                                 <p class='Q'>adres:</p><p class='A'>$varArray[stagebedrijfAdres]</p>
                             </div>
                         </div>
 
                         <div class='infobox'>
                             <div class='header'>
-                                <h5>Stagebegeleider:</h5>
+                                Stagebegeleider:
                             </div>
                             <div class='content'>
                                 <p class='Q'>Naam:</p><p class='A'>$varArray[stagebegeleiderNaam]</p>
@@ -46,7 +46,7 @@
 
                         <div class='infobox'>
                             <div class='header'>
-                                <h5>Praktijkbegeleider:</h5>
+                                Praktijkbegeleider:
                             </div>
                             <div class='content'>
                                 <p class='Q'>Naam:</p><p class='A'>$varArray[praktijkbegeleiderNaam]</p>
@@ -57,7 +57,7 @@
 
                         <div class='infobox'>
                             <div class='header'>
-                                <h5>Contactpersoon vanuit stage:</h5>
+                                Contactpersoon vanuit stage:
                             </div>
                             <div class='content'>
                                 <p class='Q'>Naam:</p><p class='A'>$varArray[contactpersoonNaam]</p>
@@ -68,7 +68,7 @@
 
                         <div class='infobox'>
                             <div class='header'>
-                                <h5>Stagiair:</h5>
+                                Stagiair:
                             </div>
                             <div class='content'>
                                 <p class='Q'>Naam:</p><p class='A'>$varArray[stagiairNaam]</p>

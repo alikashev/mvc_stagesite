@@ -1,5 +1,5 @@
 <?php
-    require_once 'model/StudentController.php';
+    require_once 'model/StudentModel.php';
     require_once 'view/stageInfo.php';
 
     class StudentController {
@@ -15,6 +15,7 @@
         }
 
         public function showInfoBoxes($stageId) {
+            //als er in het menu op knop # word gedrukt, run deze functie
             $StudentModel = new StudentModel();
             $stage = $StudentModel->stageInfo($stageId);
             $stagebedrijf = $StudentModel->stagebedrijfInfo($stageId);
@@ -40,19 +41,19 @@
             $varArray['stagebedrijfURL'] = $stagebedrijf->url_website;
             $varArray['stagebedrijfAdres'] = $stagebedrijf->locatie;
 
-            $varArray['stagebegeleiderNaam'] = $stagebegeleider->voornaam . $stagebegeleider->tussenvoegsel . $stagebegeleider->achternaam;
+            $varArray['stagebegeleiderNaam'] = $stagebegeleider->voornaam . " " . $stagebegeleider->tussenvoegsel . " " . $stagebegeleider->achternaam;
             $varArray['stagebegeleiderEmail'] = $stagebegeleider->email;
             $varArray['stagebegeleiderTelefoonnummer'] = $stagebegeleider->telefoonnummer;
 
-            $varArray['praktijkbegeleiderNaam'] = $praktijkbegeleider->voornaam . $praktijkbegeleider->tussenvoegsel . $praktijkbegeleider->achternaam;
+            $varArray['praktijkbegeleiderNaam'] = $praktijkbegeleider->voornaam . " " . $praktijkbegeleider->tussenvoegsel . " " . $praktijkbegeleider->achternaam;
             $varArray['praktijkbegeleiderEmail'] = $praktijkbegeleider->email;
             $varArray['praktijkbegeleiderTelefoonnummer'] = $praktijkbegeleider->telefoonnummer;
 
-            $varArray['contactpersoonNaam'] = $contactpersoon->voornaam . $contactpersoon->tussenvoegsel . $contactpersoon->achternaam;
+            $varArray['contactpersoonNaam'] = $contactpersoon->voornaam . " " . $contactpersoon->tussenvoegsel . " " . $contactpersoon->achternaam;
             $varArray['contactpersoonEmail'] = $contactpersoon->email;
             $varArray['contactpersoonTelefoonnummer'] =$contactpersoon->telefoonnummer;
 
-            $varArray['stagiairNaam'] = $stagiair->voornaam . $stagiair->tussenvoegsel . $stagiair->achternaam;
+            $varArray['stagiairNaam'] = $stagiair->voornaam . " " . $stagiair->tussenvoegsel . " " . $stagiair->achternaam;
             $varArray['stagiairEmail'] = $stagiair->email;
             $varArray['stagiairTelefoonnummer'] = $stagiair->telefoonnummer;
 
