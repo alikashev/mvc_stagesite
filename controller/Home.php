@@ -13,7 +13,7 @@ class Home {
 
     public function __destruct(){}
 
-    public function Default()
+    public function Index()
     {
         echo "<h1>Hello, World!</h1>";
     }

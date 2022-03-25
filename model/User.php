@@ -70,6 +70,19 @@ class User {
 
     }
 
+    public function readAllStudents() {
+        try {
+            $sql = "SELECT * FROM gebruikers WHERE is_persoon_stage = 0 AND is_docent = 0";
+            $result = $this->datahandler->readsData($sql);
+            $results = $result->fetchAll();
+
+            return $results;
+
+        } catch (PDOException $e) {
+            echo "Fout opgreden: $e";
+        }
+    }
+
     public function readAllSupervisors() {
         try {
             $query = "SELECT * FROM gebruikers WHERE is_persoon_stage = 1";

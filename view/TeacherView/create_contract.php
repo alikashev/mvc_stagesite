@@ -1,8 +1,8 @@
 <form method="post">
-  Stagiair id: <input name="internId">
+  Stagiair id: <?=$obj2?>
   <br>
   <br>
-  Stagebedrijf id: <input name="companyId">
+  Stagebedrijf id: <?=$obj3?>
   <br>
   <br>
   Benodigde aantal uren: <input type="number" name="mandatoryHours">

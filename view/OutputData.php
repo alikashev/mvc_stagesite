@@ -12,7 +12,6 @@ class OutputData {
     function createSelectBox() {
         //todo
     }
-
     function createLogSelectBox($rows) {
         $html = '<select name="logId">';
         foreach ($rows as $row) {
@@ -22,19 +21,54 @@ class OutputData {
         return $html;
     }
 
-    function createSupervisorSelectBox($rows) {
+    function createSupervisorSelectBox($rows, $selected = '') {
         $html = '<select name="supervisorId">';
         foreach ($rows as $row) {
-            $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            if ($selected !== '' && $row['id'] === $selected) {
+                $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            } else {
+                $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            }
+
         }
         $html .= '</select>';
         return $html;
     }
 
-    function createTeacherSelectBox($rows) {
+    function createTeacherSelectBox($rows, $selected = '') {
         $html = '<select name="teacherId">';
         foreach ($rows as $row) {
-            $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            if ($selected !== '' && $row['id'] === $selected) {
+                $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            } else {
+                $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            }
+        }
+        $html .= '</select>';
+        return $html;
+    }
+
+    function createStudentSelectBox($rows, $selected = '') {
+        $html = '<select name="internId">';
+        foreach ($rows as $row) {
+            if ($selected !== '' && $row['id'] === $selected) {
+                $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            } else {
+                $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
+            }
+        }
+        $html .= '</select>';
+        return $html;
+    }
+
+    function createCompanySelectBox($rows, $selected = '') {
+        $html = '<select name="companyId">';
+        foreach ($rows as $row) {
+            if ($selected !== '' && $row['id'] === $selected) {
+                $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['naam'] . '</option>';
+            } else {
+                $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['naam'] . '</option>';
+            }
         }
         $html .= '</select>';
         return $html;
@@ -175,6 +209,31 @@ class OutputData {
                         $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectDeleteContract/".$row["id"]. "\">Delete</a></td>";
             		$html .= '</tr>';
             	}
+        $html .= '</table>';
+
+        return $html;
+    }
+
+    function createTableAdminCompanies($rows) {
+
+        $html = "<div><a href=\"" . SERVER_URL . "/Admin/collectAddCompany/\">Create new company</a></div>";
+        $html .= "<br>";
+        $html .= '<table class="tablerow" border="1">';
+        $html .= '<tr>';
+        foreach($rows[0] as $key => $value){
+            $html .= "<th>" . $key . "</th>";
+        }
+        $html .= "</tr>";
+        foreach($rows as $row){
+            $html .= '<tr>';
+            foreach($row as $columns) {
+                $html .= "<td>" . $columns . "</td>";
+            }
+            $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectReadOneCompany/".$row["id"]. "\">Read</a></td>";
+            $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectUpdateCompany/".$row["id"]. "\">Update</a></td>";
+            $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectDeleteCompany/".$row["id"]. "\">Delete</a></td>";
+            $html .= '</tr>';
+        }
         $html .= '</table>';
 
         return $html;

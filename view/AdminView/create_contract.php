@@ -1,8 +1,8 @@
 <form method="post">
-  Stagiair id: <input name="internId">
+  Stagiair id: <?= $selectStudent ?>
   <br>
   <br>
-  Stagebedrijf id: <input name="companyId">
+  Stagebedrijf id: <?= $selectCompany ?>
   <br>
   <br>
   Benodigde aantal uren: <input type="number" name="mandatoryHours">
@@ -26,8 +26,5 @@
   Contactpersoon stage id: <?=$obj2?>
   <br>
   <br>
-  <!-- Praktijkbegeleider id: <?=$obj?>
-  <br>
-  <br> -->
   <input value="Submit" type="submit" name="submit">
 </form>

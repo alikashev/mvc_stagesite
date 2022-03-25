@@ -2,6 +2,7 @@
 
 require_once 'Model/User.php';
 require_once 'Model/Contract.php';
+require_once 'Model/Company.php';
 require_once 'View/outputData.php';
 
 class Admin {
@@ -10,12 +11,13 @@ class Admin {
 
         $this->User = new User();
         $this->Contract = new Contract();
+        $this->Company = new Company();
         $this->outputData = new OutputData();
     }
 
     public function __destruct(){}
 
-    public function Default() {
+    public function Index() {
         header("Location: collectReadAllUsers");
     }
 
@@ -42,8 +44,12 @@ class Admin {
     public function collectAddContract() {
         $supervisors = $this->User->readAllSupervisors();
         $teachers =  $this->User->readAllTeachers();
+        $students = $this->User->readAllStudents();
+        $companies = $this->Company->readAllCompanies();
         $obj = $this->outputData->createSupervisorSelectBox($supervisors);
         $obj2 = $this->outputData->createTeacherSelectBox($teachers);
+        $selectStudent = $this->outputData->createStudentSelectBox($students);
+        $selectCompany = $this->outputData->createCompanySelectBox($companies);
 
         include 'view/AdminView/create_contract.php';
         if(isset($_POST["submit"])) {
@@ -62,6 +68,20 @@ class Admin {
         }
     }
 
+    public function collectAddCompany() {
+        include 'view/AdminView/create_company.php';
+        if (isset($_POST["submit"])) {
+            $name = $_POST["name"];
+            $location = $_POST["location"];
+            $url = $_POST["url"];
+            $email = $_POST["email"];
+            $phone = $_POST["phone"];
+
+            $this->Company->addCompany($name, $location, $url, $email, $phone);
+            header("Location: ../collectReadAllCompanies");
+        }
+    }
+
     public function collectReadAllUsers() {
         $users = $this->User->readAllUsers();
         $obj = $this->outputData->createTableAdminUsers($users);
@@ -71,6 +91,12 @@ class Admin {
     public function collectReadAllContracts() {
         $contracts = $this->Contract->readAllContracts();
         $obj = $this->outputData->createTableAdminContracts($contracts);
+        include 'view/home.php';
+    }
+
+    public function collectReadAllCompanies() {
+        $companies = $this->Company->readAllCompanies();
+        $obj = $this->outputData->createTableAdminCompanies($companies);
         include 'view/home.php';
     }
 
@@ -85,6 +111,12 @@ class Admin {
         $contract = $this->Contract->readOneContract($id);
         // var_dump($contract);
         $obj = $this->outputData->createTable($contract);
+        include 'view/home.php';
+    }
+
+    public function collectReadOneCompany($id) {
+        $company = $this->Company->readOneCompany($id);
+        $obj = $this->outputData->createTable($company);
         include 'view/home.php';
     }
 
@@ -112,9 +144,13 @@ class Admin {
     public function collectUpdateContract($id) {
         $supervisors = $this->User->readAllSupervisors();
         $teachers =  $this->User->readAllTeachers();
+        $students = $this->User->readAllStudents();
+        $companies = $this->Company->readAllCompanies();
         $obj = $this->Contract->readOneContract($id);
-        $obj2 = $this->outputData->createSupervisorSelectBox($supervisors);
-        $obj3 = $this->outputData->createTeacherSelectBox($teachers);
+        $obj2 = $this->outputData->createSupervisorSelectBox($supervisors, $obj[0]['praktijkbegeleider_stage_id']);
+        $obj3 = $this->outputData->createTeacherSelectBox($teachers, $obj[0]['contactpersoon_stage_id']);
+        $selectStudent = $this->outputData->createStudentSelectBox($students, $obj[0]['stagiair_id']);
+        $selectCompany = $this->outputData->createCompanySelectBox($companies, $obj[0]['stage_bedrijven_id']);
 
         include 'view/AdminView/update_contract.php';
         if(isset($_POST["submit"])) {
@@ -133,15 +169,32 @@ class Admin {
         }
     }
 
-    // public function collectDeleteUser($id) {
-    //     $obj = $this->User->deleteUser($id);
-    //     include 'view/succes.php';
-    // }
+    public function collectUpdateCompany($id) {
+        $obj = $this->Company->readOneCompany($id);
+
+        include 'view/AdminView/update_company.php';
+        if (isset($_POST["submit"])) {
+            $name = $_POST["name"];
+            $location = $_POST["location"];
+            $url = $_POST["url"];
+            $email = $_POST["email"];
+            $phone = $_POST["phone"];
+
+            $this->Company->updateCompany($id, $name, $location, $url, $email, $phone);
+            header("Location: ../collectReadAllCompanies");
+        }
+    }
 
     public function collectDeleteContract($id)
     {
         $obj = $this->Contract->deleteContract($id);
         header("Location: ../collectReadAllContracts/");
+    }
+
+    public function collectDeleteCompany($id)
+    {
+        $obj = $this->Company->deleteCompany($id);
+        header("Location: ../collectReadAllCompanies");
     }
 }
 

@@ -2,6 +2,7 @@
 
 require_once 'Model/User.php';
 require_once 'Model/Contract.php';
+require_once 'Model/Company.php';
 require_once 'View/outputData.php';
 
 class Teacher {
@@ -10,13 +11,14 @@ class Teacher {
 
         $this->User = new User();
         $this->Contract = new Contract();
+        $this->Company = new Company();
         $this->outputData = new OutputData();
-        $this->id = 11;
+        $this->id = 1;
     }
 
     public function __destruct(){}
 
-    public function Default() {
+    public function Index() {
         header("Location: collectReadAllUsers");
     }
 
@@ -44,9 +46,11 @@ class Teacher {
 
     public function collectAddContract() {
         $supervisors = $this->User->readAllSupervisors();
-        $teachers =  $this->User->readAllTeachers();
+        $students = $this->User->readAllStudents();
+        $companies = $this->Company->readAllCompanies();
         $obj = $this->outputData->createSupervisorSelectBox($supervisors);
-        $obj2 = $this->outputData->createTeacherSelectBox($teachers);
+        $obj2 = $this->outputData->createStudentSelectBox($students);
+        $obj3 = $this->outputData->createCompanySelectBox($companies);
 
         include 'view/TeacherView/create_contract.php';
         if(isset($_POST["submit"])) {
@@ -59,9 +63,8 @@ class Teacher {
             $finished = !empty($_POST["finished"]) ? 1 : 0;
             $supervisorId = $_POST["supervisorId"];
             $teacherId = $this->id;
-            $logId = $_POST["logId"];
 
-            $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $logId);
+            $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId);
             header("Location: ../collectReadAllContracts/");
         }
     }
@@ -69,7 +72,6 @@ class Teacher {
     public function collectReadAllUsers() {
         $teacherId = $this->id;
         $users = $this->User->readAllUsersByTeacher($teacherId);
-        var_dump($users);
         $obj = $this->outputData->createTableTeacherUsers($users);
         include 'view/home.php';
     }
@@ -83,14 +85,12 @@ class Teacher {
 
     public function collectReadOneUser($id) {
         $user = $this->User->readOneUser($id);
-        // var_dump($user);
         $obj = $this->outputData->createTable($user);
         include 'view/home.php';
     }
 
     public function collectReadOneContract($id) {
         $contract = $this->Contract->readOneContract($id);
-        // var_dump($contract);
         $obj = $this->outputData->createTable($contract);
         include 'view/home.php';
     }
@@ -118,9 +118,13 @@ class Teacher {
 
     public function collectUpdateContract($id) {
         $supervisors = $this->User->readAllSupervisors();
+        $students = $this->User->readAllStudents();
+        $companies = $this->Company->readAllCompanies();
         $teacherId = $this->id;
         $obj = $this->Contract->readOneContract($id);
-        $obj2 = $this->outputData->createSupervisorSelectBox($supervisors);
+        $selectSupervisor = $this->outputData->createSupervisorSelectBox($supervisors, $obj[0]['praktijkbegeleider_stage_id']);
+        $selectStudent = $this->outputData->createStudentSelectBox($students, $obj[0]['stagiair_id']);
+        $selectCompany = $this->outputData->createCompanySelectBox($companies, $obj[0]['stage_bedrijven_id']);
 
         include 'view/TeacherView/update_contract.php';
         if(isset($_POST["submit"])) {
@@ -133,9 +137,8 @@ class Teacher {
             $finished = !empty($_POST["finished"]) ? 1 : 0;
             $supervisorId = $_POST["supervisorId"];
             $teacherId = $teacherId;
-            $logId = $_POST["logId"];
 
-            $this->Contract->updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $logId);
+            $this->Contract->updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId);
             header("Location: ../collectReadAllContracts/");
         }
     }

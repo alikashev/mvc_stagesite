@@ -2,10 +2,10 @@
 $obj = $obj[0];
 ?>
 <form method="post">
-  Stagiair id: <input name="internId" value="<?=$obj['stagiair_id']?>">
+  Stagiair id: <?= $selectStudent ?>
   <br>
   <br>
-  Stagebedrijf id: <input name="companyId" value="<?=$obj['stage_bedrijven_id']?>">
+  Stagebedrijf id: <?= $selectCompany ?>
   <br>
   <br>
   Benodigde aantal uren: <input type="number" name="mandatoryHours" value="<?=$obj['aantal_uren_nodig']?>">
@@ -23,17 +23,11 @@ $obj = $obj[0];
   Is afgerond: <input type="checkbox" name="finished" <?=$obj['is_afgerond'] !== 0 ? 'checked' : ''?>>
   <br>
   <br>
-  <!-- Stagebegeleider id: <input name="supervisorId" value="<?=$obj['stagebegeleider_id']?>"> -->
-  Stagebegeleider id: <?=$obj2?>
+  Stagebegeleider id: <?= $obj2 ?>
   <br>
   <br> 
-  <!-- Contactpersoon stage id: <input name="teacherId" value="<?=$obj['contactpersoon_stage_id']?>"> -->
   Contactpersoon stage id: <?=$obj3?>
   <br>
   <br>
-  <!-- Praktijkbegeleider id: <input name="practicalSupervisorId" value="<?=$obj['praktijkbegeleider_stage_id']?>"> -->
-  <!-- Praktijkbegeleider id: <?=$obj2?>
-  <br>
-  <br> -->
   <input value="Submit" type="submit" name="submit">
 </form>

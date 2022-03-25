@@ -29,7 +29,7 @@ class Router
     if(isset($packets[3]) && $packets[3] != ''){
       $method = $packets[3];
     }else{
-      $method = "Default";
+      $method = "Index";
     }
     $params = array_slice($packets, 4);
 

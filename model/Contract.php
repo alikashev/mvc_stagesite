@@ -54,7 +54,6 @@ class Contract {
         try {
             $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
             $query .= "WHERE contactpersoon_stage_id = '$id'";
-            var_dump($query);
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
