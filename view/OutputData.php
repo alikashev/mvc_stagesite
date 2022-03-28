@@ -101,20 +101,36 @@ class OutputData {
             foreach($results as $row){
                 $filename = $row['naam'];
                 $file = "http://".$_SERVER['SERVER_NAME'].$row['bestand_path'].$filename;
-                echo $file; 
             }
 
-            // Header content type
-            header('Content-type: application/pdf');
-            
-            header('Content-Disposition: inline; filename="' . $filename . '"');
-            
-            header('Content-Transfer-Encoding: binary');
-            
-            header('Accept-Ranges: bytes');
-            
-            // Read the file
-            @readFile($file);
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+            function readPdf($file) {
+
+                // Header content type
+                header('Content-type: application/pdf');
+                
+                header('Content-Disposition: inline; filename="' . $filename . '"');
+                
+                header('Content-Transfer-Encoding: binary');
+                
+                header('Accept-Ranges: bytes');
+                
+                // Read the file
+                @readFile($file);
+
+            }
+
+            switch ($extension) {
+                case 'pdf':
+                    readPdf($file);
+                    break;
+                default:
+                    echo "Dit type bestand kan niet worden weergegeven op de browser ";
+                    echo "<a href='$file'>Klik hier</a>"." Om te donwloaden";
+                    break;
+            }
+
     }
 
     function createTableAdminUsers($rows) {
