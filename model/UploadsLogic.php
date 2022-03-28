@@ -80,6 +80,24 @@ class UploadsLogic {
 
         try {
 
+            // $path = SERVER_URL . '/uploads/'.$filename;
+            // unlink($path);
+
+            $query = "SELECT naam FROM bestanden ";
+            $query .= "WHERE id='$id'";
+            $result = $this->dataHandler->readsData($query);
+            $results = $result->fetchAll();
+
+            $file = $results['naam'];
+
+            define("WEB_ROOT",substr(dirname(__FILE__),0,strlen(dirname(__FILE__))-3));
+
+            $filename=WEB_ROOT.$file;
+            if(file_exists($filename))
+            {
+            unlink(WEB_ROOT.$file);
+            }
+
             $query = "DELETE FROM bestanden ";
             $query .= "WHERE id=$id";
             $result = $this->dataHandler->deleteData($query);

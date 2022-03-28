@@ -30,6 +30,7 @@ class UploadsController {
         if(isset($_POST["submit"])) {
 
             $filedesc = $_POST['filedesc'];
+
             $obj = $this->UploadsLogic->uploadFile($filedesc);
             header("Location: ./collectReadAllFiles/");
         }

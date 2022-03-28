@@ -9,8 +9,8 @@
 <body>
 
     <form action="../UploadsController/collectUploadFile" method="POST" enctype="multipart/form-data">
-        <label>Filenaam</label><br>
-        <input type="text" name="filedesc" required ><br>
+        <label>File omschrijving</label><br>
+        <textarea name="filedesc" required ></textarea><br>
         <label>File Upload</label><br>
         <input type="File" name="file" required ><br>
         <input type="submit" name="submit">
