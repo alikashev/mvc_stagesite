@@ -97,14 +97,11 @@ class OutputData {
     }
 
     function readFile($results) {
-
-            //$path = 'http://localhost/mvc_stagesite/uploads/';
             
-
             foreach($results as $row){
-                $file = "http://".$_SERVER['SERVER_NAME']."/".$row['bestand_path'].$row['naam'];
                 $filename = $row['naam'];
-
+                $file = "http://".$_SERVER['SERVER_NAME'].$row['bestand_path'].$filename;
+                echo $file; 
             }
 
             // Header content type
@@ -117,7 +114,7 @@ class OutputData {
             header('Accept-Ranges: bytes');
             
             // Read the file
-            @readfile($file);
+            @readFile($file);
     }
 
     function createTableAdminUsers($rows) {
