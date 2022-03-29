@@ -44,7 +44,7 @@ class UploadsLogic {
     public function readAllFiles(){
 
         try {
-            $query = "SELECT id, naam, upload_datum, uploader_id, bestand_omschrijving FROM bestanden";
+            $query = "SELECT * FROM bestanden";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -79,6 +79,25 @@ class UploadsLogic {
     public function deleteFile($id){
 
         try {
+
+            $query = "SELECT naam, bestand_path FROM bestanden ";
+            $query .= "WHERE id='$id'";
+            $result = $this->dataHandler->readsData($query);
+            $results = $result->fetchAll();
+
+            foreach($results as $row){
+                $filename = $row['naam'];
+            }
+
+            $file = getcwd()."/uploads/".$filename;
+            //echo "Absolute Path To Directory is: ";
+            //echo $delfile;
+
+            if (unlink($file)) {
+                echo $filename . ' was deleted successfully!';
+            } else {
+                echo 'There was a error deleting ' . $filename;
+            }
 
             $query = "DELETE FROM bestanden ";
             $query .= "WHERE id=$id";

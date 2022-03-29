@@ -42,7 +42,6 @@ class UploadsController {
 
     public function collectDeleteFile($id) {
         $obj = $this->UploadsLogic->deleteFile($id);
-        header("Location: ../collectReadAllFiles/");
     }
 
     public function collectReadFile($id) {
