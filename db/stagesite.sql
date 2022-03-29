@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 22 mrt 2022 om 14:51
+-- Gegenereerd op: 29 mrt 2022 om 14:11
 -- Serverversie: 10.4.22-MariaDB
 -- PHP-versie: 8.1.1
 
@@ -31,7 +31,6 @@ CREATE TABLE `bestanden` (
   `id` int(11) NOT NULL,
   `naam` varchar(45) NOT NULL,
   `upload_datum` datetime NOT NULL,
-  `bestand_data` blob NOT NULL,
   `bestand_path` varchar(200) NOT NULL,
   `uploader_id` int(11) NOT NULL,
   `bestand_omschrijving` varchar(255) NOT NULL
@@ -41,9 +40,8 @@ CREATE TABLE `bestanden` (
 -- Gegevens worden geëxporteerd voor tabel `bestanden`
 --
 
-INSERT INTO `bestanden` (`id`, `naam`, `upload_datum`, `bestand_data`, `bestand_path`, `uploader_id`, `bestand_omschrijving`) VALUES
-(20, '1918-test.pdf', '2022-03-22 10:55:31', '', 'mvc_stagesite\\uploads/', 1, 'test1212'),
-(21, '7425-test.pdf', '2022-03-22 10:56:22', '', 'mvc_stagesite\\uploads/', 1, 'test1212');
+INSERT INTO `bestanden` (`id`, `naam`, `upload_datum`, `bestand_path`, `uploader_id`, `bestand_omschrijving`) VALUES
+(61, '8054-test.docx', '2022-03-29 02:06:29', '/mvc_stagesite/uploads/', 1, 'dsadasd');
 
 -- --------------------------------------------------------
 
@@ -195,7 +193,7 @@ ALTER TABLE `stage_bedrijven`
 -- AUTO_INCREMENT voor een tabel `bestanden`
 --
 ALTER TABLE `bestanden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT voor een tabel `gebruikers`
