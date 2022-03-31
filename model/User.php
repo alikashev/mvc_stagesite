@@ -125,6 +125,22 @@ class User {
         }
     }
 
+    public function readOneUserByEmail($email) {
+        try {
+            $query = "SELECT * from gebruikers";
+            $query .= " WHERE email = '$email'";
+            var_dump($query);
+            $result = $this->datahandler->readsData($query);
+            $results = $result->fetchAll(PDO::FETCH_OBJ);
+            var_dump($results);
+
+            return $results;
+        } catch (PDOException $e) {
+            echo "Fout opgetreden: $e";
+            return false;
+        }
+    }
+
     // public function deleteUser($contact_id){
 
     //     try {
