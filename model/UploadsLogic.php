@@ -11,7 +11,12 @@ class UploadsLogic {
     }
 
     public function uploadFile($filedesc) {
-    
+
+        $max_file_size = 10000;
+        $file_size = $_FILES["file"]['size'];
+
+        if ($file <= $max_file_size) {
+
             try {
                 #retrieve file title
                 $date = date("Y-m-d h:i:sa");
@@ -39,6 +44,9 @@ class UploadsLogic {
                    throw $e;
                }
            }
+        }else {
+            echo "De toegestane uploadgrootte is maximaal 10 MB, de file is de groot.";
+        }
     }
 
     public function readAllFiles(){
