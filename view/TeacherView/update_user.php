@@ -26,5 +26,6 @@ $obj = $obj[0];
   Study: <input name="study" value="<?=$obj['studie']?>">
   <br>
   <br>
+    Is ouder: <input name="isParent" id="isParent" type="checkbox" <?= $obj['is_ouder'] ? 'checked' : '' ?>>
   <input value="Submit" type="submit" name="submit">
 </form>

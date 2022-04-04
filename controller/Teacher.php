@@ -107,10 +107,14 @@ class Teacher {
             $phone = $_POST["phone"];
             $isTeacher = 0;
             $isSupervisor = 0;
+            $isSchoolSupervisor = 0;
+            $isSchoolAccount = 0;
+            $isHumanResources = 0;
+            $isParent = $_POST["isParent"];
             $school = $_POST["school"];
             $study = $_POST["study"];
 
-            $this->User->updateUser($id, $firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $school, $study);
+            $this->User->updateUser($id, $firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSchoolSupervisor, $isSupervisor, $isSchoolAccount, $isHumanResources, $isParent, $school, $study);
             header("Location: ../collectReadAllUsers/");
         }
     }

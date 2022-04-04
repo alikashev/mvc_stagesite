@@ -12,15 +12,15 @@ class Contract {
 
     public function __destruct(){}
     
-    public function AddContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId){
+    public function AddContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId){
 
         try {
             $query = "INSERT INTO logboek (aantal_uren, aantal_uren_ingediend)";
             $query .= " VALUES ('0', '0');";
             $this->datahandler->createData($query);
             $logId = $this->datahandler->lastInsertId();
-            $query = "INSERT INTO stages (stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, contactpersoon_stage_id, praktijkbegeleider_stage_id, logboek_id)";
-            $query .= " VALUES ('$internId', '$companyId', '$mandatoryHours', '$approvedHours', '$startDate', '$endDate', '$finished', '$supervisorId', '$teacherId', '$supervisorId', '$logId');";
+            $query = "INSERT INTO stages (stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, logboek_id)";
+            $query .= " VALUES ('$internId', '$companyId', '$mandatoryHours', '$approvedHours', '$startDate', '$endDate', '$finished', '$schoolSupervisorId', '$teacherId', '$supervisorId', '$parentId', '$logId');";
             $result = $this->datahandler->createData($query);
             
         } catch (PDOException $e) {
