@@ -49,15 +49,15 @@ class Login
         } else if ($user[0]['is_schoolmentor'] === 1) {
           header('Location: ../../Teacher/');
         } else if ($user[0]['is_stagebegeleider'] === 1) {
-          header('Location: ../../Admin/');
+          header('Location: ../../SchoolSupervisor/');
         } else if ($user[0]['is_praktijkbegeleider'] === 1) {
-          header('Location: ../../Admin/');
+          header('Location: ../../Supervisor/');
         } else if ($user[0]['is_schoolaccount'] === 1) {
-          header('Location: ../../Admin/');
+          header('Location: ../../School/');
         } else if ($user[0]['is_vertrouwenspersoon'] === 1) {
-          header('Location: ../../Admin/');
+          header('Location: ../../HumanResources/');
         } else if ($user[0]['is_ouder'] === 1) {
-          header('Location: ../../Admin/');
+          header('Location: ../../Parents/');
         }
       }
     } else {

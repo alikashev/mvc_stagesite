@@ -52,6 +52,22 @@ class User {
 
     }
 
+    public function supervisorReadAllUsers() {
+      try {
+
+        $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_schoolmentor, is_stagebegeleider, is_praktijkbegeleider, is_schoolaccount, is_vertrouwenspersoon, is_ouder, schoolnaam, studie FROM gebruikers WHERE id != 1 AND is_praktijkbegeleider = 0";
+        $result = $this->datahandler->readsData($query);
+        $results = $result->fetchAll();
+
+        return $results;
+
+      } catch (PDOException $e) {
+
+        echo "Fout opgetreden";
+
+      }
+    }
+
     public function readAllUsersByTeacher($id){
 
         try {

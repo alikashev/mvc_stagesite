@@ -49,11 +49,26 @@ class Contract {
 
     }
 
+    public function readAllContractBySupervisorId($id)
+    {
+      try {
+        $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
+        $query .= "WHERE praktijkbegeleider_stage_id = '$id'";
+        $result = $this->datahandler->readsData($query);
+        $results = $result->fetchAll();
+
+        return $results;
+
+      } catch (PDOException $e) {
+        echo "Fout opgetreden: " . $e;
+      }
+    }
+
     public function readAllContractsByTeacherId($id)
     {
         try {
             $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
-            $query .= "WHERE contactpersoon_stage_id = '$id'";
+            $query .= "WHERE schoolmentor_id = '$id'";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -97,12 +112,11 @@ class Contract {
         }
     }
 
-    public function updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId){
+    public function updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $schoolSupervisorId, $parentId){
 
         try {
-            $query = "UPDATE stages SET stagiair_id = '$internId', stage_bedrijven_id = '$companyId', aantal_uren_nodig = '$mandatoryHours', aantal_uren_goedgekeurd = '$approvedHours', start_datum = '$startDate', eind_datum = '$endDate', is_afgerond = '$finished', stagebegeleider_id = '$supervisorId', contactpersoon_stage_id = '$teacherId', praktijkbegeleider_stage_id = '$supervisorId'";
+            $query = "UPDATE stages SET stagiair_id = '$internId', stage_bedrijven_id = '$companyId', aantal_uren_nodig = '$mandatoryHours', aantal_uren_goedgekeurd = '$approvedHours', start_datum = '$startDate', eind_datum = '$endDate', is_afgerond = '$finished', stagebegeleider_id = '$schoolSupervisorId', schoolmentor_id = '$teacherId', praktijkbegeleider_stage_id = '$supervisorId', ouder_id = '$parentId'";
             $query .= " WHERE id = $id";
-            // var_dump($query); die;
             $result = $this->datahandler->updateData($query);
         } catch (PDOException $e) {
 
