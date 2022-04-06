@@ -9,7 +9,6 @@ class Router
   {
     // getPayload
     $url = $_SERVER['REQUEST_URI'];
-    var_dump($url);
     $packets = explode('/',$url);
     $this->determineDestination($packets);
   }
@@ -20,7 +19,6 @@ class Router
    */
   public function determineDestination($packets='')
   {
-    var_dump($packets);
     // readPackets
     // Do our default checks and set URL params if absent
     if(isset($packets[2]) && $packets[2] != ''){
