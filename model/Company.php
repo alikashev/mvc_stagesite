@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Model/datahandler.php';
-require_once 'View/outputData.php';
+require_once 'model/DataHandler.php';
+require_once 'view/OutputData.php';
 
 class Company
 {

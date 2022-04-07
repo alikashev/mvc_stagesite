@@ -1,6 +1,6 @@
 <?php
-include_once 'Model/User.php';
-require_once 'View/outputData.php';
+include_once 'model/User.php';
+require_once 'view/OutputData.php';
 
 class Login
 {
@@ -12,7 +12,7 @@ class Login
 
   public function Index()
   {
-    include_once 'View/login.php';
+    include_once 'view/Login.php';
   }
 
   public function checkLogin()
