@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Model/datahandler.php';
-require_once 'View/outputData.php';
+require_once 'model/datahandler.php';
+require_once 'view/outputData.php';
 
 class Contract {
 
@@ -12,15 +12,15 @@ class Contract {
 
     public function __destruct(){}
     
-    public function AddContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId){
+    public function AddContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId, $humanResourcesId, $schoolAccountId){
 
         try {
             $query = "INSERT INTO logboek (aantal_uren, aantal_uren_ingediend)";
             $query .= " VALUES ('0', '0');";
             $this->datahandler->createData($query);
             $logId = $this->datahandler->lastInsertId();
-            $query = "INSERT INTO stages (stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, logboek_id)";
-            $query .= " VALUES ('$internId', '$companyId', '$mandatoryHours', '$approvedHours', '$startDate', '$endDate', '$finished', '$schoolSupervisorId', '$teacherId', '$supervisorId', '$parentId', '$logId');";
+            $query = "INSERT INTO stages (stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, vertrouwenspersoon_id, schoolaccount_id, logboek_id)";
+            $query .= " VALUES ('$internId', '$companyId', '$mandatoryHours', '$approvedHours', '$startDate', '$endDate', '$finished', '$schoolSupervisorId', '$teacherId', '$supervisorId', '$parentId', '$humanResourcesId', '$schoolAccountId', '$logId');";
             $result = $this->datahandler->createData($query);
             
         } catch (PDOException $e) {

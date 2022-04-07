@@ -78,6 +78,96 @@ class School
     }
   }
 
+  public function collectAddUser()
+  {
+    session_start();
+    if (!empty($_SESSION)) {
+      $user = $this->User->readOneUser($_SESSION["user"]);
+
+      if ($user[0]['is_schoolaccount'] === 1) {
+        include 'view/SchoolView/create_user.php';
+      } else {
+        header('Location: ../../login');
+      }
+    } else {
+      header('Location: ../../login');
+    }
+
+    if (isset($_POST["submit"])) {
+      $firstName = $_POST["firstName"];
+      $infix = $_POST["infix"];
+      $lastName = $_POST["lastName"];
+      $email = $_POST["email"];
+      $password = $_POST["password"] !== '' ? $_POST["password"] : '';
+      $phone = $_POST["phone"];
+      $isTeacher = !empty($_POST["isTeacher"]) ? 1 : 0;
+      $isSupervisor = 0;
+      $isSchoolSupervisor = !empty($_POST["isSchoolSupervisor"]);
+      $isSchoolAccount = 0;
+      $isHumanResources = !empty($_POST["isHumanResources"]) ? 1 : 0;
+      $isParent = !empty($_POST["isParent"]) ? 1 : 0;
+      $school = $_POST["school"];
+      $study = $_POST["study"];
+
+      $this->User->addUser($firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $isSchoolSupervisor, $isSchoolAccount, $isHumanResources, $isParent, $school, $study);
+      header("Location: ../collectReadAllUsers/");
+    }
+  }
+
+  public function collectAddContract()
+  {
+    $schoolaccount = $this->User->readAllSchoolAccounts();
+    $humanresources = $this->User->readAllHumanResources();
+    $supervisors = $this->User->readAllSupervisors();
+    $schoolSupervisor = $this->User->readAllSchoolSupervisors();
+    $teachers = $this->User->readAllTeachers();
+    $students = $this->User->readAllStudents();
+    $parents = $this->User->readAllParents();
+
+    $companies = $this->Company->readAllCompanies();
+
+    $selectSupervisor = $this->outputData->createSupervisorSelectBox($supervisors);
+    $selectSchoolSupervisor = $this->outputData->createSchoolSupervisorSelectBox($schoolSupervisor);
+    $selectTeacher = $this->outputData->createTeacherSelectBox($teachers);
+    $selectStudent = $this->outputData->createStudentSelectBox($students);
+    $selectCompany = $this->outputData->createCompanySelectBox($companies);
+    $selectParent = $this->outputData->createParentSelectBox($parents);
+    $selectHR = $this->outputData->createHumanResourcesSelectBox($humanresources);
+    $selectSchoolAccount = $this->outputData->createSchoolAccountSelectBox($schoolaccount);
+
+    session_start();
+    if (!empty($_SESSION)) {
+      $user = $this->User->readOneUser($_SESSION["user"]);
+      if ($user[0]['is_stagebegeleider'] === 1) {
+        include 'view/SchoolView/create_contract.php';
+      } else {
+        header('Location: ../../login');
+      }
+    } else {
+      header('Location: ../../login');
+    }
+
+
+    if (isset($_POST["submit"])) {
+      $internId = $_POST["internId"];
+      $companyId = $_POST["companyId"];
+      $mandatoryHours = $_POST["mandatoryHours"];
+      $approvedHours = $_POST["approvedHours"];
+      $startDate = $_POST["startDate"];
+      $endDate = $_POST["endDate"];
+      $finished = !empty($_POST["finished"]) ? 1 : 0;
+      $supervisorId = $_POST["supervisorId"];
+      $teacherId = $_POST["teacherId"];
+      $schoolSupervisorId = $user[0]['id'];
+      $parentId = $_POST["parentId"];
+      $schoolaccountId = $_POST["schoolAccountId"];
+      $humanResourcesId = $_POST["humanResourcesId"];
+
+      $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId, $humanResourcesId, $schoolaccountId);
+      header("Location: ../collectReadAllContracts/");
+    }
+  }
+
   public function collectReadOneUser($id)
   {
     session_start();
@@ -141,7 +231,7 @@ class School
       $password = $_POST["password"];
       $phone = $_POST["phone"];
       $isTeacher = !empty($_POST["isTeacher"]) ? 1 : 0;
-      $isSupervisor = $obj[0]['is_praktijkbegeleider'];
+      $isSupervisor = $obj['is_praktijkbegeleider'];
       $isSchoolSupervisor = !empty($_POST["isSchoolSupervisor"]) ? 1 : 0;
       $isSchoolAccount = !empty($_POST["isSchoolAccount"]) ? 1 : 0;
       $isHumanResources = !empty($_POST["isHumanResources"]) ? 1 : 0;

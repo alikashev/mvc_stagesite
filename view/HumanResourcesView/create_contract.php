@@ -29,11 +29,5 @@
     Schoolmentor id: <?= $selectTeacher ?>
     <br>
     <br>
-    Vertrouwenspersoon id: <?= $selectHR ?>
-    <br>
-    <br>
-    School account <?= $selectSchoolAccount ?>
-    <br>
-    <br>
     <input value="Submit" type="submit" name="submit">
 </form>

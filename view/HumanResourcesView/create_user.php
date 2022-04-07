@@ -43,9 +43,17 @@
                 <label for="isTeacher">Is Teacher: </label>
                 <input type="checkbox" name="isTeacher">
             </div>
+<!--            <div class="inputs is_supervisor">-->
+<!--                <label for="isSupervisor">Is praktijkbegeleider: </label>-->
+<!--                <input type="checkbox" name="isSupervisor">-->
+<!--            </div>-->
             <div class="inputs is_school_supervisor">
                 <label for="isSchoolSupervisor">Is stagebegeleider: </label>
                 <input type="checkbox" name="isSchoolSupervisor">
+            </div>
+            <div class="inputs is_school_supervisor">
+                <label for="isSchoolAccount">Is school account: </label>
+                <input type="checkbox" name="isSchoolAccount">
             </div>
             <div class="inputs is_human_resources">
                 <label for="isHumanResources">Is vertrouwenspersoon: </label>
