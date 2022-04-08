@@ -1,6 +1,6 @@
 <?php
 
-require 'Model/UploadsLogic.php';
+require 'model/UploadsLogic.php';
 
 // if (isset($_POST["submit"]) {
 //     $filename = $_REQUEST['filename'];

@@ -9,7 +9,6 @@ class Router
   {
     // getPayload
     $url = $_SERVER['REQUEST_URI'];
-    var_dump($url);
     $packets = explode('/',$url);
     $this->determineDestination($packets);
   }
@@ -20,20 +19,19 @@ class Router
    */
   public function determineDestination($packets='')
   {
-    var_dump($packets);
     // readPackets
     // Do our default checks and set URL params if absent
-    if(isset($packets[2]) && $packets[2] != ''){
-      $classname = $packets[2];
+    if(isset($packets[1]) && $packets[1] != ''){
+      $classname = $packets[1];
     }else{
       $classname = "Home";
     }
-    if(isset($packets[3]) && $packets[3] != ''){
-      $method = $packets[3];
+    if(isset($packets[2]) && $packets[2] != ''){
+      $method = $packets[2];
     }else{
       $method = "Index";
     }
-    $params = array_slice($packets, 4);
+    $params = array_slice($packets, 3);
 
     $this->sendToDestination($classname,$method,$params);
   }
@@ -47,7 +45,7 @@ class Router
    */
   public function sendToDestination($classname,$method,$params)
   {
-    $class =  APP_DIR . 'controller/' . $classname . '.php';
+    $class =  ROOT_DIR . 'controller/' . $classname . '.php';
     require_once($class);
     // Create object and call method
     $obj = new $classname;

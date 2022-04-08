@@ -1,12 +1,12 @@
 <?php 
 
-require_once 'model/Datahandler.php';
+require_once 'model/DataHandler.php';
 require_once 'view/OutputData.php';
 
 class UploadsLogic {
 
     function __construct() {
-        $this->dataHandler = new DataHandler("localhost", "mysql", "stagesite","root", "");
+        $this->dataHandler = new DataHandler("localhost", "mysql", "stenniz_volgstage","stenniz_stage", "Stenniz1!");
         $this->outputData = new OutputData();
     }
 
@@ -29,7 +29,7 @@ class UploadsLogic {
                 #TO move the uploaded file to specific location
                 move_uploaded_file($tname, $uploads_dir.'/'.$filename);
 
-                $path = SERVER_URL . '/uploads/';
+                $path = '/uploads/';
          
                 #sql query to insert into database
                 $sql = "INSERT INTO bestanden (naam, upload_datum, uploader_id, bestand_omschrijving, bestand_path) "; 

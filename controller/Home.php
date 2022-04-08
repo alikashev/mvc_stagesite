@@ -1,7 +1,7 @@
 <?php
 
 // require_once 'Model/User.php';
-require_once 'View/outputData.php';
+require_once ROOT_DIR . 'view/OutputData.php';
 
 class Home {
 

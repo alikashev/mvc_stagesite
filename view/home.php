@@ -1,5 +1,5 @@
 
-<?php require_once(APP_DIR . 'view\\' . "header.php")?>
+<?php require_once(ROOT_DIR . 'view/' . "header.php")?>
 
 <!-- <div class="content-container">
   <br>
