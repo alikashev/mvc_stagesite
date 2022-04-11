@@ -23,6 +23,7 @@ class Router
     // Do our default checks and set URL params if absent
     if(isset($packets[2]) && $packets[2] != ''){
       $classname = $packets[2];
+      $classname = ucfirst($classname);
     }else{
       $classname = "Home";
     }

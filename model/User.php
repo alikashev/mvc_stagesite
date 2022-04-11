@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/datahandler.php';
+require_once 'model/DataHandler.php';
 require_once 'view/OutputData.php';
 
 class User
@@ -9,6 +9,7 @@ class User
   public function __construct()
   {
     $this->datahandler = new datahandler("localhost", "mysql", "stagesite", "root", "");
+//    $this->datahandler = new datahandler("localhost", "mysql", "stenniz_volgstage", "stenniz_stage", "Stenniz1!");
     $this->outputData = new OutputData();
   }
 
@@ -80,7 +81,7 @@ class User
 
     try {
 
-      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.stagiair_id WHERE stages.schoolmentor_id = $id";
+      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, vertrouwenspersoon_id, schoolaccount_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.stagiair_id WHERE stages.schoolmentor_id = $id";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -118,7 +119,7 @@ class User
 
     try {
 
-      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.praktijkbegeleider_stage_id WHERE stages.stagebegeleider_id = $id";
+      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, schoolmentor_id, vertrouwenspersoon_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.praktijkbegeleider_stage_id WHERE stages.stagebegeleider_id = $id";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -137,7 +138,7 @@ class User
 
     try {
 
-      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.ouder_id WHERE stages.ouder_id = $id";
+      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, schoolaccount_id, vertrouwenspersoon_id  FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.ouder_id WHERE stages.ouder_id = $id";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 

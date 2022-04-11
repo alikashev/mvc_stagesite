@@ -12,7 +12,7 @@ class Login
 
   public function Index()
   {
-    include_once 'view/Login.php';
+    include_once 'view/login.php';
   }
 
   public function checkLogin()
@@ -43,8 +43,10 @@ class Login
       if ($_SESSION["user"] !== 0) {
         $user = $this->User->readOneUser($id);
         var_dump($user);
+        echo "<br>";
         var_dump($_SESSION);
-        if ($user[0]['id'] === 1) {
+        echo "<br>";
+        if ($user[0]["id"] === 1) {
           header('Location: ../../Admin/');
         } else if ($user[0]['is_schoolmentor'] === 1) {
           header('Location: ../../Teacher/');

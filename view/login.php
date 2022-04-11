@@ -3,7 +3,7 @@
     margin-bottom: 1rem;
   }
 </style>
-<form method="post" action="<?= SERVER_URL . '/login/checkLogin/'?>">
+<form method="post" action="<?= SERVER_URL . '/Login/checkLogin/'?>">
   <label for="email"></label>
   <input name="email" type="email" id="email">
   <div class="divider"></div>
