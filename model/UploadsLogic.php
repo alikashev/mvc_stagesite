@@ -6,19 +6,12 @@ require_once 'view/OutputData.php';
 class UploadsLogic
 {
 
-<<<<<<< HEAD
-    function __construct() {
-        $this->dataHandler = new DataHandler("localhost", "mysql", "stenniz_volgstage","stenniz_stage", "Stenniz1!");
-        $this->outputData = new OutputData();
-    }
-=======
   function __construct()
   {
-//    $this->dataHandler = new DataHandler("localhost", "mysql", "stagesite", "root", "");
-    $this->datahandler = new datahandler("localhost", "mysql", "stenniz_volgstage", "stenniz_stage", "Stenniz1!");
+    $this->dataHandler = new DataHandler("localhost", "mysql", "stagesite", "root", "");
+    //$this->datahandler = new datahandler("localhost", "mysql", "stenniz_volgstage", "stenniz_stage", "Stenniz1!");
     $this->outputData = new OutputData();
   }
->>>>>>> f2011323b8bc587b9c782d125486092fd5bcd821
 
   public function uploadFile($filedesc)
   {

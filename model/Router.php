@@ -27,12 +27,12 @@ class Router
     }else{
       $classname = "Home";
     }
-    if(isset($packets[2]) && $packets[2] != ''){
-      $method = $packets[2];
+    if(isset($packets[3]) && $packets[3] != ''){
+      $method = $packets[3];
     }else{
       $method = "Index";
     }
-    $params = array_slice($packets, 3);
+    $params = array_slice($packets, 4);
 
     $this->sendToDestination($classname,$method,$params);
   }
