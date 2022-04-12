@@ -35,5 +35,11 @@ $obj = $obj[0];
     Ouder id: <?= $selectParent ?>
     <br>
     <br>
+    Vertrouwenspersoon id: <?= $selectHR ?>
+    <br>
+    <br>
+    Schoolaccount id: <?= $selectSchoolAccount ?>
+    <br>
+    <br>
     <input value="Submit" type="submit" name="submit">
 </form>

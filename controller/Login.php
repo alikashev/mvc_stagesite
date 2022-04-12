@@ -46,24 +46,36 @@ class Login
         echo "<br>";
         var_dump($_SESSION);
         echo "<br>";
-        if ($user[0]["id"] === 1) {
-          header('Location: ../../Admin/');
-        } else if ($user[0]['is_schoolmentor'] === 1) {
+        var_dump($user[0]);
+        echo "<br>";
+        var_dump($user[0]["id"]);
+        echo "<br>";
+        if (intval($user[0]["id"]) === 1) {
+          echo "Check passed: Admin";
+          header('Location: ' . SERVER_URL . '/Admin/');
+        } else if (intval($user[0]["is_schoolmentor"]) === 1) {
           header('Location: ../../Teacher/');
-        } else if ($user[0]['is_stagebegeleider'] === 1) {
-          header('Location: ../../SchoolSupervisor/');
-        } else if ($user[0]['is_praktijkbegeleider'] === 1) {
-          header('Location: ../../Supervisor/');
-        } else if ($user[0]['is_schoolaccount'] === 1) {
-          header('Location: ../../School/');
-        } else if ($user[0]['is_vertrouwenspersoon'] === 1) {
-          header('Location: ../../HumanResources/');
-        } else if ($user[0]['is_ouder'] === 1) {
-          header('Location: ../../Parents/');
+          echo "Check passed";
+        } else if (intval($user[0]["is_stagebegeleider"]) === 1) {
+//          header('Location: ../../SchoolSupervisor/');
+          echo "Check passed";
+        } else if (intval($user[0]["is_praktijkbegeleider"]) === 1) {
+//          header('Location: ../../Supervisor/');
+          echo "Check passed";
+        } else if (intval($user[0]["is_schoolaccount"]) === 1) {
+//          header('Location: ../../School/');
+          echo "Check passed";
+        } else if (intval($user[0]["is_vertrouwenspersoon"]) === 1) {
+//          header('Location: ../../HumanResources/');
+          echo "Check passed";
+        } else if (intval($user[0]["is_ouder"]) === 1) {
+//          header('Location: ../../Parents/');
+          echo "Check passed";
         }
       }
     } else {
-      header('Location: ../../Login');
+//      header('Location: ../../Login');
+      echo "Check failed";
     }
   }
 }

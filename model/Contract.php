@@ -1,16 +1,15 @@
 <?php
 
 require_once 'model/DataHandler.php';
+require_once 'model/Main.php';
 require_once 'view/OutputData.php';
 
-class Contract
+class Contract extends Main
 {
 
   public function __construct()
   {
-    $this->datahandler = new datahandler("localhost", "mysql", "stagesite", "root", "");
-//    $this->datahandler = new datahandler("localhost", "mysql", "stenniz_volgstage", "stenniz_stage", "Stenniz1!");
-    $this->outputData = new OutputData();
+    parent::__construct();
   }
 
   public function __destruct()
@@ -136,11 +135,11 @@ class Contract
     }
   }
 
-  public function updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $schoolSupervisorId, $parentId)
+  public function updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $schoolSupervisorId, $parentId, $humanResourcesId, $schoolAccountId)
   {
 
     try {
-      $query = "UPDATE stages SET stagiair_id = '$internId', stage_bedrijven_id = '$companyId', aantal_uren_nodig = '$mandatoryHours', aantal_uren_goedgekeurd = '$approvedHours', start_datum = '$startDate', eind_datum = '$endDate', is_afgerond = '$finished', stagebegeleider_id = '$schoolSupervisorId', schoolmentor_id = '$teacherId', praktijkbegeleider_stage_id = '$supervisorId', ouder_id = '$parentId'";
+      $query = "UPDATE stages SET stagiair_id = '$internId', stage_bedrijven_id = '$companyId', aantal_uren_nodig = '$mandatoryHours', aantal_uren_goedgekeurd = '$approvedHours', start_datum = '$startDate', eind_datum = '$endDate', is_afgerond = '$finished', stagebegeleider_id = '$schoolSupervisorId', schoolmentor_id = '$teacherId', praktijkbegeleider_stage_id = '$supervisorId', ouder_id = '$parentId', vertrouwenspersoon_id = '$humanResourcesId', schoolaccount_id = '$schoolAccountId'";
       $query .= " WHERE id = $id";
       $result = $this->datahandler->updateData($query);
     } catch (PDOException $e) {
