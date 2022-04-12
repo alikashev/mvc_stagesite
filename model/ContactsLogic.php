@@ -3,100 +3,110 @@
 require_once 'model/Datahandler.php';
 require_once 'view/OutputData.php';
 
-class ContactsLogic {
+class ContactsLogic
+{
 
-    public function __construct() {
-        $this->datahandler = new datahandler("localhost", "mysql", "school","root", "");
-        $this->outputData = new OutputData();
-    }
+  public function __construct()
+  {
+    $this->datahandler = new datahandler("localhost", "mysql", "school", "root", "");
+//    $this->datahandler = new datahandler("localhost", "mysql", "stenniz_volgstage", "stenniz_stage", "Stenniz1!");
+    $this->outputData = new OutputData();
+  }
 
-    public function __destruct(){}
-    
-    public function addContact($contact_name, $contact_email, $contact_adress){
+  public function __destruct()
+  {
+  }
 
-        try {
+  public function addContact($contact_name, $contact_email, $contact_adress)
+  {
 
-            $query = "INSERT INTO contacts (contact_name, contact_email, contact_adress)";
-            $query .= "VALUES ('$contact_name', '$contact_email', '$contact_adress');";
-            $result = $this->datahandler->createData($query);
-            
-        } catch (PDOException $e) {
+    try {
 
-            echo "Fout opgetreden";
+      $query = "INSERT INTO contacts (contact_name, contact_email, contact_adress)";
+      $query .= "VALUES ('$contact_name', '$contact_email', '$contact_adress');";
+      $result = $this->datahandler->createData($query);
 
-        }
-        
-    }
+    } catch (PDOException $e) {
 
-    public function readAllContacts(){
-
-        try {
-
-            $query = "SELECT contact_id, contact_name, contact_email, contact_adress FROM contacts";
-            $result = $this->datahandler->readsData($query);
-            $results = $result->fetchAll();
-
-            return $this->outputData->createTable($results);
-            
-        } catch (PDOException $e) {
-
-            echo "Fout opgetreden";
-
-        }
+      echo "Fout opgetreden";
 
     }
 
-    public function readOneContact($contact_id){
+  }
 
-        try {
+  public function readAllContacts()
+  {
 
-            $query = "SELECT * FROM contacts ";
-            $query .= "WHERE contact_id=$contact_id ";
-            $result = $this->datahandler->readsData($query);
-            $results = $result->fetchAll();
+    try {
 
-            return $this->outputData->createTable($results);
-            
-        } catch (PDOException $e) {
+      $query = "SELECT contact_id, contact_name, contact_email, contact_adress FROM contacts";
+      $result = $this->datahandler->readsData($query);
+      $results = $result->fetchAll();
 
-            echo "Fout opgetreden";
+      return $this->outputData->createTable($results);
 
-        }
+    } catch (PDOException $e) {
+
+      echo "Fout opgetreden";
+
     }
 
-    public function deleteContact($contact_id){
+  }
 
-        try {
+  public function readOneContact($contact_id)
+  {
 
-            $query = "DELETE FROM contacts ";
-            $query .= "WHERE contact_id=$contact_id ";
-            $result = $this->datahandler->deleteData($query);
-            
-        } catch (PDOException $e) {
+    try {
 
-            echo "Fout opgetreden";
+      $query = "SELECT * FROM contacts ";
+      $query .= "WHERE contact_id=$contact_id ";
+      $result = $this->datahandler->readsData($query);
+      $results = $result->fetchAll();
 
-        }
+      return $this->outputData->createTable($results);
+
+    } catch (PDOException $e) {
+
+      echo "Fout opgetreden";
+
     }
+  }
 
-    public function updateContact($contact_id){
+  public function deleteContact($contact_id)
+  {
 
-        try {
+    try {
 
-            $query = "SELECT * FROM contacts ";
-            $query .= "WHERE contact_id=$contact_id ";
-            $result = $this->datahandler->readsData($query);
-            $results = $result->fetchAll();
+      $query = "DELETE FROM contacts ";
+      $query .= "WHERE contact_id=$contact_id ";
+      $result = $this->datahandler->deleteData($query);
 
-            return $this->outputData->updateTable($results);
-            
-        } catch (PDOException $e) {
+    } catch (PDOException $e) {
 
-            echo "Fout opgetreden";
+      echo "Fout opgetreden";
 
-        }
     }
-    
+  }
+
+  public function updateContact($contact_id)
+  {
+
+    try {
+
+      $query = "SELECT * FROM contacts ";
+      $query .= "WHERE contact_id=$contact_id ";
+      $result = $this->datahandler->readsData($query);
+      $results = $result->fetchAll();
+
+      return $this->outputData->updateTable($results);
+
+    } catch (PDOException $e) {
+
+      echo "Fout opgetreden";
+
+    }
+  }
+
 }
 
 ?>

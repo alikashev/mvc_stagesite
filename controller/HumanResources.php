@@ -3,7 +3,7 @@
 require_once 'model/User.php';
 require_once 'model/Contract.php';
 require_once 'model/Company.php';
-require_once 'view/outputData.php';
+require_once 'view/OutputData.php';
 
 class HumanResources
 {

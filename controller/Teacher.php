@@ -1,9 +1,9 @@
 <?php
 
-require_once 'Model/User.php';
-require_once 'Model/Contract.php';
-require_once 'Model/Company.php';
-require_once 'View/outputData.php';
+require_once 'model/User.php';
+require_once 'model/Contract.php';
+require_once 'model/Company.php';
+require_once 'view/OutputData.php';
 
 class Teacher {
 

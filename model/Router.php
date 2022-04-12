@@ -21,8 +21,9 @@ class Router
   {
     // readPackets
     // Do our default checks and set URL params if absent
-    if(isset($packets[1]) && $packets[1] != ''){
-      $classname = $packets[1];
+    if(isset($packets[2]) && $packets[2] != ''){
+      $classname = $packets[2];
+      $classname = ucfirst($classname);
     }else{
       $classname = "Home";
     }
