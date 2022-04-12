@@ -26,13 +26,16 @@ $obj = $obj[0];
     Stagebegeleider id: <?= $selectSchoolSupervisor ?>
     <br>
     <br>
-    Schoolmentor id: <?= $selectTeacher ?>
-    <br>
-    <br>
-    Praktijkbegeleider stage id: <?= $selectSupervisor ?>
+    School mentor id: <?= $selectTeacher ?>
     <br>
     <br>
     Ouder id: <?= $selectParent ?>
+    <br>
+    <br>
+    Vertrouwenspersoon id: <?= $selectHumanResources ?>
+    <br>
+    <br>
+    School account id: <?= $selectSchoolAccount ?>
     <br>
     <br>
     <input value="Submit" type="submit" name="submit">

@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Model/User.php';
-require_once 'Model/Contract.php';
-require_once 'Model/Company.php';
-require_once 'View/outputData.php';
+require_once 'model/User.php';
+require_once 'model/Contract.php';
+require_once 'model/Company.php';
+require_once 'view/outputData.php';
 
-class Admin
+class HumanResources
 {
 
   public function __construct()
@@ -27,8 +27,9 @@ class Admin
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
-        header("Location: collectReadAllUsers");
+      if ($user[0]['is_vertrouwenspersoon'] === 1) {
+        var_dump($user);
+        header('Location: ' . SERVER_URL . '/School/collectReadAllUsers');
       } else {
         header('Location: ' . SERVER_URL . '/login');
       }
@@ -37,14 +38,54 @@ class Admin
     }
   }
 
+  public function collectReadAllUsers()
+  {
+    session_start();
+
+
+    if (!empty($_SESSION)) {
+      $user = $this->User->readOneUser($_SESSION["user"]);
+      $users = $this->User->readAllBySchoolName($user[0]['id']);
+      $obj = $this->outputData->createTableSchoolUsers($users);
+
+      if ($user[0]['is_vertrouwenspersoon'] === 1) {
+        include 'view/home.php';
+      } else {
+        header('Location: ../../login');
+      }
+    } else {
+      header('Location: ../login');
+    }
+  }
+
+  public function collectReadAllContracts()
+  {
+    session_start();
+    if (!empty($_SESSION)) {
+
+      $user = $this->User->readOneUser($_SESSION["user"]);
+
+      $contracts = $this->Contract->readAllContractsBySchoolAccountId($user[0]['id']);
+      $obj = $this->outputData->createTableSchoolContracts($contracts);
+
+      if ($user[0]['is_vertrouwenspersoon'] === 1) {
+        include 'view/home.php';
+      } else {
+        header('Location: ../../login');
+      }
+    } else {
+      header('Location: ../../login');
+    }
+  }
+
   public function collectAddUser()
   {
     session_start();
-    if(!empty($_SESSION)) {
+    if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
-        include 'view/AdminView/create_user.php';
+      if ($user[0]['is_vertrouwenspersoon'] === 1) {
+        include 'view/HumanResourcesView/create_user.php';
       } else {
         header('Location: ../../login');
       }
@@ -60,10 +101,10 @@ class Admin
       $password = $_POST["password"] !== '' ? $_POST["password"] : '';
       $phone = $_POST["phone"];
       $isTeacher = !empty($_POST["isTeacher"]) ? 1 : 0;
-      $isSupervisor = !empty($_POST["isSupervisor"]) ? 1 : 0;
-      $isSchoolSupervisor = !empty($_POST["isSchoolSupervisor"]) ? 1 : 0;
-      $isSchoolAccount = !empty($_POST["isSchoolAccount"]) ? 1 : 0;
-      $isHumanResources = !empty($_POST["isHumanResources"]) ? 1 : 0;
+      $isSupervisor = 0;
+      $isSchoolSupervisor = 0;
+      $isSchoolAccount = 0;
+      $isHumanResources = 0;
       $isParent = !empty($_POST["isParent"]) ? 1 : 0;
       $school = $_POST["school"];
       $study = $_POST["study"];
@@ -75,6 +116,8 @@ class Admin
 
   public function collectAddContract()
   {
+    $schoolaccount = $this->User->readAllSchoolAccounts();
+    $humanresources = $this->User->readAllHumanResources();
     $supervisors = $this->User->readAllSupervisors();
     $schoolSupervisor = $this->User->readAllSchoolSupervisors();
     $teachers = $this->User->readAllTeachers();
@@ -88,13 +131,15 @@ class Admin
     $selectTeacher = $this->outputData->createTeacherSelectBox($teachers);
     $selectStudent = $this->outputData->createStudentSelectBox($students);
     $selectCompany = $this->outputData->createCompanySelectBox($companies);
-    $selectParents = $this->outputData->createParentSelectBox($parents);
+    $selectParent = $this->outputData->createParentSelectBox($parents);
+    $selectHR = $this->outputData->createHumanResourcesSelectBox($humanresources);
+    $selectSchoolAccount = $this->outputData->createSchoolAccountSelectBox($schoolaccount);
 
     session_start();
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
-      if ($user[0]['id'] === 1) {
-        include 'view/AdminView/create_contract.php';
+      if ($user[0]['is_stagebegeleider'] === 1) {
+        include 'view/HumanResourcesView/create_contract.php';
       } else {
         header('Location: ../../login');
       }
@@ -113,97 +158,13 @@ class Admin
       $finished = !empty($_POST["finished"]) ? 1 : 0;
       $supervisorId = $_POST["supervisorId"];
       $teacherId = $_POST["teacherId"];
-      $schoolSupervisorId = $_POST["schoolSupervisorId"];
+      $schoolSupervisorId = $user[0]['id'];
       $parentId = $_POST["parentId"];
-      $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId);
+      $schoolaccountId = $_POST["schoolAccountId"];
+      $humanResourcesId = $_POST["humanResourcesId"];
+
+      $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId, $humanResourcesId, $schoolaccountId);
       header("Location: ../collectReadAllContracts/");
-    }
-  }
-
-  public function collectAddCompany()
-  {
-    session_start();
-
-    if (!empty($_SESSION)) {
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        include 'view/AdminView/create_company.php';
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../../login');
-    }
-
-    if (isset($_POST["submit"])) {
-      $name = $_POST["name"];
-      $location = $_POST["location"];
-      $url = $_POST["url"];
-      $email = $_POST["email"];
-      $phone = $_POST["phone"];
-
-      $this->Company->addCompany($name, $location, $url, $email, $phone);
-      header("Location: ../collectReadAllCompanies");
-    }
-  }
-
-  public function collectReadAllUsers()
-  {
-    session_start();
-
-    $users = $this->User->readAllUsers();
-    $obj = $this->outputData->createTableAdminUsers($users);
-
-    if (!empty($_SESSION)) {
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        include 'view/home.php';
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../login');
-    }
-  }
-
-  public function collectReadAllContracts()
-  {
-    $contracts = $this->Contract->readAllContracts();
-    $obj = $this->outputData->createTableAdminContracts($contracts);
-
-    session_start();
-    if (!empty($_SESSION)) {
-
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        include 'view/home.php';
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../../login');
-    }
-  }
-
-  public function collectReadAllCompanies()
-  {
-    $companies = $this->Company->readAllCompanies();
-    $obj = $this->outputData->createTableAdminCompanies($companies);
-
-    session_start();
-    if (!empty($_SESSION)) {
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        include 'view/home.php';
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../../login');
     }
   }
 
@@ -215,7 +176,7 @@ class Admin
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
+      if ($user[0]['is_schoolaccount'] === 1) {
         include 'view/home.php';
       } else {
         header('Location: ../../login');
@@ -234,7 +195,7 @@ class Admin
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
+      if ($user[0]['is_schoolaccount'] === 1) {
         include 'view/home.php';
       } else {
         header('Location: ../../login');
@@ -243,25 +204,6 @@ class Admin
       header('Location: ../../login');
     }
 
-  }
-
-  public function collectReadOneCompany($id)
-  {
-    session_start();
-    $company = $this->Company->readOneCompany($id);
-    $obj = $this->outputData->createTable($company);
-
-    if (!empty($_SESSION)) {
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        include 'view/home.php';
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../../login');
-    }
   }
 
   public function collectUpdateUser($id)
@@ -272,8 +214,8 @@ class Admin
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
-        include 'view/AdminView/update_user.php';
+      if ($user[0]['is_schoolmentor'] === 1) {
+        include 'view/SchoolView/update_user.php';
       } else {
         header('Location: ../../login');
       }
@@ -289,7 +231,7 @@ class Admin
       $password = $_POST["password"];
       $phone = $_POST["phone"];
       $isTeacher = !empty($_POST["isTeacher"]) ? 1 : 0;
-      $isSupervisor = !empty($_POST["isSupervisor"]) ? 1 : 0;
+      $isSupervisor = $obj['is_praktijkbegeleider'];
       $isSchoolSupervisor = !empty($_POST["isSchoolSupervisor"]) ? 1 : 0;
       $isSchoolAccount = !empty($_POST["isSchoolAccount"]) ? 1 : 0;
       $isHumanResources = !empty($_POST["isHumanResources"]) ? 1 : 0;
@@ -303,31 +245,32 @@ class Admin
     }
   }
 
-
   public function collectUpdateContract($id)
   {
     session_start();
-    $supervisors = $this->User->readAllSupervisors();
     $schoolSupervisors = $this->User->readAllSchoolSupervisors();
     $teachers = $this->User->readAllTeachers();
     $students = $this->User->readAllStudents();
     $companies = $this->Company->readAllCompanies();
     $parents = $this->User->readAllParents();
+    $humanresources = $this->User->readAllHumanResources();
+    $schoolaccounts = $this->User->readAllSchoolAccounts();
 
     $obj = $this->Contract->readOneContract($id);
 
-    $selectSupervisor = $this->outputData->createSupervisorSelectBox($supervisors, $obj[0]['praktijkbegeleider_stage_id']);
-    $selectTeacher = $this->outputData->createTeacherSelectBox($teachers, $obj[0]['schoolmentor_id']);
     $selectSchoolSupervisor = $this->outputData->createSchoolSupervisorSelectBox($schoolSupervisors, $obj[0]['stagebegeleider_id']);
+    $selectTeacher = $this->outputData->createTeacherSelectBox($teachers, $obj[0]['schoolmentor_id']);
     $selectStudent = $this->outputData->createStudentSelectBox($students, $obj[0]['stagiair_id']);
     $selectCompany = $this->outputData->createCompanySelectBox($companies, $obj[0]['stage_bedrijven_id']);
     $selectParent = $this->outputData->createParentSelectBox($parents, $obj[0]['ouder_id']);
+    $selectHumanResources = $this->outputData->createHumanResourcesSelectBox($humanresources, $obj[0]['vertrouwenspersoon_id']);
+    $selectSchoolAccount = $this->outputData->createSchoolAccountSelectBox($schoolaccounts, $obj[0]['schoolaccount_id']);
 
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
-        include 'view/AdminView/update_contract.php';
+      if ($user[0]['is_schoolmentor'] === 1) {
+        include 'view/SchoolView/update_contract.php';
       } else {
         header('Location: ../../login');
       }
@@ -343,41 +286,13 @@ class Admin
       $startDate = $_POST["startDate"];
       $endDate = $_POST["endDate"];
       $finished = !empty($_POST["finished"]) ? 1 : 0;
-      $supervisorId = $_POST["supervisorId"];
       $schoolSupervisorId = $_POST["schoolSupervisorId"];
       $teacherId = $_POST["teacherId"];
       $parentId = $_POST["parentId"];
+      $supervisorId = $obj['praktijkbegeleider_stage_id'];
 
       $this->Contract->updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $schoolSupervisorId, $parentId);
       header("Location: ../collectReadAllContracts/");
-    }
-  }
-
-  public function collectUpdateCompany($id)
-  {
-    session_start();
-    $obj = $this->Company->readOneCompany($id);
-
-    if (!empty($_SESSION)) {
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        include 'view/AdminView/update_company.php';
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../../login');
-    }
-    if (isset($_POST["submit"])) {
-      $name = $_POST["name"];
-      $location = $_POST["location"];
-      $url = $_POST["url"];
-      $email = $_POST["email"];
-      $phone = $_POST["phone"];
-
-      $this->Company->updateCompany($id, $name, $location, $url, $email, $phone);
-      header("Location: ../collectReadAllCompanies");
     }
   }
 
@@ -388,7 +303,7 @@ class Admin
     if (!empty($_SESSION)) {
       $user = $this->User->readOneUser($_SESSION["user"]);
 
-      if ($user[0]['id'] === 1) {
+      if ($user[0]['is_schoolaccount'] === 1) {
         $obj = $this->Contract->deleteContract($id);
         header("Location: ../collectReadAllContracts/");
       } else {
@@ -398,24 +313,6 @@ class Admin
       header('Location: ../../login');
     }
 
-  }
-
-  public function collectDeleteCompany($id)
-  {
-    session_start();
-
-    if (!empty($_SESSION)) {
-      $user = $this->User->readOneUser($_SESSION["user"]);
-
-      if ($user[0]['id'] === 1) {
-        $obj = $this->Company->deleteCompany($id);
-        header("Location: ../collectReadAllCompanies");
-      } else {
-        header('Location: ../../login');
-      }
-    } else {
-      header('Location: ../../login');
-    }
   }
 }
 
