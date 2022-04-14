@@ -15,7 +15,6 @@ class Admin
     $this->Contract = new Contract();
     $this->Company = new Company();
     $this->outputData = new OutputData();
-    $fuck = "<br>you";
   }
 
   public function __destruct()

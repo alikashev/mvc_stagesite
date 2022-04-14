@@ -12,16 +12,23 @@ class OutputData
 
   }
 
-  function createSelectBox()
+  function createSelectBox($data, $selected, $name, $selectedName = '')
   {
-    //todo
-  }
 
-  function createLogSelectBox($rows)
-  {
-    $html = '<select name="logId">';
-    foreach ($rows as $row) {
-      $html .= '<option value="' . $row['id'] . '">' . $row['id'] . '</option>';
+      $html = '<select name="' . $name . '">';
+
+      foreach ($data as $row) {
+        if ($selectedName !== '') {
+          $info = $row[$selectedName];
+      } else {
+          $info = $row['voornaam'] . ' ' . $row['tussenvoegsel'] . ' ' . $row['achternaam'];
+        }
+      if ($selected !== '' && $row['id'] === $selected) {
+        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $info . '</option>';
+      } else {
+        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $info . '</option>';
+      }
+
     }
     $html .= '</select>';
     return $html;
@@ -29,121 +36,49 @@ class OutputData
 
   function createSupervisorSelectBox($rows, $selected = '')
   {
-    $html = '<select name="supervisorId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'supervisorId');
   }
 
   function createSchoolSupervisorSelectBox($rows, $selected = '')
   {
-    $html = '<select name="schoolSupervisorId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'schoolSupervisorId');
   }
 
   function createTeacherSelectBox($rows, $selected = '')
   {
-    $html = '<select name="teacherId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'teacherId');
   }
 
   function createStudentSelectBox($rows, $selected = '')
   {
-    $html = '<select name="internId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'internId');
   }
 
   function createParentSelectBox($rows, $selected = '')
   {
-    $html = '<select name="parentId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'parentId');
   }
 
   function createCompanySelectBox($rows, $selected = '')
   {
-    $html = '<select name="companyId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['naam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['naam'] . '</option>';
-      }
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'companyId', 'naam');
   }
 
   function createSchoolAccountSelectBox($rows, $selected = '')
   {
-    $html = '<select name="schoolAccountId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-    }
-    $html .= '</select>';
-    return $html;
+    return $this->createSelectBox($rows, $selected, 'schoolAccountId');
   }
 
   function createHumanResourcesSelectBox($rows, $selected = '')
   {
-    $html = '<select name="humanResourcesId">';
-    foreach ($rows as $row) {
-      if ($selected !== '' && $row['id'] === $selected) {
-        $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      } else {
-        $html .= '<option value="' . $row['id'] . '">' . $row['id'] . ': ' . $row['voornaam'] . '</option>';
-      }
-    }
-    $html .= '</select>';
-    return $html;
+   return $this->createSelectBox($rows, $selected, 'humanResourcesId');
   }
 
-  function createTable($rows)
+  function createTable($rows, $create = '', $update = '', $read = '', $delete = '')
   {
-    $html = '<table class="tablerow" border="1">';
+    $html = "<div><a href=\"" . SERVER_URL . $create . "\">Create new row</a></div>";
+    $html .= "<br>";
+    $html .= '<table class="tablerow" border="1">';
     $html .= '<tr>';
     foreach ($rows[0] as $key => $value) {
       $html .= "<th>" . $key . "</th>";
@@ -154,11 +89,17 @@ class OutputData
       foreach ($row as $columns) {
         $html .= "<td>" . $columns . "</td>";
       }
-      $html .= "<td><a class=\"Button-td\" href=\"./collectReadFile/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a id=\"Button-td\" href=\"./collectDeleteFile/" . $row["id"] . "\">Delete</a></td>";
-      $html .= "<td><a id=\"Button-td\" href=\"index.php?action=update&id=" . $row["id"] . "\">Update</a></td>";
-      $html .= '</tr>';
+      if ($update !== '') {
+        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . $update . $row["id"] . "\">Update</a></td>";
+      }
+      if ($read !== '') {
+        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . $read . $row["id"] . "\">Read</a></td>";
+      }
+      if ($delete !== '') {
+        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . $delete . $row["id"] . "\">Delete</a></td>";
+      }
     }
+    $html .= '</tr>';
     $html .= '</table>';
 
     return $html;
@@ -210,252 +151,52 @@ class OutputData
 
   function createTableAdminUsers($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/Admin/CollectAddUser/\">Create new account</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/CollectReadOneUser/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/CollectUpdateUser/" . $row["id"] . "\">Update</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Admin/collectAddUser/', '/Admin/collectUpdateUser/', '/Admin/collectReadOneUser/');
   }
 
   function createTableTeacherUsers($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/Teacher/CollectAddUser/\">Create new account</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/CollectReadOneUser/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/CollectUpdateUser/" . $row["id"] . "\">Update</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Teacher/collectAddUser/', '/Teacher/collectUpdateUser/', '/Teacher/collectReadOneUser/');
   }
 
   function createTableSupervisorUsers($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/Supervisor/collectAddUser/\">create new account</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"button-td\" href=\"" . SERVER_URL . "/Supervisor/collectReadoneUser/" . $row["id"] . "\">read</a></td>";
-      $html .= "<td><a class=\"button-td\" href=\"" . SERVER_URL . "/Supervisor/collectUpdateUser/" . $row["id"] . "\">update</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Supervisor/collectAddUser/', '/Supervisor/collectUpdateUser/', '/Supervisor/collectReadOneUser/');
   }
 
   function createTableSchoolUsers($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/School/collectAddUser/\">create new account</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"button-td\" href=\"" . SERVER_URL . "/School/collectReadoneUser/" . $row["id"] . "\">read</a></td>";
-      $html .= "<td><a class=\"button-td\" href=\"" . SERVER_URL . "/School/collectUpdateUser/" . $row["id"] . "\">update</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/School/collectAddUser/', '/School/collectUpdateUser/', '/School/collectReadOneUser/');
   }
-
 
   function createTableAdminContracts($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/Admin/collectAddContract/\">Create new contract</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    if (!empty($rows)) {
-      $html .= '<tr>';
-      foreach ($rows[0] as $key => $value) {
-        $html .= "<th>" . $key . "</th>";
-      }
-      $html .= "</tr>";
-      foreach ($rows as $row) {
-        $html .= '<tr>';
-        foreach ($row as $columns) {
-          $html .= "<td>" . $columns . "</td>";
-        }
-        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectReadOneContract/" . $row["id"] . "\">Read</a></td>";
-        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectUpdateContract/" . $row["id"] . "\">Update</a></td>";
-        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectDeleteContract/" . $row["id"] . "\">Delete</a></td>";
-        $html .= '</tr>';
-      }
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Admin/collectAddContract/', '/Admin/collectUpdateContract/', '/Admin/collectReadOneContract/', '/Admin/collectDeleteContract/');
   }
 
   function createTableTeacherContracts($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/Teacher/collectAddContract/\">Create new contract</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectReadOneContract/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectUpdateContract/" . $row["id"] . "\">Update</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Teacher/collectDeleteContract/" . $row["id"] . "\">Delete</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Teacher/collectAddContract/', '/Teacher/collectUpdateContract/', '/Teacher/collectReadOneContract/', '/Teacher/collectDeleteContract/');
   }
 
   function createTableSupervisorContracts($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/Supervisor/collectAddContract/\">Create new contract</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Supervisor/collectReadOneContract/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Supervisor/collectUpdateContract/" . $row["id"] . "\">Update</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Supervisor/collectDeleteContract/" . $row["id"] . "\">Delete</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Supervisor/collectAddContract/', '/Supervisor/collectUpdateContract/', '/Supervisor/collectReadOneContract/', '/Supervisor/collectDeleteContract/');
   }
 
   function createTableSchoolSupervisorContracts($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/SchoolSupervisor/collectAddContract/\">Create new contract</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/SchoolSupervisor/collectReadOneContract/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/SchoolSupervisor/collectUpdateContract/" . $row["id"] . "\">Update</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/SchoolSupervisor/collectDeleteContract/" . $row["id"] . "\">Delete</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/SchoolSupervisor/collectAddContract/', '/SchoolSupervisor/collectUpdateContract/', '/SchoolSupervisor/collectReadOneContract/', '/SchoolSupervisor/collectDeleteContract/');
   }
 
   function createTableSchoolContracts($rows)
   {
-    $html = "<div><a href=\"" . SERVER_URL . "/School/collectAddContract/\">Create new contract</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/School/collectReadOneContract/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/School/collectUpdateContract/" . $row["id"] . "\">Update</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/School/collectDeleteContract/" . $row["id"] . "\">Delete</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/School/collectAddContract/', '/School/collectUpdateContract/', '/School/collectReadOneContract/', '/School/collectDeleteContract/');
   }
 
   function createTableAdminCompanies($rows)
   {
-
-    $html = "<div><a href=\"" . SERVER_URL . "/Admin/collectAddCompany/\">Create new company</a></div>";
-    $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
-    $html .= '<tr>';
-    foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
-    }
-    $html .= "</tr>";
-    foreach ($rows as $row) {
-      $html .= '<tr>';
-      foreach ($row as $columns) {
-        $html .= "<td>" . $columns . "</td>";
-      }
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectReadOneCompany/" . $row["id"] . "\">Read</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectUpdateCompany/" . $row["id"] . "\">Update</a></td>";
-      $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . "/Admin/collectDeleteCompany/" . $row["id"] . "\">Delete</a></td>";
-      $html .= '</tr>';
-    }
-    $html .= '</table>';
-
-    return $html;
+    return $this->createTable($rows, '/Admin/collectAddCompany/', '/Admin/collectUpdateCompany/', '/Admin/collectDeleteCompany/');
   }
 
 
