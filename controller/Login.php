@@ -51,31 +51,23 @@ class Login
         var_dump($user[0]["id"]);
         echo "<br>";
         if (intval($user[0]["id"]) === 1) {
-          echo "Check passed: Admin";
           header('Location: ' . SERVER_URL . '/Admin/');
         } else if (intval($user[0]["is_schoolmentor"]) === 1) {
-          header('Location: ../../Teacher/');
-          echo "Check passed";
+          header('Location: ' . SERVER_URL . '/Teacher/');
         } else if (intval($user[0]["is_stagebegeleider"]) === 1) {
-//          header('Location: ../../SchoolSupervisor/');
-          echo "Check passed";
+          header('Location: ../../SchoolSupervisor/');
         } else if (intval($user[0]["is_praktijkbegeleider"]) === 1) {
-//          header('Location: ../../Supervisor/');
-          echo "Check passed";
+          header('Location: ../../Supervisor/');
         } else if (intval($user[0]["is_schoolaccount"]) === 1) {
-//          header('Location: ../../School/');
-          echo "Check passed";
+          header('Location: ../../School/');
         } else if (intval($user[0]["is_vertrouwenspersoon"]) === 1) {
-//          header('Location: ../../HumanResources/');
-          echo "Check passed";
+          header('Location: ../../HumanResources/');
         } else if (intval($user[0]["is_ouder"]) === 1) {
-//          header('Location: ../../Parents/');
-          echo "Check passed";
+          header('Location: ../../Parents/');
         }
       }
     } else {
-//      header('Location: ../../Login');
-      echo "Check failed";
+      header('Location: ../../Login');
     }
   }
 }

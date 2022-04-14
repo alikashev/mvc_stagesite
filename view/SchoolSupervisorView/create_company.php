@@ -28,6 +28,5 @@
     <label for="phone">Telefoonnummer: </label>
     <input type="tel" name="phone" id="phone">
 </div>
-
 <input type="submit" name="submit" value="Verzenden">
 </form>

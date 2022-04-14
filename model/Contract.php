@@ -73,7 +73,7 @@ class Contract extends Main
   public function readAllContractsByTeacherId($id)
   {
     try {
-      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
+      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, schoolaccount_id, vertrouwenspersoon_id, ouder_id, logboek_id from stages ";
       $query .= "WHERE schoolmentor_id = '$id'";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();

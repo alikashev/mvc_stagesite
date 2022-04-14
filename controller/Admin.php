@@ -30,15 +30,12 @@ class Admin
       var_dump($user);
 
       if (intval($user[0]['id']) === 1) {
-        echo "Check Passed: Admin - Step 2";
         header("Location: " . SERVER_URL . '/Admin/collectReadAllUsers');
       } else {
-        echo "Check Failed: Admin - Step 2";
         header('Location: ' . SERVER_URL . '/login');
       }
     } else {
       header('Location: ' . SERVER_URL . '/login');
-      echo "Check Failed: Admin - $_SESSION check";
     }
   }
 
