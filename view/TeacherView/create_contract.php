@@ -11,10 +11,12 @@
         Stagebedrijf id: <?=$obj3?>
     </div>
     <div class="inputs">
-        Benodigde aantal uren: <input type="number" name="mandatoryHours">
+        Benodigde aantal uren: <label>
+            <input required type="number" name="mandatoryHours">
+        </label>
     </div>
     <div class="inputs">
-        Goedgekeurde uren: <input type="number" name="approvedHours">
+        Goedgekeurde uren: <input required type="number" name="approvedHours">
     </div>
     <div class="inputs">
         Startdatum: <input required type="date" name="startDate">
