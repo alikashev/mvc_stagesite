@@ -8,6 +8,8 @@ class StudentModel extends Main
 
   public function __construct()
   {
+    $this->datahandler = new datahandler("localhost", "mysql", "stagesite","root", "");
+    $this->outputData = new OutputData();
     parent::__construct();
   }
 

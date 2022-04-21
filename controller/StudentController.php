@@ -10,7 +10,7 @@
         public function __destruct(){   
         }
 
-        public function Default() {
+        public function Index() {
             self::showInfoBoxes(1);
         }
 
