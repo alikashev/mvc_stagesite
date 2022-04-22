@@ -15,14 +15,14 @@ class OutputData
   function createSelectBox($data, $selected, $name, $selectedName = '')
   {
 
-      $html = '<select name="' . $name . '">';
+    $html = '<select name="' . $name . '">';
 
-      foreach ($data as $row) {
-        if ($selectedName !== '') {
-          $info = $row[$selectedName];
+    foreach ($data as $row) {
+      if ($selectedName !== '') {
+        $info = $row[$selectedName];
       } else {
-          $info = $row['voornaam'] . ' ' . $row['tussenvoegsel'] . ' ' . $row['achternaam'];
-        }
+        $info = $row['voornaam'] . ' ' . $row['tussenvoegsel'] . ' ' . $row['achternaam'];
+      }
       if ($selected !== '' && $row['id'] === $selected) {
         $html .= '<option value="' . $row['id'] . '" selected>' . $row['id'] . ': ' . $info . '</option>';
       } else {
@@ -71,7 +71,7 @@ class OutputData
 
   function createHumanResourcesSelectBox($rows, $selected = '')
   {
-   return $this->createSelectBox($rows, $selected, 'humanResourcesId');
+    return $this->createSelectBox($rows, $selected, 'humanResourcesId');
   }
 
   function createTable($rows, $create = '', $update = '', $read = '', $delete = '')
@@ -149,54 +149,64 @@ class OutputData
 
   }
 
-  function createTableAdminUsers($rows)
+  function createTableUsers($rows)
   {
-    return $this->createTable($rows, '/Admin/collectAddUser/', '/Admin/collectUpdateUser/', '/Admin/collectReadOneUser/');
+    return $this->createTable($rows, '/UserController/create/', '/UserController/update/', '');
   }
 
-  function createTableTeacherUsers($rows)
+//  function createTableAdminUsers($rows)
+//  {
+//    return $this->createTable($rows, '/Admin/collectAddUser/', '/Admin/collectUpdateUser/', '/Admin/collectReadOneUser/');
+//  }
+//
+//  function createTableTeacherUsers($rows)
+//  {
+//    return $this->createTable($rows, '/Teacher/collectAddUser/', '/Teacher/collectUpdateUser/', '/Teacher/collectReadOneUser/');
+//  }
+//
+//  function createTableSupervisorUsers($rows)
+//  {
+//    return $this->createTable($rows, '/Supervisor/collectAddUser/', '/Supervisor/collectUpdateUser/', '/Supervisor/collectReadOneUser/');
+//  }
+//
+//  function createTableSchoolUsers($rows)
+//  {
+//    return $this->createTable($rows, '/School/collectAddUser/', '/School/collectUpdateUser/', '/School/collectReadOneUser/');
+//  }
+
+  function createTableContracts($rows)
   {
-    return $this->createTable($rows, '/Teacher/collectAddUser/', '/Teacher/collectUpdateUser/', '/Teacher/collectReadOneUser/');
+    return $this->createTable($rows, '/ContractController/create/', '/ContractController/update/', '', '/ContractController/delete/');
   }
 
-  function createTableSupervisorUsers($rows)
-  {
-    return $this->createTable($rows, '/Supervisor/collectAddUser/', '/Supervisor/collectUpdateUser/', '/Supervisor/collectReadOneUser/');
-  }
+//  function createTableAdminContracts($rows)
+//{
+//  return $this->createTable($rows, '/Admin/collectAddContract/', '/Admin/collectUpdateContract/', '/Admin/collectReadOneContract/', '/Admin/collectDeleteContract/');
+//}
 
-  function createTableSchoolUsers($rows)
-  {
-    return $this->createTable($rows, '/School/collectAddUser/', '/School/collectUpdateUser/', '/School/collectReadOneUser/');
-  }
-
-  function createTableAdminContracts($rows)
-  {
-    return $this->createTable($rows, '/Admin/collectAddContract/', '/Admin/collectUpdateContract/', '/Admin/collectReadOneContract/', '/Admin/collectDeleteContract/');
-  }
-
-  function createTableTeacherContracts($rows)
-  {
-    return $this->createTable($rows, '/Teacher/collectAddContract/', '/Teacher/collectUpdateContract/', '/Teacher/collectReadOneContract/', '/Teacher/collectDeleteContract/');
-  }
-
-  function createTableSupervisorContracts($rows)
-  {
-    return $this->createTable($rows, '/Supervisor/collectAddContract/', '/Supervisor/collectUpdateContract/', '/Supervisor/collectReadOneContract/', '/Supervisor/collectDeleteContract/');
-  }
-
-  function createTableSchoolSupervisorContracts($rows)
-  {
-    return $this->createTable($rows, '/SchoolSupervisor/collectAddContract/', '/SchoolSupervisor/collectUpdateContract/', '/SchoolSupervisor/collectReadOneContract/', '/SchoolSupervisor/collectDeleteContract/');
-  }
-
-  function createTableSchoolContracts($rows)
-  {
-    return $this->createTable($rows, '/School/collectAddContract/', '/School/collectUpdateContract/', '/School/collectReadOneContract/', '/School/collectDeleteContract/');
-  }
+//  function createTableTeacherContracts($rows)
+//  {
+//    return $this->createTable($rows, '/Teacher/collectAddContract/', '/Teacher/collectUpdateContract/', '/Teacher/collectReadOneContract/', '/Teacher/collectDeleteContract/');
+//  }
+//
+//  function createTableSupervisorContracts($rows)
+//  {
+//    return $this->createTable($rows, '/Supervisor/collectAddContract/', '/Supervisor/collectUpdateContract/', '/Supervisor/collectReadOneContract/', '/Supervisor/collectDeleteContract/');
+//  }
+//
+//  function createTableSchoolSupervisorContracts($rows)
+//  {
+//    return $this->createTable($rows, '/SchoolSupervisor/collectAddContract/', '/SchoolSupervisor/collectUpdateContract/', '/SchoolSupervisor/collectReadOneContract/', '/SchoolSupervisor/collectDeleteContract/');
+//  }
+//
+//  function createTableSchoolContracts($rows)
+//  {
+//    return $this->createTable($rows, '/School/collectAddContract/', '/School/collectUpdateContract/', '/School/collectReadOneContract/', '/School/collectDeleteContract/');
+//  }
 
   function createTableAdminCompanies($rows)
   {
-    return $this->createTable($rows, '/Admin/collectAddCompany/', '/Admin/collectUpdateCompany/', '/Admin/collectDeleteCompany/');
+    return $this->createTable($rows, '/CompanyController/create/', '/CompanyController/update/', '', '/CompanyController/delete/');
   }
 
 

@@ -24,7 +24,7 @@ class User extends Main
       $query = "INSERT INTO gebruikers (voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_schoolmentor, is_stagebegeleider, is_praktijkbegeleider, is_schoolaccount, is_vertrouwenspersoon, is_ouder, schoolnaam, studie";
       $password !== '' ? $query .= ", wachtwoord_hash)" : $query .= ")";
       $password !== '' ? $hash_password = password_hash($password, PASSWORD_BCRYPT) : '';
-      $query .= " VALUES ('$firstName', '$infix', '$lastName', '$email', '$phone', '$isTeacher', '$isSupervisor', '$isSchoolSupervisor', '$isSchoolAccount', '$isHumanResources', '$isParent', '$school', '$study'";
+      $query .= " VALUES ('$firstName', '$infix', '$lastName', '$email', '$phone', '$isTeacher', '$isSchoolSupervisor', '$isSupervisor', '$isSchoolAccount', '$isHumanResources', '$isParent', '$school', '$study'";
       $password !== '' ? $query .= ", '$hash_password');" : $query .= ");";
       $this->datahandler->createData($query);
       $result = $this->datahandler->lastInsertId();

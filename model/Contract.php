@@ -88,8 +88,20 @@ class Contract extends Main
   public function readAllContractsBySchoolAccountId($id)
   {
     try {
-      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
-      $query .= "WHERE schoolaccount_id = '$id'";
+      $query = "SELECT schoolnaam FROM gebruikers WHERE id = '$id'";
+      $result = $this->datahandler->readsData($query);
+      $results = $result->fetchAll();
+
+      $schoolname = $results[0]['schoolnaam'];
+
+      $query = "SELECT id FROM gebruikers WHERE schoolnaam = '$schoolname' AND is_schoolaccount = 1";
+      $result = $this->datahandler->readsData($query);
+      $results = $result->fetchAll();
+
+      $schoolAccountId = $results[0]['id'];
+
+      $query = "SELECT * from stages ";
+      $query .= "WHERE schoolaccount_id = '$schoolAccountId'";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 

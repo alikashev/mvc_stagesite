@@ -40,7 +40,7 @@
                 <input type="tel" name="phone">
             </div>
             <div class="inputs is_teacher">
-                <label for="isTeacher">Is Teacher: </label>
+                <label for="isTeacher">Is Schoolmentor: </label>
                 <input type="checkbox" name="isTeacher">
             </div>
 <!--            <div class="inputs is_supervisor">-->
@@ -48,19 +48,19 @@
 <!--                <input type="checkbox" name="isSupervisor">-->
 <!--            </div>-->
             <div class="inputs is_school_supervisor">
-                <label for="isSchoolSupervisor">Is stagebegeleider: </label>
+                <label for="isSchoolSupervisor">Is Stagebegeleider: </label>
                 <input type="checkbox" name="isSchoolSupervisor">
             </div>
             <div class="inputs is_school_supervisor">
-                <label for="isSchoolAccount">Is school account: </label>
+                <label for="isSchoolAccount">Is School Account: </label>
                 <input type="checkbox" name="isSchoolAccount">
             </div>
             <div class="inputs is_human_resources">
-                <label for="isHumanResources">Is vertrouwenspersoon: </label>
+                <label for="isHumanResources">Is Vertrouwenspersoon: </label>
                 <input type="checkbox" name="isHumanResources">
             </div>
             <div class="inputs is_ouder">
-                <label for="isParent">Is ouder: </label>
+                <label for="isParent">Is Ouder: </label>
                 <input type="checkbox" name="isParent">
             </div>
             <div class="inputs school">

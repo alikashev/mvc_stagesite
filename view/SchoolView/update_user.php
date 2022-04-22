@@ -1,6 +1,5 @@
 <?php
 $obj = $obj[0];
-var_dump($obj);
 ?>
 <form method="post">
     First name: <input name="firstName" value="<?= $obj['voornaam'] ?>">

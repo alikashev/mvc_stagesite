@@ -43,14 +43,18 @@ class Login
       if ($_SESSION["user"] !== 0) {
         header('Location: ' . SERVER_URL . '/UserController/');
 //          $user = $this->User->readOneUser($id);
+//          var_dump($user);
 //        if (intval($user[0]["id"]) === 1) {
-//          header('Location: ' . SERVER_URL . '/Admin/');
+//          header('Location: ' . SERVER_URL . '/UserController/');
 //        } else if (intval($user[0]["is_schoolmentor"]) === 1) {
 //          header('Location: ' . SERVER_URL . '/Teacher/');
 //        } else if (intval($user[0]["is_stagebegeleider"]) === 1) {
 //          header('Location: ../../SchoolSupervisor/');
 //        } else if (intval($user[0]["is_praktijkbegeleider"]) === 1) {
-//          header('Location: ../../Supervisor/');
+//          die('made it');
+//        } else {
+//          die("didn't make it");
+        }
 //        } else if (intval($user[0]["is_schoolaccount"]) === 1) {
 //          header('Location: ../../School/');
 //        } else if (intval($user[0]["is_vertrouwenspersoon"]) === 1) {
@@ -58,7 +62,6 @@ class Login
 //        } else if (intval($user[0]["is_ouder"]) === 1) {
 //          header('Location: ../../Parents/');
 //        }
-      }
     } else {
       header('Location: ../../Login');
     }
