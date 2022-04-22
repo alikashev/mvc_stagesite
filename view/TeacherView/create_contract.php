@@ -5,10 +5,10 @@
 </style>
 <form method="post">
     <div class="inputs">
-        Stagiair id: <?=$obj2?>
+        Stagiair id: <?= $obj2 ?>
     </div>
     <div class="inputs">
-        Stagebedrijf id: <?=$obj3?>
+        Stagebedrijf id: <?= $obj3 ?>
     </div>
     <div class="inputs">
         Benodigde aantal uren: <label>
@@ -16,19 +16,27 @@
         </label>
     </div>
     <div class="inputs">
-        Goedgekeurde uren: <input required type="number" name="approvedHours">
+        Goedgekeurde uren: <label>
+            <input required type="number" name="approvedHours">
+        </label>
     </div>
     <div class="inputs">
-        Startdatum: <input required type="date" name="startDate">
+        Startdatum: <label>
+            <input required type="date" name="startDate">
+        </label>
     </div>
     <div class="inputs">
-        Eindatum: <input required type="date" name="endDate">
+        Einddatum: <label>
+            <input required type="date" name="endDate">
+        </label>
     </div>
     <div class="inputs">
-        Is afgerond: <input type="checkbox" name="finished">
+        Is afgerond: <label>
+            <input type="checkbox" name="finished">
+        </label>
     </div>
     <div class="inputs">
-        Pratijkbegeleider id: <?=$obj?>
+        Praktijkbegeleider id: <?= $obj ?>
     </div>
     <div class="inputs">
         Stagebegeleider id: <?= $selectSchoolSupervisor ?>
@@ -45,5 +53,5 @@
     <div class="inputs">
         Ouder id: <?= $selectParent ?>
     </div>
-  <input value="Submit" type="submit" name="submit">
+    <input value="Submit" type="submit" name="submit">
 </form>

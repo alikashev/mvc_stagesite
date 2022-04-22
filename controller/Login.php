@@ -41,30 +41,23 @@ class Login
     session_start();
     if (!empty($_SESSION["user"])) {
       if ($_SESSION["user"] !== 0) {
-        $user = $this->User->readOneUser($id);
-        var_dump($user);
-        echo "<br>";
-        var_dump($_SESSION);
-        echo "<br>";
-        var_dump($user[0]);
-        echo "<br>";
-        var_dump($user[0]["id"]);
-        echo "<br>";
-        if (intval($user[0]["id"]) === 1) {
-          header('Location: ' . SERVER_URL . '/Admin/');
-        } else if (intval($user[0]["is_schoolmentor"]) === 1) {
-          header('Location: ' . SERVER_URL . '/Teacher/');
-        } else if (intval($user[0]["is_stagebegeleider"]) === 1) {
-          header('Location: ../../SchoolSupervisor/');
-        } else if (intval($user[0]["is_praktijkbegeleider"]) === 1) {
-          header('Location: ../../Supervisor/');
-        } else if (intval($user[0]["is_schoolaccount"]) === 1) {
-          header('Location: ../../School/');
-        } else if (intval($user[0]["is_vertrouwenspersoon"]) === 1) {
-          header('Location: ../../HumanResources/');
-        } else if (intval($user[0]["is_ouder"]) === 1) {
-          header('Location: ../../Parents/');
-        }
+        header('Location: ' . SERVER_URL . '/UserController/');
+//          $user = $this->User->readOneUser($id);
+//        if (intval($user[0]["id"]) === 1) {
+//          header('Location: ' . SERVER_URL . '/Admin/');
+//        } else if (intval($user[0]["is_schoolmentor"]) === 1) {
+//          header('Location: ' . SERVER_URL . '/Teacher/');
+//        } else if (intval($user[0]["is_stagebegeleider"]) === 1) {
+//          header('Location: ../../SchoolSupervisor/');
+//        } else if (intval($user[0]["is_praktijkbegeleider"]) === 1) {
+//          header('Location: ../../Supervisor/');
+//        } else if (intval($user[0]["is_schoolaccount"]) === 1) {
+//          header('Location: ../../School/');
+//        } else if (intval($user[0]["is_vertrouwenspersoon"]) === 1) {
+//          header('Location: ../../HumanResources/');
+//        } else if (intval($user[0]["is_ouder"]) === 1) {
+//          header('Location: ../../Parents/');
+//        }
       }
     } else {
       header('Location: ../../Login');

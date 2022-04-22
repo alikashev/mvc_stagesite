@@ -4,10 +4,10 @@
   }
 </style>
 <form method="post" action="<?= SERVER_URL . '/Login/checkLogin/'?>">
-  <label for="email"></label>
+  <label for="email">Email:</label>
   <input name="email" type="email" id="email">
   <div class="divider"></div>
-  <label for="password"></label>
+  <label for="password">Wachtwoord:</label>
   <input name="password" type="password" id="password">
   <div class="divider"></div>
   <input type="submit" name="submit" value="Inloggen">
