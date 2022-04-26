@@ -16,7 +16,7 @@ class Home {
 
     public function Index()
     {
-        echo "<h1>Hello, World!</h1>";
+        include_once 'frontend/home.php';
     }
 }
 

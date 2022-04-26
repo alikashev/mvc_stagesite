@@ -161,7 +161,7 @@ class User extends Main
 
       $schoolname = $results[0]['schoolnaam'];
 
-      $query2 = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE schoolnaam = '$schoolname' AND id != 1";
+      $query2 = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, is_ouder, is_schoolmentor, is_schoolaccount, is_vertrouwenspersoon FROM gebruikers WHERE schoolnaam = '$schoolname' AND id != 1 AND is_praktijkbegeleider = 0 AND is_stagebegeleider = 0";
       $result2 = $this->datahandler->readsData($query2);
       $results2 = $result2->fetchAll();
 

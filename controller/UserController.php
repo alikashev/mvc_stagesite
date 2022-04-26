@@ -100,6 +100,8 @@ class UserController
       include 'view/SupervisorView/update_user.php';
     } else if ($this->Account->schoolSupervisorCheck()) {
       include 'view/SchoolSupervisorView/update_user.php';
+    } else {
+        header('Location: ' . SERVER_URL . '/Login/');
     }
 
     if (isset($_POST["submit"])) {
