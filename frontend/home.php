@@ -20,16 +20,16 @@
             <ul class="list-unstyled components">
                 <p>Heading</p>
                 <li>
-                    <a href="#">navitem</a>
+                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">Uploaden</a>
                 </li>
                 <li>
-                    <a href="#">navitem</a>
+                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
                 </li>
                 <li>
-                    <a href="#">navitem</a>
+                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
                 </li>
                 <li>
-                    <a href="#">navitem</a>
+                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
                 </li>
             </ul>
 
