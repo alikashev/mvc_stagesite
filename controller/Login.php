@@ -12,10 +12,15 @@ class Login
 
   public function Index()
   {
+      session_start();
     include_once 'view/login.php';
+    if(isset($_SESSION)) {
+       var_dump($_SESSION);
+        header('Location: ' . SERVER_URL . '/Login/checkAccountType/' . $_SESSION["user"]);
+    }
   }
 
-  public function checkLogin()
+    public function checkLogin()
   {
     session_start();
     $email = $_POST['email'];
@@ -41,7 +46,7 @@ class Login
     session_start();
     if (!empty($_SESSION["user"])) {
       if ($_SESSION["user"] !== 0) {
-        header('Location: ' . SERVER_URL . '/UserController/');
+        header('Location: ' . SERVER_URL . '/ContractController/');
 //          $user = $this->User->readOneUser($id);
 //          var_dump($user);
 //        if (intval($user[0]["id"]) === 1) {

@@ -24,9 +24,6 @@ var_dump($obj);
     Is mentor: <input type="checkbox" name="isTeacher" <?= $obj['is_schoolmentor'] === 1 ? 'checked' : '' ?>>
     <br>
     <br>
-    Is stagebegeleider: <input type="checkbox" name="isSchoolSupervisor" <?= $obj['is_stagebegeleider'] === 1 ? 'checked' : '' ?>>
-    <br>
-    <br>
     Is school account: <input type="checkbox" name="isSchoolAccount" <?= $obj['is_schoolaccount'] === 1 ? 'checked' : '' ?>>
     <br>
     <br>

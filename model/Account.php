@@ -49,4 +49,18 @@ class Account
       return false;
     }
   }
+
+    public function parentCheck()
+    {
+        if (!empty($_SESSION)) {
+            $user = $this->User->readOneUser($_SESSION["user"]);
+            if (intval($user[0]['is_ouder']) === 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }

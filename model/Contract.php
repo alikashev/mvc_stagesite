@@ -58,7 +58,7 @@ class Contract extends Main
   public function readAllContractBySupervisorId($id)
   {
     try {
-      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, logboek_id from stages ";
+      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, ouder_id, logboek_id from stages ";
       $query .= "WHERE praktijkbegeleider_stage_id = '$id'";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
@@ -69,6 +69,21 @@ class Contract extends Main
       echo "Fout opgetreden: " . $e;
     }
   }
+
+    public function readAllContractBySchoolSupervisorId($id)
+    {
+        try {
+            $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, ouder_id, logboek_id from stages ";
+            $query .= "WHERE stagebegeleider_id = '$id'";
+            $result = $this->datahandler->readsData($query);
+            $results = $result->fetchAll();
+
+            return $results;
+
+        } catch (PDOException $e) {
+            echo "Fout opgetreden: " . $e;
+        }
+    }
 
   public function readAllContractsByTeacherId($id)
   {
@@ -90,18 +105,21 @@ class Contract extends Main
     try {
       $query = "SELECT schoolnaam FROM gebruikers WHERE id = '$id'";
       $result = $this->datahandler->readsData($query);
+      var_dump($query);
       $results = $result->fetchAll();
 
       $schoolname = $results[0]['schoolnaam'];
 
       $query = "SELECT id FROM gebruikers WHERE schoolnaam = '$schoolname' AND is_schoolaccount = 1";
+      var_dump($query);
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
       $schoolAccountId = $results[0]['id'];
 
-      $query = "SELECT * from stages ";
+      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, schoolaccount_id, vertrouwenspersoon_id, ouder_id, logboek_id from stages";
       $query .= "WHERE schoolaccount_id = '$schoolAccountId'";
+      var_dump($query); die;
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
