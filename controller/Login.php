@@ -12,10 +12,10 @@ class Login
 
   public function Index()
   {
-      session_start();
+    session_start();
     include_once 'view/login.php';
-    if(isset($_SESSION)) {
-       var_dump($_SESSION);
+    if(isset($_SESSION["user"])) {
+      var_dump($_SESSION);
         header('Location: ' . SERVER_URL . '/Login/checkAccountType/' . $_SESSION["user"]);
     }
   }
