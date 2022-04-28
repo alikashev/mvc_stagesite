@@ -4,14 +4,6 @@
 
     $userId = 7;
     $stage = $logboekModel->stageinfo_ophalen($userId);
-
-    $visibility = "visible";
-    session_start();
-    var_dump($_SESSION);
-    if(isset($_SESSION["dagId"])) {
-        $visibility = "visible";
-
-    }
 ?>
 
 <style>
@@ -85,7 +77,6 @@
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        visibility: <?php echo $visibility; ?>;
     }
 
 </style>
@@ -101,24 +92,6 @@
     </div>  
 </form>
 
-<div id="bewerk_dag">
-    <div id="header">
-        <h3>Bewerk het huidige logboek</h3>
-    </div>
-
-    <div id="body">
-    <form method="post">
-        <input type="hidden" name="dag"></input>
-        Beschrijving Werkzaamheden:
-        <textarea style="height: 40%; width: 100%;" name="beschrijving"></textarea><br/>
-        Aantal uur gewerkt:
-        <input type="number" name="uur_gewerkt"></input><br/><br/>
-        <input type="submit" name="annuleren" value="Annuleren" onclick="annulerenFunctie();"></input>
-        <input type="submit" name="bewerk" value="Opslaan" onclick="opslaanFunctie();"></input>
-    </form>
-    </div>
-</div>
-
 <script>
     function wijzigFunctie() {
         //neem id van de dag mee in url, ook wijzig meenemen in url
@@ -131,10 +104,10 @@
 
     function annulerenFunctie() {
         //neem id van de dag mee in url, ook indien meenemen in url
-        window.location.href = '../controller/LogboekController.php';
+        // window.location.href = 'controller/LogboekController';
     }
 
     function opslaanFunctie() {
-        
+        // window.location.href = 'controller/LogboekController';
     }
 </script>

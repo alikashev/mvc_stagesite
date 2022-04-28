@@ -42,6 +42,14 @@
             return $result->fetchAll(PDO::FETCH_OBJ);
         }
 
+        function logboekDag_ophalen($id) {
+            // haal de data van alle logboek dagen op
+            $query = "SELECT * FROM logboek_dagen WHERE id = $id";
+            $result = $this->datahandler->readsData($query);
+
+            return $result->fetchObject();
+        }
+
         function stageinfo_ophalen($userId) {
             // haal de data van alle stages op
             $query = "SELECT * FROM stages WHERE stagiair_id = $userId";
@@ -69,7 +77,11 @@
                 }
             }
         }
+
+        function bewerkDag($id, $beschrijving, $uurGewerkt) {
+            //bewerkt de dag met het meegegeven id
+            $query = "UPDATE logboek_dagen SET beschrijving_werkzaamheden = '$beschrijving', uur_gewerkt = $uurGewerkt WHERE id = $id";
+            $result = $this->datahandler->updateData($query);
+        }
     }
-
-
 ?>

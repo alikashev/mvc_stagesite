@@ -19,6 +19,7 @@ class Router
    */
   public function determineDestination($packets='')
   {
+    var_dump($packets);
     // readPackets
     // Do our default checks and set URL params if absent
     if(isset($packets[2]) && $packets[2] != ''){
