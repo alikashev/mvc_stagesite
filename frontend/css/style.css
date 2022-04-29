@@ -164,3 +164,18 @@ a.register:hover {
         display: none;
     }
 }
+
+.header-content {
+    width: 100%;
+    display: flex;
+    margin: 10px;
+}
+
+.header-img{
+    margin-right: 10px;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+}
