@@ -88,26 +88,5 @@
         <div id='logboekDagenContainer'>
             <?php $toon_dagen = $logboekView->toon_logboek_dagen($stage->logboek_id); ?>
         </div>
-        <a href=''><button>Alle ingevulde uren indienen</button></a>
     </div>  
 </form>
-
-<script>
-    function wijzigFunctie() {
-        //neem id van de dag mee in url, ook wijzig meenemen in url
-    
-    }
-
-    function indienFunctie() {
-        //neem id van de dag mee in url, ook indien meenemen in url
-    }
-
-    function annulerenFunctie() {
-        //neem id van de dag mee in url, ook indien meenemen in url
-        // window.location.href = 'controller/LogboekController';
-    }
-
-    function opslaanFunctie() {
-        // window.location.href = 'controller/LogboekController';
-    }
-</script>

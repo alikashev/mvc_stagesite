@@ -1,6 +1,7 @@
 <?php
     require_once "model/DataHandler.php";
     // require_once "../model/LogboekModel.php";
+    $url = SERVER_URL . "/LogboekController/";
 ?>
 
 <div id="bewerk_dag">
@@ -14,8 +15,8 @@
         <textarea style="height: 40%; width: 100%;" name="beschrijving"><?php echo $dag->beschrijving_werkzaamheden?></textarea><br/>
         Aantal uur gewerkt:
         <input type="number" name="uur_gewerkt" value="<?php echo $dag->uur_gewerkt?>"></input><br/><br/>
-        <input type="submit" name="annuleren" value="Annuleren" onclick="annulerenFunctie();"></input>
-        <input type="submit" name="bewerk" value="Opslaan" onclick="opslaanFunctie();"></input>
+        <a href='<?php echo $url ?>'>Annuleren</a>
+        <input type="submit" name="bewerk" value="Opslaan"></input>
     </form>
     </div>
 </div>

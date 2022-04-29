@@ -1,7 +1,7 @@
 <?php
     require_once 'model/LogboekModel.php';
     require_once 'view/LogboekView.php';
-    require_once "view/compleetLogboek.php";
+    // require_once "view/compleetLogboek.php";
 
     class LogboekController {
         public function __construct(){
@@ -12,19 +12,20 @@
         }
 
         public function Index() {
-            // self::toonLogboek();
+            self::toonLogboek();
         }
 
         public function toonLogboek() {
-            // $logboekModel = new LogboekModel();
-            // $logboekView = new LogboekView();
+            $logboekModel = new LogboekModel();
+            $logboekView = new LogboekView();
 
-            // $userId = 7;
-            // $stage = $logboekModel->stageinfo_ophalen($userId);
-            // require_once "view/compleetLogboek.php";
+            $userId = 7;
+            $stage = $logboekModel->stageinfo_ophalen($userId);
+            require_once "view/compleetLogboek.php";
         }
 
         public function bewerkDag($id) {
+            self::toonLogboek();
             $dag = $this->Logboek->logboekDag_ophalen($id);
             include "view/logboekDag.php";  
 
@@ -33,13 +34,30 @@
                 $uurGewerkt = $_POST["uur_gewerkt"];
 
                 $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
-                header("location: logboekcontroller");
+                header("location: ../../LogboekController");
             }
+        }
 
-            if(isset($_POST["annuleren"])) {
-                header("Location: " . SERVER_URL . "/logboekcontroller/");
-                // echo "<script>alert('test')</script>";
+        function indienDag($id) {
+            //bewerkt de dag met het meegegeven id
+            $this->Logboek->indienDag($id);
+        }
+
+        function indienDagen($id) {
+            //bewerkt de dag met het meegegeven id
+            $id = (int)$id;
+            $id2 = $id - 7;
+            $ids = array();
+
+            while ($id > $id2) {
+                $dag = $this->Logboek->logboekDag_ophalen($id);
+                if($dag->uur_gewerkt) {
+                    array_push($ids, $id);
+                }
+                $id--;
             }
+            $this->Logboek->indienDagen($ids);
+            header("location: ../../LogboekController");
         }
     }
 ?>

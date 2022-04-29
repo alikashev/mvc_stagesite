@@ -83,5 +83,18 @@
             $query = "UPDATE logboek_dagen SET beschrijving_werkzaamheden = '$beschrijving', uur_gewerkt = $uurGewerkt WHERE id = $id";
             $result = $this->datahandler->updateData($query);
         }
+
+        function indienDag($id) {
+            //bewerkt de dag met het meegegeven id
+            $query = "UPDATE logboek_dagen SET ingediend = 1 WHERE id = $id";
+            $result = $this->datahandler->updateData($query);
+            header("location: ../../LogboekController");
+        }
+
+        function indienDagen($ids) {
+            $ids = implode(",", $ids);
+            $query = "UPDATE logboek_dagen SET ingediend = 1 WHERE id IN ($ids)";
+            $result = $this->datahandler->updateData($query);
+        }
     }
 ?>
