@@ -15,7 +15,8 @@ class Home {
     public function __destruct(){}
 
     public function Index()
-    {
+    {   
+        $obj = "hoi";
         include_once 'view/home.php';
     }
 }

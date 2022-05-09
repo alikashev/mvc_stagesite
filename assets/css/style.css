@@ -160,13 +160,23 @@ ul.CTAs a {
 
 a.login {
     background: #47748b;
-    color: #7386D5;
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
 }
 
 a.register,
 a.register:hover {
     background: #6d7fcc !important;
     color: #fff !important;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
 }
 
 /* ---------------------------------------------------
