@@ -8,7 +8,7 @@
     <title>FrontEnd -  Stagesite</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <script src="<?php SERVER_URL . "assets/js/main.js"?>"></script>
+    <script src="<?=SERVER_URL . "\assets/js/main.js"?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
             <ul class="list-unstyled components">
                 <p>Volgstage</p>
                 <li>
-                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">Uploaden</a>
+                    <a href="javascript:loadPage('<?= SERVER_URL."/uploadsController/collectReadAllFiles"?>')">Uploaden</a>
                 </li>
                 <li>
                     <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
@@ -69,7 +69,7 @@
             <div class="line"></div>
 
             <div class="demo">
-           
+            <?= $obj?>
             </div>
 
             <div class="line"></div>

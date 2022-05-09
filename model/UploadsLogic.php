@@ -57,7 +57,7 @@ class UploadsLogic extends Main
 
     try {
       $query = "SELECT * FROM bestanden";
-      $result = $this->dataHandler->readsData($query);
+      $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
       return $this->outputData->createTable($results);
