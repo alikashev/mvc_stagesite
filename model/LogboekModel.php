@@ -86,14 +86,21 @@
 
         function indienDag($id) {
             //bewerkt de dag met het meegegeven id
-            $query = "UPDATE logboek_dagen SET ingediend = 1 WHERE id = $id";
+            $query = "UPDATE logboek_dagen SET ingediend = 1 WHERE id = $id AND uur_gewerkt > 0";
             $result = $this->datahandler->updateData($query);
             header("location: ../../LogboekController");
         }
 
         function indienDagen($ids) {
             $ids = implode(",", $ids);
-            $query = "UPDATE logboek_dagen SET ingediend = 1 WHERE id IN ($ids)";
+            if($ids != "") {
+                $query = "UPDATE logboek_dagen SET ingediend = 1 WHERE id IN ($ids)";
+                $result = $this->datahandler->updateData($query);
+            }
+        }
+
+        function indienAlleDagen($logboekId) {
+            $query = "UPDATE logboek_dagen SET ingediend = 1  WHERE logboek_id = $logboekId AND ingediend = 0 AND uur_gewerkt > 0;";
             $result = $this->datahandler->updateData($query);
         }
     }

@@ -24,7 +24,13 @@
                 } else {
                     $ingediend = "<a href='" . SERVER_URL . "/LogboekController/indienDag/" . $logboekdag->id . "'>Indienen</a>";
                 }
-                echo "<div class='logboekDag'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving'>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt'>Uren gewerkt: $logboekdag->uur_gewerkt</div><div class='logboekDag_urenIngediend'>$ingediend</div><div class='logboekDag_wijzig'>$wijzig</div></div>";
+                
+                //check of deze dag de huidige dag is
+                if($dag == date('d-m-Y')) {
+                    echo "<div id='huidigeDag' class='logboekDag'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving'>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt'>Uren gewerkt: $logboekdag->uur_gewerkt</div><div class='logboekDag_urenIngediend'>$ingediend</div><div class='logboekDag_wijzig'>$wijzig</div></div>";
+                } else {
+                    echo "<div class='logboekDag'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving'>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt'>$logboekdag->uur_gewerkt Uur gewerkt</div><div class='logboekDag_urenIngediend'>$ingediend</div><div class='logboekDag_wijzig'>$wijzig</div></div>";
+                }
                
                 $check = $aantalDagen % 7;
                 if(!$check) {

@@ -16,12 +16,13 @@
         }
 
         public function toonLogboek() {
+            require_once "view/compleetLogboek.php";
+
             $logboekModel = new LogboekModel();
             $logboekView = new LogboekView();
 
             $userId = 7;
             $stage = $logboekModel->stageinfo_ophalen($userId);
-            require_once "view/compleetLogboek.php";
         }
 
         public function bewerkDag($id) {
@@ -57,6 +58,12 @@
                 $id--;
             }
             $this->Logboek->indienDagen($ids);
+            header("location: ../../LogboekController");
+        }
+
+        function indienAlleDagen($logboekId) {
+            //bewerkt alle dagen met ingevulde uren
+            $this->Logboek->indienAlleDagen($logboekId);
             header("location: ../../LogboekController");
         }
     }

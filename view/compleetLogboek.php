@@ -4,6 +4,16 @@
 
     $userId = 7;
     $stage = $logboekModel->stageinfo_ophalen($userId);
+
+    $url = $_SERVER['REQUEST_URI'];
+    $packets = explode('/',$url);
+
+    $visibility = "visible";
+    if(isset($packets[3])) {
+        if($packets[3] == "bewerkDag") {
+            $visibility = "hidden";
+        }
+    }
 ?>
 
 <style>
@@ -79,9 +89,20 @@
         transform: translate(-50%, -50%);
     }
 
+    #huidigeDag {
+        background-color: cyan;
+    }
+
+    #indienAlleDagen {
+        right: 0; 
+        position: fixed;
+        border: 1px solid black;
+        padding: 5px;
+        visibility: <?php echo $visibility?>;
+    }
 </style>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<a id="indienAlleDagen" href="<?php $url = SERVER_URL . "/LogboekController/indienAlleDagen/$stage->logboek_id"; echo $url; ?>">Dien alle dagen in met ingevulde uren</a>
 
 <form method='post'>
     <div id='logboek'>
@@ -90,3 +111,23 @@
         </div>
     </div>  
 </form>
+
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+    $packets = explode('/',$url);
+
+    if($packets[3] != "bewerkDag") {
+        echo 
+        "
+        <script>
+            var my_element = document.getElementById('huidigeDag');
+    
+            my_element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
+        </script>
+        ";
+    }
+?>
