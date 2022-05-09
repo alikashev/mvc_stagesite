@@ -7,6 +7,8 @@ define('SERVER_URL', "/" . "mvc_stagesite");
 define('VIEW_URL', SERVER_URL . "/" . "view");
 define('CONTROLLER_URL', SERVER_URL . "/" . "controller");
 
+define('JS_URL', SERVER_URL . "/" . "assets/js/main.js");
+
 // Includes
 require(ROOT_DIR .'model/Router.php');
 
