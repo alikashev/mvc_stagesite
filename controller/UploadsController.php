@@ -23,7 +23,7 @@ class UploadsController {
 
     public function collectReadAllFiles() {
         $obj = $this->UploadsLogic->readAllFiles();
-        include 'view/home.php';
+        include 'view/content.php';
     }
 
     public function collectUploadFile() {
