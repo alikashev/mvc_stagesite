@@ -176,7 +176,7 @@ class OutputData
 
   function createTableContracts($rows)
   {
-    return $this->createTable($rows, '/ContractController/create/', '/ContractController/update/', '', '/ContractController/delete/');
+    return $this->createTable($rows, '/ContractController/create/', '/ContractController/update/');
   }
 
 //  function createTableAdminContracts($rows)

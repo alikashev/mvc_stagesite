@@ -36,7 +36,7 @@ class UserController
 
     $obj = $this->outputData->createTableUsers($users);
 
-    include 'view/home.php';
+    include 'view/content.php';
   }
 
 

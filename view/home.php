@@ -30,26 +30,13 @@ $account = new Account();
                     <a href="javascript:loadPage('<?=SERVER_URL?>/UploadsController/collectReadAllFiles')">Uploaden</a>
                 </li>
                 <li>
-                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
+                    <a href="javascript:loadPage('<?=SERVER_URL?>/UserController/')">Gebruikers</a>
+                </li>
+                <li>
+                    <a href="javascript:loadPage('<?=SERVER_URL?>/ContractController/')">Stages</a>
                 </li>
                 <li>
                     <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
-                </li>
-                <li>
-                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
-                </li>
-            </ul>
-
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <?php if ($account->loginCheck()):?>
-                        <a class="logout" href="<?=SERVER_URL?>/Logout/">Logout</a>
-                    <?php else:?>
-                        <a class="login" href="<?=SERVER_URL?>/Login/">Login</a>
-                    <?php endif; ?>
-                </li>
-                <li>
-                    <a href="#" class="register">Registreren</a>
                 </li>
             </ul>
         </nav>
@@ -63,9 +50,13 @@ $account = new Account();
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <p>Hier wat tekst...</p>
                     </div>
-    
-                    <a href="#" class="login">Log in</a>
-        
+
+                    <?php if ($account->loginCheck()):?>
+                        <a class="logout" href="<?=SERVER_URL?>/Logout/">Logout</a>
+                    <?php else:?>
+                        <a class="login" href="<?=SERVER_URL?>/Login/">Login</a>
+                    <?php endif; ?>
+
                     <a href="#" class="register">Registreren</a>
                     
                 </div>
