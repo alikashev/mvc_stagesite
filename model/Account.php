@@ -8,6 +8,19 @@ class Account
     $this->User = new User();
   }
 
+  public function loginCheck()
+  {
+      if(!empty($_SESSION)) {
+         if (isset($_SESSION["user"])) {
+             return true;
+         } else {
+             return false;
+         }
+      } else {
+          return false;
+      }
+  }
+
   public function adminCheck()
   {
     if (!empty($_SESSION)) {
