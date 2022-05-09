@@ -16,7 +16,7 @@ class Home {
 
     public function Index()
     {
-        include_once 'frontend/home.php';
+        include_once 'view/home.php';
     }
 }
 

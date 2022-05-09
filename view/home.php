@@ -1,6 +1,4 @@
 
-<?php require_once(APP_DIR . 'view/' . "header.php")?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +13,11 @@
 </head>
 <body>
 
-<div class="wrapper"
+<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <img class="logo" src="../assets/img/logo-zwart.png" alt="">
+                <img class="logo" src="<?=SERVER_URL?>/assets/img/logo-zwart.png" alt="">
             </div>
 
             <ul class="list-unstyled components">
