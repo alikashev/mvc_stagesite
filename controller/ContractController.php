@@ -36,7 +36,7 @@ class ContractController
         }
 
         $obj = $this->OutputData->createTableContracts($contracts);
-        include 'view/home.php';
+        include 'view/content.php';
     }
 
     public function create()
