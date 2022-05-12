@@ -31,7 +31,7 @@ class UserController
       $users = $this->User->readAllBySchoolName($_SESSION["user"]);
     }
     else {
-      header('Location: ' . SERVER_URL . '/Login/');
+      header('Location: ' . SERVER_URL . '/Home/');
     }
 
     $obj = $this->outputData->createTableUsers($users);
@@ -49,7 +49,7 @@ class UserController
       $user = $this->User->readOneUser($_SESSION["user"]);
       include 'view/home.php';
     } else {
-      header('Location: ' . SERVER_URL . '/Login/');
+      header('Location: ' . SERVER_URL . '/Home/');
     }
   }
 
@@ -65,7 +65,7 @@ class UserController
       include 'view/SchoolSupervisorView/create_user.php';
     }
     else {
-      header('Location: ' . '/Login/');
+      header('Location: ' . '/Home/');
     }
 
     if (isset($_POST["submit"])) {
@@ -85,7 +85,7 @@ class UserController
       $study = $_POST["study"];
 
       $this->User->addUser($firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSupervisor, $isSchoolSupervisor, $isSchoolAccount, $isHumanResources, $isParent, $school, $study);
-      header('Location: ' . SERVER_URL . '/UserController/readAll');
+      header('Location: ' . SERVER_URL . '/Home');
     }
   }
 
@@ -101,7 +101,7 @@ class UserController
     } else if ($this->Account->schoolSupervisorCheck()) {
       include 'view/SchoolSupervisorView/update_user.php';
     } else {
-        header('Location: ' . SERVER_URL . '/Login/');
+        header('Location: ' . SERVER_URL . '/Home/');
     }
 
     if (isset($_POST["submit"])) {
@@ -122,7 +122,7 @@ class UserController
       $study = $_POST["study"];
 
       $this->User->updateUser($id, $firstName, $infix, $lastName, $email, $password, $phone, $isTeacher, $isSchoolSupervisor, $isSupervisor, $isSchoolAccount, $isHumanResources, $isParent, $school, $study);
-      header('Location: ' . SERVER_URL . '/UserController/readAll');
+      header('Location: ' . SERVER_URL . '/Home');
     }
   }
 }

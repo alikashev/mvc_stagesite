@@ -36,7 +36,7 @@ $account = new Account();
                     <a href="javascript:loadPage('<?=SERVER_URL?>/ContractController/')">Stages</a>
                 </li>
                 <li>
-                    <a href="javascript:loadPage('HIER DE LINK NAAR DE CONTROLLER')">navitem</a>
+                    <a href="javascript:loadPage('<?=SERVER_URL?>/LogboekController/')">Logboek</a>
                 </li>
             </ul>
         </nav>

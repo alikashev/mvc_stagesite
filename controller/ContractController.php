@@ -68,7 +68,7 @@ class ContractController
         } else if ($this->Account->schoolSupervisorCheck()) {
             include 'view/SchoolSupervisorView/create_contract.php';
         } else {
-            header('Location: ' . SERVER_URL . '/Login/');
+            header('Location: ' . SERVER_URL . '/Home/');
         }
 
         if (isset($_POST["submit"])) {
@@ -86,7 +86,7 @@ class ContractController
             $humanResourcesId = !empty($_POST["humanResourcesId"]) ? $_POST["humanResourcesId"] : $_SESSION["user"];
             $schoolAccountId = !empty($_POST["schoolAccountId"]) ? $_POST["schoolAccountId"] : $_SESSION["user"];
             $this->Contract->addContract($internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $schoolSupervisorId, $parentId, $teacherId, $humanResourcesId, $schoolAccountId);
-            header("Location: " . SERVER_URL . "/ContractController/readAll/");
+            header("Location: " . SERVER_URL . "/Home");
         }
     }
 
@@ -120,7 +120,7 @@ class ContractController
         } else if ($this->Account->schoolSupervisorCheck()) {
             include 'view/SchoolSupervisorView/update_contract.php';
         } else {
-            header('Location: ' . SERVER_URL . '/Login/');
+            header('Location: ' . SERVER_URL . '/Home');
         }
 
         $curUser = $this->User->readOneUser($_SESSION["user"]);
@@ -141,7 +141,7 @@ class ContractController
             $schoolAccountId = !empty($_POST["schoolAccountId"]) ? $_POST["schoolAccountId"] : $curUser[0]['id'];
 
             $this->Contract->updateContract($id, $internId, $companyId, $mandatoryHours, $approvedHours, $startDate, $endDate, $finished, $supervisorId, $teacherId, $schoolSupervisorId, $parentId, $hrId, $schoolAccountId);
-            header('Location: ' . SERVER_URL . '/ContractController/readAll/');
+            header('Location: ' . SERVER_URL . '/Home');
         }
     }
 }

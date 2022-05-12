@@ -38,7 +38,7 @@ class UploadsLogic extends Main
         $sql = "INSERT INTO bestanden (naam, upload_datum, uploader_id, bestand_omschrijving, bestand_path) ";
         $sql .= "VALUES('$filename','$date','$upId','$filedesc', '$path')";
         var_dump($sql);
-        $result = $this->dataHandler->createData($sql);
+        $result = $this->datahandler->createData($sql);
 
       } catch (PDOException $e) {
         if ($e->getCode() == 1062) {
@@ -77,7 +77,7 @@ class UploadsLogic extends Main
 
       $query = "SELECT naam, bestand_path FROM bestanden ";
       $query .= "WHERE id='$id'";
-      $result = $this->dataHandler->readsData($query);
+      $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
       return $this->outputData->readFile($results);
@@ -96,7 +96,7 @@ class UploadsLogic extends Main
 
       $query = "SELECT naam, bestand_path FROM bestanden ";
       $query .= "WHERE id='$id'";
-      $result = $this->dataHandler->readsData($query);
+      $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
       foreach ($results as $row) {
@@ -115,7 +115,7 @@ class UploadsLogic extends Main
 
       $query = "DELETE FROM bestanden ";
       $query .= "WHERE id=$id";
-      $result = $this->dataHandler->deleteData($query);
+      $result = $this->datahandler->deleteData($query);
 
     } catch (PDOException $e) {
 

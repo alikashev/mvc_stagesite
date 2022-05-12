@@ -154,55 +154,10 @@ class OutputData
     return $this->createTable($rows, '/UserController/create/', '/UserController/update/', '');
   }
 
-//  function createTableAdminUsers($rows)
-//  {
-//    return $this->createTable($rows, '/Admin/collectAddUser/', '/Admin/collectUpdateUser/', '/Admin/collectReadOneUser/');
-//  }
-//
-//  function createTableTeacherUsers($rows)
-//  {
-//    return $this->createTable($rows, '/Teacher/collectAddUser/', '/Teacher/collectUpdateUser/', '/Teacher/collectReadOneUser/');
-//  }
-//
-//  function createTableSupervisorUsers($rows)
-//  {
-//    return $this->createTable($rows, '/Supervisor/collectAddUser/', '/Supervisor/collectUpdateUser/', '/Supervisor/collectReadOneUser/');
-//  }
-//
-//  function createTableSchoolUsers($rows)
-//  {
-//    return $this->createTable($rows, '/School/collectAddUser/', '/School/collectUpdateUser/', '/School/collectReadOneUser/');
-//  }
-
   function createTableContracts($rows)
   {
     return $this->createTable($rows, '/ContractController/create/', '/ContractController/update/');
   }
-
-//  function createTableAdminContracts($rows)
-//{
-//  return $this->createTable($rows, '/Admin/collectAddContract/', '/Admin/collectUpdateContract/', '/Admin/collectReadOneContract/', '/Admin/collectDeleteContract/');
-//}
-
-//  function createTableTeacherContracts($rows)
-//  {
-//    return $this->createTable($rows, '/Teacher/collectAddContract/', '/Teacher/collectUpdateContract/', '/Teacher/collectReadOneContract/', '/Teacher/collectDeleteContract/');
-//  }
-//
-//  function createTableSupervisorContracts($rows)
-//  {
-//    return $this->createTable($rows, '/Supervisor/collectAddContract/', '/Supervisor/collectUpdateContract/', '/Supervisor/collectReadOneContract/', '/Supervisor/collectDeleteContract/');
-//  }
-//
-//  function createTableSchoolSupervisorContracts($rows)
-//  {
-//    return $this->createTable($rows, '/SchoolSupervisor/collectAddContract/', '/SchoolSupervisor/collectUpdateContract/', '/SchoolSupervisor/collectReadOneContract/', '/SchoolSupervisor/collectDeleteContract/');
-//  }
-//
-//  function createTableSchoolContracts($rows)
-//  {
-//    return $this->createTable($rows, '/School/collectAddContract/', '/School/collectUpdateContract/', '/School/collectReadOneContract/', '/School/collectDeleteContract/');
-//  }
 
   function createTableAdminCompanies($rows)
   {
