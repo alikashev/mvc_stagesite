@@ -1,40 +1,45 @@
 <style>
-  .inputs {
-    margin-bottom: 1rem;
+    form {
+    padding: 1rem;
   }
 </style>
 <form method="post" action="<?= SERVER_URL . '/Register/registerUser/'?>">
-    <div class="inputs first_name">
-        <label for="firstName">Voornaam:</label>
-        <input name="firstName" type="text" id="firstName">
+    <div class="mb-3">
+        <label for="firstName" class="form-label">Voornaam</label>
+        <input name="firstName" type="text" id="firstName" class="form-control">
     </div>
-    <div class="inputs infix">
-        <label for="infix">Tussenvoegsel:</label>
-        <input name="infix" type="text" id="infix">
+    <div class="mb-3">
+        <label for="infix" class="form-label">Tussenvoegsel</label>
+        <input name="infix" type="text" id="infix" class="form-control">
     </div>
-    <div class="inputs last_name">
-        <label for="lastName">Achternaam:</label>
-        <input name="lastName" type="text" id="lastName">
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Achternaam</label>
+        <input name="lastName" type="text" id="lastName" class="form-control">
     </div>
-    <div class="inputs password">
-        <label for="password">Password:</label>
-        <input required name="password" type="password" id="password">
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input required name="password" type="password" id="password" class="form-control">
     </div>
-    <div class="inputs email">
-        <label for="email">Email:</label>
-        <input required type="email" name="email" id="email">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input required type="email" name="email" id="email" class="form-control">
     </div>
-    <div class="inputs phone">
-        <label for="phone">Telefoonnummer:</label>
-        <input type="tel" name="phone" id="phone">
+    <div class="mb-3">
+        <label for="phone" class="form-label">Telefoonnummer</label>
+        <input type="tel" name="phone" id="phone" class="form-control">
     </div>
-    <div class="inputs school">
-        <label for="school">School:</label>
-        <input type="text" name="school" id="school">
+    <div class="mb-3">
+        <label for="school" class="form-label">School</label>
+        <input type="text" name="school" id="school" class="form-control">
     </div>
-    <div class="inputs study">
-        <label for="study">Studie:</label>
-        <input type="text" name="study" id="study">
+    <div class="mb-3">
+        <label for="study" class="form-label">Studie</label>
+        <input type="text" name="study" id="study" class="form-control">
     </div>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Registreren" class="btn btn-primary">
 </form>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
