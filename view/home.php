@@ -52,13 +52,14 @@ $account = new Account();
                     </div>
 
                     <?php if ($account->loginCheck()):?>
-                        <a class="logout" href="<?=SERVER_URL?>/Logout/">Logout</a>
+                        <a class="logout" href="<?=SERVER_URL?>/Logout/">Uitloggen</a>
                     <?php else:?>
-                        <a class="login" href="<?=SERVER_URL?>/Login/">Login</a>
+                        <a class="login" href="<?=SERVER_URL?>/Login/">Inloggen</a>
                     <?php endif; ?>
 
-                    <a href="#" class="register">Registreren</a>
-                    
+                  <?php if (!$account->loginCheck()):?>
+                      <a class="register" href="<?=SERVER_URL?>/Register/">Registreren</a>
+                  <?php endif; ?>
                 </div>
             </nav>
 

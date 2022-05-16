@@ -32,7 +32,7 @@ class ContractController
         } else if ($this->Account->schoolSupervisorCheck()) {
             $contracts = $this->Contract->readAllContractBySchoolSupervisorId($_SESSION["user"]);
         } else {
-            header('Location: ' . SERVER_URL . '/Login/');
+            header('Location: ' . SERVER_URL . '/Home/');
         }
 
         $obj = $this->OutputData->createTableContracts($contracts);
