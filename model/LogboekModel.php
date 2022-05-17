@@ -1,11 +1,11 @@
 <?php
-    require_once 'model/datahandler.php';
-    require_once 'view/outputData.php';
+    require_once 'model/DataHandler.php';
+    require_once 'view/OutputData.php';
+    require_once 'model/Main.php';
 
-    class LogboekModel {
+    class LogboekModel extends Main{
         public function __construct() {
-            $this->datahandler = new datahandler("localhost", "mysql", "stagesite","root", "");
-            $this->outputData = new OutputData();
+          parent::__construct();
         }
 
         public function __destruct(){}

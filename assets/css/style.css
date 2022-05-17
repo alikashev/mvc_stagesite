@@ -168,6 +168,16 @@ a.login {
     text-decoration: none;
 }
 
+a.logout {
+    background: #47748b;
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+}
+
 a.register,
 a.register:hover {
     background: #6d7fcc !important;

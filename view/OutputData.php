@@ -76,12 +76,12 @@ class OutputData
 
   function createTable($rows, $create = '', $update = '', $read = '', $delete = '')
   {
-    $html = "<div><a href=\"" . SERVER_URL . $create . "\">Create new row</a></div>";
+    $html = "<div><a class='btn btn-primary' href=\"" . SERVER_URL . $create . "\">Add</a></div>";
     $html .= "<br>";
-    $html .= '<table class="tablerow" border="1">';
+    $html .= '<table class="table table-striped">';
     $html .= '<tr>';
     foreach ($rows[0] as $key => $value) {
-      $html .= "<th>" . $key . "</th>";
+      $html .= "<th class='col'>" . $key . "</th>";
     }
     $html .= "</tr>";
     foreach ($rows as $row) {
@@ -90,13 +90,13 @@ class OutputData
         $html .= "<td>" . $columns . "</td>";
       }
       if ($update !== '') {
-        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . $update . $row["id"] . "\">Update</a></td>";
+        $html .= "<td><a class=\"Button-td btn btn-primary\" href=\"" . SERVER_URL . $update . $row["id"] . "\">Update</a></td>";
       }
       if ($read !== '') {
-        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . $read . $row["id"] . "\">Read</a></td>";
+        $html .= "<td><a class=\"Button-td btn btn-info\" href=\"" . SERVER_URL . $read . $row["id"] . "\">Read</a></td>";
       }
       if ($delete !== '') {
-        $html .= "<td><a class=\"Button-td\" href=\"" . SERVER_URL . $delete . $row["id"] . "\">Delete</a></td>";
+        $html .= "<td><a class=\"Button-td btn btn-danger\" href=\"" . SERVER_URL . $delete . $row["id"] . "\">Delete</a></td>";
       }
     }
     $html .= '</tr>';
@@ -154,55 +154,10 @@ class OutputData
     return $this->createTable($rows, '/UserController/create/', '/UserController/update/', '');
   }
 
-//  function createTableAdminUsers($rows)
-//  {
-//    return $this->createTable($rows, '/Admin/collectAddUser/', '/Admin/collectUpdateUser/', '/Admin/collectReadOneUser/');
-//  }
-//
-//  function createTableTeacherUsers($rows)
-//  {
-//    return $this->createTable($rows, '/Teacher/collectAddUser/', '/Teacher/collectUpdateUser/', '/Teacher/collectReadOneUser/');
-//  }
-//
-//  function createTableSupervisorUsers($rows)
-//  {
-//    return $this->createTable($rows, '/Supervisor/collectAddUser/', '/Supervisor/collectUpdateUser/', '/Supervisor/collectReadOneUser/');
-//  }
-//
-//  function createTableSchoolUsers($rows)
-//  {
-//    return $this->createTable($rows, '/School/collectAddUser/', '/School/collectUpdateUser/', '/School/collectReadOneUser/');
-//  }
-
   function createTableContracts($rows)
   {
     return $this->createTable($rows, '/ContractController/create/', '/ContractController/update/');
   }
-
-//  function createTableAdminContracts($rows)
-//{
-//  return $this->createTable($rows, '/Admin/collectAddContract/', '/Admin/collectUpdateContract/', '/Admin/collectReadOneContract/', '/Admin/collectDeleteContract/');
-//}
-
-//  function createTableTeacherContracts($rows)
-//  {
-//    return $this->createTable($rows, '/Teacher/collectAddContract/', '/Teacher/collectUpdateContract/', '/Teacher/collectReadOneContract/', '/Teacher/collectDeleteContract/');
-//  }
-//
-//  function createTableSupervisorContracts($rows)
-//  {
-//    return $this->createTable($rows, '/Supervisor/collectAddContract/', '/Supervisor/collectUpdateContract/', '/Supervisor/collectReadOneContract/', '/Supervisor/collectDeleteContract/');
-//  }
-//
-//  function createTableSchoolSupervisorContracts($rows)
-//  {
-//    return $this->createTable($rows, '/SchoolSupervisor/collectAddContract/', '/SchoolSupervisor/collectUpdateContract/', '/SchoolSupervisor/collectReadOneContract/', '/SchoolSupervisor/collectDeleteContract/');
-//  }
-//
-//  function createTableSchoolContracts($rows)
-//  {
-//    return $this->createTable($rows, '/School/collectAddContract/', '/School/collectUpdateContract/', '/School/collectReadOneContract/', '/School/collectDeleteContract/');
-//  }
 
   function createTableAdminCompanies($rows)
   {
