@@ -3,7 +3,7 @@
 require_once 'model/User.php';
 require_once 'model/Account.php';
 require_once 'view/OutputData.php';
-
+ 
 class UserController
 {
   public function __construct()
@@ -11,7 +11,7 @@ class UserController
 
     $this->User = new User();
     $this->outputData = new OutputData();
-    $this->Account = new Account();
+    $this->Account = new Account(); 
   }
 
 
@@ -35,7 +35,6 @@ class UserController
     }
 
     $obj = $this->outputData->createTableUsers($users);
-
     include 'view/content.php';
   }
 
