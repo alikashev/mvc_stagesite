@@ -15,7 +15,7 @@ class OutputData
   function createSelectBox($data, $selected, $name, $selectedName = '')
   {
 
-    $html = '<select name="' . $name . '">';
+    $html = '<select class="form-select" name="' . $name . '">';
 
     foreach ($data as $row) {
       if ($selectedName !== '') {

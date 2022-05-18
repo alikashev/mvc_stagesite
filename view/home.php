@@ -1,4 +1,4 @@
-
+        <?php include_once 'view/sidebar.php'; ?>
         <!-- Sidebar  -->
 
         <h2>Collapsible Sidebar Using Bootstrap 4</h2>
