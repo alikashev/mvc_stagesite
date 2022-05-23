@@ -40,10 +40,10 @@ $account = new Account();
                         <a href="javascript:loadPage('<?= SERVER_URL ?>/ContractController/')">Stages</a>
                     </li>
                 <?php endif; ?>
+                <li>
+                    <a href="javascript:loadPage('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
+                </li>
             <?php endif; ?>
-            <li>
-                <a href="javascript:loadPage('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
-            </li>
             <li>
                 <a href="javascript:loadPage('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
             </li>
