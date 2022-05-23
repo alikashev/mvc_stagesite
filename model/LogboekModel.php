@@ -63,7 +63,6 @@
             $query = "SELECT * FROM stages WHERE id = $stageId";
             $result = $this->datahandler->readsData($query);
 
-
             return $result->fetchObject();
         }
 

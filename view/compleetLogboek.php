@@ -21,11 +21,17 @@
         box-sizing: border-box;
     }
 
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
     #logboek {
         background-color: gray;
         border: 1px solid black;
         width: 80%;
         padding: 2px;
+        float: left;
     }
 
     .logboekDag {
@@ -94,7 +100,7 @@
     }
 
     #indienAlleDagen {
-        right: 0; 
+        left: 0; 
         position: fixed;
         border: 1px solid black;
         padding: 5px;
@@ -102,7 +108,7 @@
     }
 </style>
 
-<a id="indienAlleDagen" href="<?php $url = SERVER_URL . "/LogboekController/indienAlleDagen/$stage->logboek_id"; echo $url; ?>">Dien alle dagen in met ingevulde uren</a>
+<a id="indienAlleDagen" href="<?php $url = SERVER_URL . "/LogboekController/indienAlleDagen/$stage->logboek_id"; echo $url; ?>">Dien alle dagen in met uren</a>
 
 <form method='post'>
     <div id='logboek'>
@@ -116,7 +122,8 @@
     $url = $_SERVER['REQUEST_URI'];
     $packets = explode('/',$url);
 
-    if($packets[3] != "bewerkDag") {
+    if($packets[3] == "bewerkDag") {          
+    } else {
         echo 
         "
         <script>

@@ -1,7 +1,9 @@
 <?php
+    ob_start();
     require_once 'model/LogboekModel.php';
     require_once 'view/LogboekView.php';
-    // require_once "view/compleetLogboek.php";
+    require_once 'view/dashboardMenuView.php';
+    require_once "view/compleetLogboek.php";
 
     class LogboekController {
         public function __construct(){
@@ -16,8 +18,6 @@
         }
 
         public function toonLogboek() {
-            require_once "view/compleetLogboek.php";
-
             $logboekModel = new LogboekModel();
             $logboekView = new LogboekView();
 
@@ -35,7 +35,7 @@
                 $uurGewerkt = $_POST["uur_gewerkt"];
 
                 $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
-                header("location: ../../LogboekController");
+                header("Refresh: 0; url=" . SERVER_URL . "/LogboekController/");
             }
         }
 
