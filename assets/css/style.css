@@ -230,3 +230,8 @@ a.register:hover {
     width: 200px;
     height: 100px;
 }
+.imge {
+    width: 500px;
+    height: 200px;
+    background-color: red;
+  }
