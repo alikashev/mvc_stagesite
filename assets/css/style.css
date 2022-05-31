@@ -276,3 +276,7 @@ a.register:hover {
     width: 100px;
     text-align: center;
 }
+
+#navbarSupportedContent {
+    justify-content: flex-end;
+}
