@@ -18,8 +18,8 @@ $account = new Account();
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -32,52 +32,43 @@ $account = new Account();
 </head>
 <body>
 
-<div class="wrapper">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
-        </div>
+<div id="content">
 
-        <ul class="list-unstyled components">
-            <p>Volgstage</p>
-            <?php if ($account->loginCheck()): ?>
-                <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
-                    <li>
-                        <a href="javascript:loadPage('<?= SERVER_URL ?>/UserController/')">Gebruikers</a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
-                    <li>
-                        <a href="javascript:loadPage('<?= SERVER_URL ?>/ContractController/')">Stages</a>
-                    </li>
-                <?php endif; ?>
-            <?php endif; ?>
-            <li>
-                <a href="javascript:loadPage('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
-            </li>
-            <li>
-                <a href="javascript:loadPage('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
-            </li>
-        </ul>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
 
-    <div id="content">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+                <ul class="navitem list-unstyled components">
+                    <?php if ($account->loginCheck()): ?>
+                        <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
+                            <li>
+                                <a href="javascript:loadPage('<?= SERVER_URL ?>/UserController/')">Gebruikers</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
+                            <li>
+                                <a href="javascript:loadPage('<?= SERVER_URL ?>/ContractController/')">Stages</a>
+                            </li>
+                        <?php endif; ?>
+                        <li>
+                            <a href="javascript:loadPage('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
+                        </li>
+                        <li>
+                            <a href="javascript:loadPage('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($account->loginCheck()): ?>
+                        <a class="logout" href="<?= SERVER_URL ?>/Logout/">Uitloggen</a>
+                    <?php else: ?>
+                        <a class="login" href="<?= SERVER_URL ?>/Login/">Inloggen</a>
+                    <?php endif; ?>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <p>Hier wat tekst...</p>
-                </div>
-
-                <?php if ($account->loginCheck()):?>
-                    <a class="logout" href="<?=SERVER_URL?>/Logout/">Uitloggen</a>
-                <?php else:?>
-                    <a class="login" href="<?=SERVER_URL?>/Login/">Inloggen</a>
-                <?php endif; ?>
-
-                <?php if (!$account->loginCheck()):?>
-                    <a class="register" href="<?=SERVER_URL?>/Register/">Registreren</a>
-                <?php endif; ?>
+                    <?php if (!$account->loginCheck()): ?>
+                        <a class="register" href="<?= SERVER_URL ?>/Register/">Registreren</a>
+                    <?php endif; ?>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
