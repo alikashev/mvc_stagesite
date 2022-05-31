@@ -33,12 +33,13 @@ $account = new Account();
 <body>
 
     <div id="content">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
+                    <div class="logo-conainer">
+                        <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
+                    </div>
 
                     <ul class="navitem list-unstyled components">
                         <?php if ($account->loginCheck()): ?>

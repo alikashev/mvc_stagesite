@@ -1,34 +1,25 @@
         <?php include_once 'view/sidebar.php'; ?>
         <!-- Sidebar  -->
 
-        <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-
         <div class="header-content">
-            <img 
-            class="header-img" 
-            src="https://via.placeholder.com/300x200" 
-            alt=""
-            data-aos="fade-right"
-            data-aos-offset="200"
-            data-aos-delay="50"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            >
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in mollit anim id est laborum.</p>
+            
         </div>
 
         <div class="line"></div>
-
+        <div class="img-content">
+            <h2>Collapsible Sidebar Using Bootstrap 4</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in mollit anim id est laborum.
+            </p>
+        </div>
         <div class="demo">
           <?= $obj ?>
         </div>
 
         <div class="line"></div>
-        <img class='balk' src="assets/img/balkje.svg" alt="">
+        <img class='balk' src="assets/img/blauwe_streep.svg" alt="">
         <div class="content-section">
         <h2>Lorem Ipsum Dolor</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
