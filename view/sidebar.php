@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once "model/Account.php";
-//session_start();
+session_start();
 $account = new Account();
 ?>
 <html lang="en">
