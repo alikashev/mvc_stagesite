@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once "model/Account.php";
-session_start();
+//session_start();
 $account = new Account();
 ?>
 <html lang="en">
@@ -37,10 +37,8 @@ $account = new Account();
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
+            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="logo-container">
-                    <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
-                </div>
 
                 <ul class="navitem list-unstyled components">
                     <?php if ($account->loginCheck()): ?>

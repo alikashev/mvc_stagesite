@@ -277,7 +277,6 @@ a.register:hover {
     text-align: center;
 }
 
-.img-content {
-    display: flex;
-    flex-direction: column;
+#navbarSupportedContent {
+    justify-content: flex-end;
 }
