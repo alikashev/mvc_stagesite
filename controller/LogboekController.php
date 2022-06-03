@@ -2,7 +2,6 @@
     ob_start();
     require_once 'model/LogboekModel.php';
     require_once 'view/LogboekView.php';
-    require_once 'view/dashboardMenuView.php';
     require_once "view/compleetLogboek.php";
 
     class LogboekController {
@@ -28,14 +27,31 @@
         public function bewerkDag($id) {
             self::toonLogboek();
             $dag = $this->Logboek->logboekDag_ophalen($id);
-            include "view/logboekDag.php";  
 
-            if(isset($_POST["bewerk"])) {
-                $beschrijving = $_POST["beschrijving"];
-                $uurGewerkt = $_POST["uur_gewerkt"];
+            var_dump($dag);
+            if(!$dag->ingediend) {
+                include "view/logboekDag.php";  
 
-                $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
-                header("Refresh: 0; url=" . SERVER_URL . "/LogboekController/");
+                if(isset($_POST["bewerk"])) {
+                    $beschrijving = $_POST["beschrijving"];
+                    $uurGewerkt = $_POST["uur_gewerkt"];
+
+                    var_dump($this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt));
+
+                    // header("Refresh: 0; url=" . SERVER_URL . "/Home/");
+                    // $url = SERVER_URL . "/LogboekController/";
+                    // echo "
+                    //     <script>
+                    //         const xhttp = new XMLHttpRequest();
+                    //         xhttp.onload = function() {
+                    //         document.querySelector('.demo').innerHTML =
+                    //             this.responseText;
+                    //         }
+                    //         xhttp.open('GET', $url);
+                    //         xhttp.send();
+                    //     </script>
+                    // ";
+                } 
             }
         }
 

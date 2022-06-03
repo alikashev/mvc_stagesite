@@ -7,13 +7,7 @@
 
     $url = $_SERVER['REQUEST_URI'];
     $packets = explode('/',$url);
-
-    $visibility = "visible";
-    if(isset($packets[3])) {
-        if($packets[3] == "bewerkDag") {
-            $visibility = "hidden";
-        }
-    }
+    $server_url = SERVER_URL;
 ?>
 
 <style>
@@ -47,7 +41,6 @@
         height: 100%;
         width: 10%;
         float: left;
-
     }
 
     .logboekDag_beschrijving {
@@ -64,7 +57,6 @@
         height: 100%;
         width: 10%;
         float: left;
-        
     }
 
     .logboekDag_urenIngediend {
@@ -72,7 +64,6 @@
         height: 100%;
         width: 10%;
         float: left;
-        
     }
 
     .logboekDag_wijzig {
@@ -80,7 +71,6 @@
         height: 100%;
         width: 10%;
         float: left;
-        
     }
 
     #bewerk_dag {
@@ -88,10 +78,10 @@
         width: 600px;
         border: 4px solid black;
         background-color: gray;
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
-        -webkit-transform: translate(-50%, -50%);
+        /* -webkit-transform: translate(-50%, -50%); */
         transform: translate(-50%, -50%);
     }
 
@@ -100,15 +90,12 @@
     }
 
     #indienAlleDagen {
-        left: 0; 
-        position: fixed;
         border: 1px solid black;
         padding: 5px;
-        visibility: <?php echo $visibility?>;
     }
 </style>
 
-<a id="indienAlleDagen" href="<?php $url = SERVER_URL . "/LogboekController/indienAlleDagen/$stage->logboek_id"; echo $url; ?>">Dien alle dagen in met uren</a>
+<a id="indienAlleDagen" href="javascript:loadPage('<?= SERVER_URL ?>/LogboekController/indienAlleDagen/<?= $stage->logboek_id ?>')">Dien alle dagen in met uren</a>
 
 <form method='post'>
     <div id='logboek'>

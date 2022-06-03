@@ -11,11 +11,12 @@
         }
 
         public function Index() {
+            //id veranderen naar het id van de huidige stage 
             self::showInfoBoxes(1);
         }
 
         public function showInfoBoxes($stageId) {
-            //als er in het menu op knop # word gedrukt, run deze functie
+            //deze functie haalt data op van de huidige stage en toont deze data op het scherm
             $StudentModel = new StudentModel();
             $stage = $StudentModel->stageInfo($stageId);
             $stagebedrijf = $StudentModel->stagebedrijfInfo($stageId);

@@ -53,6 +53,9 @@ $account = new Account();
                             </li>
                         <?php endif; ?>
                         <li>
+                            <a href="javascript:loadPage('<?= SERVER_URL ?>/StudentController/')">Stage</a>
+                        </li>
+                        <li>
                             <a href="javascript:loadPage('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
                         </li>
                         <li>
