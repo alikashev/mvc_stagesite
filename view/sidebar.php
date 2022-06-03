@@ -37,10 +37,22 @@ $account = new Account();
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
+            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo.png" alt="">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                 <ul class="navitem list-unstyled components">
+                <li><a href="javascript:loadPage1('<?= SERVER_URL ?>/view/home.php')">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropbtn">Diensten <i class="bi bi-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/view/school.php')">School</a>
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/view/bedrijf.php')">Bedrijf</a>
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/view/student.php')">Student</a>
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/view/ouders.php')">Ouders</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">Contact</a></li>
                     <?php if ($account->loginCheck()): ?>
                         <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
                             <li>
