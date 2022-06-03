@@ -37,8 +37,8 @@ $account = new Account();
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
+            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo-zwart.png" alt="">
 
                 <ul class="navitem list-unstyled components">
                     <?php if ($account->loginCheck()): ?>

@@ -60,7 +60,7 @@ class UploadsLogic extends Main
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
-      return $this->outputData->createTable($results);
+      return $this->outputData->createTableUploads($results);
 
     } catch (PDOException $e) {
 
