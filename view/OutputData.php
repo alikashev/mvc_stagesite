@@ -164,6 +164,11 @@ class OutputData
     return $this->createTable($rows, '/CompanyController/create/', '/CompanyController/update/', '', '/CompanyController/delete/');
   }
 
+  function createTableUploads($rows)
+  {
+     return $this->createTable($rows, '/UploadsController/uploadForm/', '', '/UploadsController/collectReadFile/', '/UploadsController/collectDeleteFile/');
+  }
+
 
   function __destruct()
   {

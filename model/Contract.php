@@ -41,7 +41,7 @@ class Contract extends Main
 
     try {
 
-      $query = "SELECT * FROM stages";
+      $query = "SELECT id, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond FROM stages";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
