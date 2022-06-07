@@ -44,7 +44,7 @@ class User extends Main
 
     try {
 
-      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_schoolmentor, is_stagebegeleider, is_praktijkbegeleider, is_schoolaccount, is_vertrouwenspersoon, is_ouder, schoolnaam, studie FROM gebruikers";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
