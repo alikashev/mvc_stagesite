@@ -28,7 +28,7 @@ $obj = $obj[0];
         <input required type="email" name="email" id="email" class="form-control" value="<?= $obj['email'] ?>">
     </div>
     <div class="mb-3">
-        <label for="phone" class="form-label">Phone</label>
+        <label for="phone" class="form-label">Telefoonnummer</label>
         <input type="tel" name="phone" id="phone" class="form-control" value="<?= $obj['telefoonnummer'] ?>">
     </div>
     <div class="mb-3">
@@ -39,12 +39,12 @@ $obj = $obj[0];
     <div class="mb-3">
         <input type="checkbox" name="isSupervisor" id="isSupervisor"
                class="form-check-input" <?= $obj['is_praktijkbegeleider'] === 1 ? 'checked' : '' ?>>
-        <label for="isSupervisor" class="form-check-label">Praktijkbegeleider</label>
+        <label for="isSupervisor" class="form-check-label">Praktijkopleider</label>
     </div>
     <div class="mb-3">
         <input type="checkbox" name="isSchoolSupervisor" id="isSchoolSupervisor"
                class="form-check-input" <?= $obj['is_stagebegeleider'] === 1 ? 'checked' : '' ?>>
-        <label for="isSchoolSupervisor" class="form-check-label">Stagebegeleider</label>
+        <label for="isSchoolSupervisor" class="form-check-label">BPV-Docent</label>
     </div>
     <div class="mb-3">
         <input type="checkbox" name="isSchoolAccount" id="isSchoolAccount"

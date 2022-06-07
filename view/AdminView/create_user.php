@@ -35,7 +35,7 @@
         <input required type="email" name="email" id="email" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="phone" class="form-label">Phone</label>
+        <label for="phone" class="form-label">Telefoonnummer</label>
         <input type="tel" name="phone" id="phone" class="form-control">
     </div>
     <div class="mb-3">
@@ -44,11 +44,11 @@
     </div>
     <div class="mb-3">
         <input type="checkbox" name="isSupervisor" id="isSupervisor" class="form-check-input">
-        <label for="isSupervisor" class="form-check-label">Praktijkbegeleider</label>
+        <label for="isSupervisor" class="form-check-label">Praktijkopleider</label>
     </div>
     <div class="mb-3">
         <input type="checkbox" name="isSchoolSupervisor" id="isSchoolSupervisor" class="form-check-input">
-        <label for="isSchoolSupervisor" class="form-check-label">Stagebegeleider</label>
+        <label for="isSchoolSupervisor" class="form-check-label">BPV-Docent</label>
     </div>
     <div class="mb-3">
         <input type="checkbox" name="isSchoolAccount" id="isSchoolAccount" class="form-check-input">
@@ -63,11 +63,11 @@
         <label for="isParent" class="form-check-label">Ouder</label>
     </div>
     <div class="mb-3">
-        <label for="school" class="form-label">School</label>
+        <label for="school" class="form-label">Schoolnaam</label>
         <input type="text" name="school" id="school" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="study" class="form-label">Study</label>
+        <label for="study" class="form-label">Studie</label>
         <input type="text" name="study" id="study" class="form-control">
     </div>
     <input type="submit" name="submit" value="Submit" class="btn btn-primary">

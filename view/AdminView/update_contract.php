@@ -8,10 +8,10 @@ $obj = $obj[0];
 ?>
 <form method="post">
     <div class="mb-3">
-        Stagiair id <?= $selectStudent ?>
+        Stagiair: <?= $selectStudent ?>
     </div>
     <div class="mb-3">
-        Stagebedrijf id <?= $selectCompany ?>
+        Stagebedrijf: <?= $selectCompany ?>
     </div>
     <div class="mb-3">
         <label class="form-label" for="mandatoryHours">Benodigde aantal uren</label>
@@ -26,14 +26,14 @@ $obj = $obj[0];
         <input class="form-control" type="date" name="startDate" id="startDate" value="<?= $obj['start_datum'] ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label" for="endDate">Eindatum</label>
+        <label class="form-label" for="endDate">Einddatum</label>
         <input class="form-control" type="date" name="endDate" id="endDate" value="<?= $obj['eind_datum'] ?>">
     </div>
     <div class="mb-3">
-        Praktijkbegeleider: <?= $selectSupervisor ?>
+        Praktijkopleider: <?= $selectSupervisor ?>
     </div>
     <div class="mb-3">
-        Stagebegeleider: <?= $selectSchoolSupervisor ?>
+        BPV-Docent: <?= $selectSchoolSupervisor ?>
     </div>
     <div class="mb-3">
         Ouder: <?= $selectParent ?>
