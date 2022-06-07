@@ -56,22 +56,22 @@ $account = new Account();
                     <?php if ($account->loginCheck()): ?>
                         <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
                             <li>
-                                <a href="javascript:loadPage('<?= SERVER_URL ?>/UserController/')">Gebruikers</a>
+                                <a href="javascript:loadPage1('<?= SERVER_URL ?>/UserController/')">Gebruikers</a>
                             </li>
                         <?php endif; ?>
                         <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
                             <li>
-                                <a href="javascript:loadPage('<?= SERVER_URL ?>/ContractController/')">Stages</a>
+                                <a href="javascript:loadPage1('<?= SERVER_URL ?>/ContractController/')">Stages</a>
                             </li>
                         <?php endif; ?>
                         <li>
-                            <a href="javascript:loadPage('<?= SERVER_URL ?>/StudentController/')">Stage</a>
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/StudentController/')">Stage</a>
                         </li>
                         <li>
-                            <a href="javascript:loadPage('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
                         </li>
                         <li>
-                            <a href="javascript:loadPage('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
+                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
                         </li>
                     <?php endif; ?>
                     <?php if ($account->loginCheck()): ?>
