@@ -18,11 +18,11 @@
             foreach($logboekdagen as $logboekdag) {
                 $datum = strtotime($logboekdag->dag);
                 $dag = date('d-m-Y', $datum);
-                $wijzig = "<a href='javascript:loadPage(\"$server_url/LogboekController/bewerkDag/$logboekdag->id\")'>wijzig</a>";
+                $wijzig = "<a href='javascript:loadPage1(\"$server_url/LogboekController/bewerkDag/$logboekdag->id\")'>wijzig</a>";
                 if($logboekdag->ingediend){
                     $ingediend = "Ingediend";
                 } else {
-                    $ingediend = "<a href='javascript:loadPage(\"$server_url/LogboekController/indienDag/$logboekdag->id\")'>Indienen</a>";
+                    $ingediend = "<a href='javascript:loadPage1(\"$server_url/LogboekController/indienDag/$logboekdag->id\")'>Indienen</a>";
                 }
                 
                 //check of deze dag de huidige dag is
@@ -34,7 +34,7 @@
                
                 $check = $aantalDagen % 7;
                 if(!$check) {
-                    echo "<a href='javascript:loadPage(\"$server_url/LogboekController/indienDagen/$logboekdag->id\")'>Dien alle dagen met ingvulde uren in voor deze week</a>";;
+                    echo "<a href='javascript:loadPage1(\"$server_url/LogboekController/indienDagen/$logboekdag->id\")'>Dien alle dagen met ingvulde uren in voor deze week</a>";;
                     echo "<br/><hr/>";
                 }
                 $aantalDagen++;

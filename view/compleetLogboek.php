@@ -95,7 +95,7 @@
     }
 </style>
 
-<a id="indienAlleDagen" href="javascript:loadPage('<?= SERVER_URL ?>/LogboekController/indienAlleDagen/<?= $stage->logboek_id ?>')">Dien alle dagen in met uren</a>
+<a id="indienAlleDagen" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/indienAlleDagen/<?= $stage->logboek_id ?>')">Dien alle dagen in met uren</a>
 
 <form method='post'>
     <div id='logboek'>

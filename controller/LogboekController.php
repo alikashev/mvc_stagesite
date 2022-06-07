@@ -28,15 +28,14 @@
             self::toonLogboek();
             $dag = $this->Logboek->logboekDag_ophalen($id);
 
-            var_dump($dag);
             if(!$dag->ingediend) {
-                include "view/logboekDag.php";  
+                include "view/logboekDag.php";
 
                 if(isset($_POST["bewerk"])) {
                     $beschrijving = $_POST["beschrijving"];
                     $uurGewerkt = $_POST["uur_gewerkt"];
 
-                    var_dump($this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt));
+                    $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
 
                     // header("Refresh: 0; url=" . SERVER_URL . "/Home/");
                     // $url = SERVER_URL . "/LogboekController/";
