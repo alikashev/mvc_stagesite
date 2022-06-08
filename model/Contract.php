@@ -41,7 +41,7 @@ class Contract extends Main
 
     try {
 
-      $query = "SELECT id, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond FROM stages";
+      $query = "SELECT id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond FROM stages";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -58,7 +58,7 @@ class Contract extends Main
   public function readAllContractBySupervisorId($id)
   {
     try {
-      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, ouder_id, logboek_id from stages ";
+      $query = "SELECT id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond from stages ";
       $query .= "WHERE praktijkbegeleider_stage_id = '$id'";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
@@ -73,7 +73,7 @@ class Contract extends Main
     public function readAllContractBySchoolSupervisorId($id)
     {
         try {
-            $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, ouder_id, logboek_id from stages ";
+            $query = "SELECT id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond from stages ";
             $query .= "WHERE stagebegeleider_id = '$id'";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
@@ -88,7 +88,7 @@ class Contract extends Main
   public function readAllContractsByTeacherId($id)
   {
     try {
-      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, schoolaccount_id, vertrouwenspersoon_id, ouder_id, logboek_id from stages ";
+      $query = "SELECT id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond from stages ";
       $query .= "WHERE schoolmentor_id = '$id'";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
@@ -117,7 +117,7 @@ class Contract extends Main
 
       $schoolAccountId = $results[0]['id'];
 
-      $query = "SELECT id, stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, praktijkbegeleider_stage_id, schoolmentor_id, schoolaccount_id, vertrouwenspersoon_id, ouder_id, logboek_id from stages";
+      $query = "SELECT id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond from stages";
       $query .= "WHERE schoolaccount_id = '$schoolAccountId'";
       var_dump($query); die;
       $result = $this->datahandler->readsData($query);

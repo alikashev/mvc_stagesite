@@ -44,7 +44,7 @@ class User extends Main
 
     try {
 
-      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_schoolmentor, is_stagebegeleider, is_praktijkbegeleider, is_schoolaccount, is_vertrouwenspersoon, is_ouder, schoolnaam, studie FROM gebruikers";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -62,7 +62,7 @@ class User extends Main
   {
     try {
 
-      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, is_schoolmentor, is_stagebegeleider, is_praktijkbegeleider, is_schoolaccount, is_vertrouwenspersoon, is_ouder, schoolnaam, studie FROM gebruikers WHERE id != 1 AND is_praktijkbegeleider = 0";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE id != 1 AND is_praktijkbegeleider = 0";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -80,7 +80,7 @@ class User extends Main
 
     try {
 
-      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, vertrouwenspersoon_id, schoolaccount_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.stagiair_id WHERE stages.schoolmentor_id = $id";
+      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.stagiair_id WHERE stages.schoolmentor_id = $id";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -99,7 +99,7 @@ class User extends Main
 
     try {
 
-      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.praktijkbegeleider_stage_id WHERE stages.praktijkbegeleider_stage_id = $id";
+      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.praktijkbegeleider_stage_id WHERE stages.praktijkbegeleider_stage_id = $id";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -137,7 +137,7 @@ class User extends Main
 
     try {
 
-      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, schoolaccount_id, vertrouwenspersoon_id  FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.ouder_id WHERE stages.ouder_id = $id";
+      $query = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers LEFT JOIN stages ON gebruikers.id = stages.ouder_id WHERE stages.ouder_id = $id";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -161,7 +161,7 @@ class User extends Main
 
       $schoolname = $results[0]['schoolnaam'];
 
-      $query2 = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie, is_ouder, is_schoolmentor, is_schoolaccount, is_vertrouwenspersoon FROM gebruikers WHERE schoolnaam = '$schoolname' AND id != 1 AND is_praktijkbegeleider = 0 AND is_stagebegeleider = 0";
+      $query2 = "SELECT gebruikers.id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE schoolnaam = '$schoolname' AND id != 1 AND is_praktijkbegeleider = 0 AND is_stagebegeleider = 0";
       $result2 = $this->datahandler->readsData($query2);
       $results2 = $result2->fetchAll();
 
@@ -192,7 +192,7 @@ class User extends Main
   public function readAllSupervisors()
   {
     try {
-      $query = "SELECT * FROM gebruikers WHERE is_praktijkbegeleider = 1";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE is_praktijkbegeleider = 1";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -205,7 +205,7 @@ class User extends Main
   public function readAllTeachers()
   {
     try {
-      $query = "SELECT * FROM gebruikers WHERE is_schoolmentor = 1";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE is_schoolmentor = 1";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -218,7 +218,7 @@ class User extends Main
   public function readAllSchoolSupervisors()
   {
     try {
-      $query = "SELECT * FROM gebruikers WHERE is_stagebegeleider = 1";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE is_stagebegeleider = 1";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -231,7 +231,7 @@ class User extends Main
   public function readAllHumanResources()
   {
     try {
-      $query = "SELECT * FROM gebruikers WHERE is_vertrouwenspersoon = 1";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE is_vertrouwenspersoon = 1";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -244,7 +244,7 @@ class User extends Main
   public function readAllParents()
   {
     try {
-      $query = "SELECT * FROM gebruikers WHERE is_ouder = 1";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE is_ouder = 1";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 
@@ -257,7 +257,7 @@ class User extends Main
   public function readAllSchoolAccounts()
   {
     try {
-      $query = "SELECT * FROM gebruikers WHERE is_schoolaccount = 1";
+      $query = "SELECT id, voornaam, tussenvoegsel, achternaam, email, telefoonnummer, schoolnaam, studie FROM gebruikers WHERE is_schoolaccount = 1";
       $result = $this->datahandler->readsData($query);
       $results = $result->fetchAll();
 

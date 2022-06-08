@@ -32,7 +32,7 @@ class UploadsController {
             $filedesc = $_POST['filedesc'];
 
             $obj = $this->UploadsLogic->uploadFile($filedesc);
-            header("Location: ./collectReadAllFiles/");
+            header("Location: " . SERVER_URL . "/Home/");
         }
     }
 

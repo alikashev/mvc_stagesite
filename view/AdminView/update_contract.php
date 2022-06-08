@@ -8,10 +8,10 @@ $obj = $obj[0];
 ?>
 <form method="post">
     <div class="mb-3">
-        Stagiair id <?= $selectStudent ?>
+        Stagiair: <?= $selectStudent ?>
     </div>
     <div class="mb-3">
-        Stagebedrijf id <?= $selectCompany ?>
+        Stagebedrijf: <?= $selectCompany ?>
     </div>
     <div class="mb-3">
         <label class="form-label" for="mandatoryHours">Benodigde aantal uren</label>
@@ -26,30 +26,30 @@ $obj = $obj[0];
         <input class="form-control" type="date" name="startDate" id="startDate" value="<?= $obj['start_datum'] ?>">
     </div>
     <div class="mb-3">
-        <label class="form-label" for="endDate">Eindatum</label>
+        <label class="form-label" for="endDate">Einddatum</label>
         <input class="form-control" type="date" name="endDate" id="endDate" value="<?= $obj['eind_datum'] ?>">
+    </div>
+    <div class="mb-3">
+        Praktijkopleider: <?= $selectSupervisor ?>
+    </div>
+    <div class="mb-3">
+        BPV-Docent: <?= $selectSchoolSupervisor ?>
+    </div>
+    <div class="mb-3">
+        Ouder: <?= $selectParent ?>
+    </div>
+    <div class="mb-3">
+        Schoolmentor: <?= $selectTeacher ?>
+    </div>
+    <div class="mb-3">
+        Schoolmentor: <?= $selectSchoolAccount ?>
+    </div>
+    <div class="mb-3">
+        Vertrouwenspersoon: <?= $selectHR ?>
     </div>
     <div class="mb-3">
         <input type="checkbox" name="finished" id="finished" class="form-check-input" <?= $obj['is_afgerond'] === 1 ? 'checked' : '' ?>>
         <label for="finished" class="form-check-label">Is afgerond</label>
-    </div>
-    <div class="mb-3">
-        Praktijkbegeleider id: <?= $selectSupervisor ?>
-    </div>
-    <div class="mb-3">
-        Stagebegeleider id: <?= $selectSchoolSupervisor ?>
-    </div>
-    <div class="mb-3">
-        Ouder id: <?= $selectParent ?>
-    </div>
-    <div class="mb-3">
-        Schoolmentor id: <?= $selectTeacher ?>
-    </div>
-    <div class="mb-3">
-        Schoolmentor id: <?= $selectSchoolAccount ?>
-    </div>
-    <div class="mb-3">
-        Vertrouwenspersoon id: <?= $selectHR ?>
     </div>
     <input value="Submit" type="submit" name="submit" class="btn btn-primary">
 </form>

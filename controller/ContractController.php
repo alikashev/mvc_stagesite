@@ -64,9 +64,9 @@ class ContractController
         if ($this->Account->adminCheck()) {
             include 'view/AdminView/create_contract.php';
         } else if ($this->Account->supervisorCheck()) {
-            include 'view/SupervisorView/create_contract.php';
+            include 'view/AdminView/create_contract.php';
         } else if ($this->Account->schoolSupervisorCheck()) {
-            include 'view/SchoolSupervisorView/create_contract.php';
+            include 'view/AdminView/create_contract.php';
         } else {
             header('Location: ' . SERVER_URL . '/Home/');
         }
@@ -116,9 +116,9 @@ class ContractController
         if ($this->Account->adminCheck()) {
             include 'view/AdminView/update_contract.php';
         } else if ($this->Account->supervisorCheck()) {
-            include 'view/SupervisorView/update_contract.php';
+            include 'view/AdminView/update_contract.php';
         } else if ($this->Account->schoolSupervisorCheck()) {
-            include 'view/SchoolSupervisorView/update_contract.php';
+            include 'view/AdminView/update_contract.php';
         } else {
             header('Location: ' . SERVER_URL . '/Home');
         }

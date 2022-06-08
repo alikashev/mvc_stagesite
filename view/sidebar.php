@@ -40,7 +40,7 @@ $account = new Account();
             <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo.png" alt="">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navitem list-unstyled components">
-                <li><a href="javascript:loadPage1('<?= SERVER_URL ?>/view/home.php')">Home</a></li>
+                <li><a href="<?= SERVER_URL ?>/Home/">Home</a></li>
                 <li>
                     <div class="dropdown">
                         <a class="dropbtn">Diensten <i class="bi bi-arrow-down"></i></a>
@@ -64,9 +64,6 @@ $account = new Account();
                                 <a href="javascript:loadPage1('<?= SERVER_URL ?>/ContractController/')">Stages</a>
                             </li>
                         <?php endif; ?>
-                        <li>
-                            <a href="javascript:loadPage1('<?= SERVER_URL ?>/StudentController/')">Stage</a>
-                        </li>
                         <li>
                             <a href="javascript:loadPage1('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
                         </li>

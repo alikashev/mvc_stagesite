@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action="../UploadsController/collectUploadFile" method="POST" enctype="multipart/form-data">
+    <form action="<?= SERVER_URL ?>/UploadsController/collectUploadFile" method="POST" enctype="multipart/form-data">
         <label>File omschrijving</label><br>
         <textarea name="filedesc" required ></textarea><br>
         <label>File Upload</label><br>
