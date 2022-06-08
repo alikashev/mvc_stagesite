@@ -37,19 +37,11 @@
 
                     $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
 
-                    // header("Refresh: 0; url=" . SERVER_URL . "/Home/");
-                    // $url = SERVER_URL . "/LogboekController/";
-                    // echo "
-                    //     <script>
-                    //         const xhttp = new XMLHttpRequest();
-                    //         xhttp.onload = function() {
-                    //         document.querySelector('.demo').innerHTML =
-                    //             this.responseText;
-                    //         }
-                    //         xhttp.open('GET', $url);
-                    //         xhttp.send();
-                    //     </script>
-                    // ";
+                    session_start();
+                    $_SESSION["is_bewerkt"] = 1;
+                    
+                    $url2 = SERVER_URL . "/Home/";
+                    header("location: $url2");
                 } 
             }
         }

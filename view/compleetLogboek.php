@@ -9,7 +9,6 @@
     $packets = explode('/',$url);
     $server_url = SERVER_URL;
 ?>
-
 <style>
     * {
         box-sizing: border-box;
@@ -105,23 +104,33 @@
     </div>  
 </form>
 
-<?php
-    $url = $_SERVER['REQUEST_URI'];
-    $packets = explode('/',$url);
-
-    if($packets[3] == "bewerkDag") {          
-    } else {
-        echo 
-        "
-        <script>
-            var my_element = document.getElementById('huidigeDag');
+<script>
+    var my_element = document.getElementById('huidigeDag');
     
-            my_element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-                inline: 'nearest'
-            });
-        </script>
-        ";
-    }
+    my_element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+    });
+</script>
+
+<?php
+    // $url = $_SERVER['REQUEST_URI'];
+    // $packets = explode('/',$url);
+
+    // if($packets[3] == "bewerkDag") {          
+    // } else {
+        // echo 
+        // "
+        //     <script>
+        //         var my_element = document.getElementById('huidigeDag');
+        
+        //         my_element.scrollIntoView({
+        //             behavior: 'smooth',
+        //             block: 'start',
+        //             inline: 'nearest'
+        //         });
+        //     </script>
+        // ";
+    // }
 ?>

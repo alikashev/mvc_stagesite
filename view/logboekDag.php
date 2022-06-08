@@ -1,7 +1,8 @@
 <?php
     require_once "model/DataHandler.php";
     // require_once "../model/LogboekModel.php";
-    $url = SERVER_URL . "/LogboekController/";
+    $url = SERVER_URL . "/LogboekController/bewerkDag/$dag->id";
+
 ?>
 
 <div id="bewerk_dag">
@@ -10,7 +11,7 @@
     </div>
 
     <div id="body">
-    <form method="post">
+    <form method="post" action="<?php echo $url;?>">
         Beschrijving Werkzaamheden:
         <textarea style="height: 40%; width: 100%;" name="beschrijving"><?php echo $dag->beschrijving_werkzaamheden?></textarea><br/>
         Aantal uur gewerkt:
