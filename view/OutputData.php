@@ -137,8 +137,9 @@ class OutputData
         readPdf($file);
         break;
       default:
-        // echo "Dit type bestand kan niet worden weergegeven op de browser<br>";
-        // echo "<a href='$file'>Klik hier</a>"." Om te donwloaden";
+        echo $file."<br>";
+        echo "Dit type bestand kan niet worden weergegeven op de browser<br>";
+        echo "<a href='$file'>Klik hier</a>"." Om te donwloaden";
         echo "<iframe 
                 src=\"http://docs.google.com/gview?url=$file&embedded=true\"
                 style=\"width:100%; height:100%;\"

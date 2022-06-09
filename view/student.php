@@ -7,8 +7,10 @@
     <title>Volgstage - student</title>
 </head>
 <body>
+    <div class="content-section">
     <h2>Student</h2> <br>
     <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
+    <div class="text-section">
     <p>
         •	Lopende stage info (duur enz.) <br><br>
         •	Agenda (terugkomdagen, examens en vakantie)<br><br>
@@ -21,5 +23,10 @@
         •   Stage afgerond en wat nu?  (doorstroming tips)
         •   Inzicht crebo onderdelen en kerntaken via de stage info
     </p>
+
+    </div>
+
+    </div>
+    
 </body>
 </html>

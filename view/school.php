@@ -7,8 +7,10 @@
     <title>Volgstage - school</title>
 </head>
 <body>
+    <div class="content-section">
     <h2>School</h2> <br>
     <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
+    <div class="text-section">
     <p>
         •   Overzicht stagiaires <br><br>
         •	Overzicht lopende stageplekken<br><br>
@@ -20,5 +22,9 @@
         •	Teams en Outlook integratie<br><br>
         •   Status sollicitaties student en openstaande vacatures
     </p>
+    </div>
+
+    </div>
+    
 </body>
 </html>
