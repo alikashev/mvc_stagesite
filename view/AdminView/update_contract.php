@@ -8,10 +8,10 @@ $obj = $obj[0];
 ?>
 <form method="post">
     <div class="mb-3">
-        Stagiair: <?= $selectStudent ?>
+        Stagiair <?= $selectStudent ?>
     </div>
     <div class="mb-3">
-        Stagebedrijf: <?= $selectCompany ?>
+        Stagebedrijf <?= $selectCompany ?>
     </div>
     <div class="mb-3">
         <label class="form-label" for="mandatoryHours">Benodigde aantal uren</label>
@@ -30,22 +30,22 @@ $obj = $obj[0];
         <input class="form-control" type="date" name="endDate" id="endDate" value="<?= $obj['eind_datum'] ?>">
     </div>
     <div class="mb-3">
-        Praktijkopleider: <?= $selectSupervisor ?>
+        Praktijkopleider <?= $selectSupervisor ?>
     </div>
     <div class="mb-3">
-        BPV-Docent: <?= $selectSchoolSupervisor ?>
+        BPV-Docent <?= $selectSchoolSupervisor ?>
     </div>
     <div class="mb-3">
-        Ouder: <?= $selectParent ?>
+        Ouder <?= $selectParent ?>
     </div>
     <div class="mb-3">
-        Schoolmentor: <?= $selectTeacher ?>
+        Schoolmentor <?= $selectTeacher ?>
     </div>
     <div class="mb-3">
-        Schoolmentor: <?= $selectSchoolAccount ?>
+        Schoolmentor <?= $selectSchoolAccount ?>
     </div>
     <div class="mb-3">
-        Vertrouwenspersoon: <?= $selectHR ?>
+        Vertrouwenspersoon <?= $selectHR ?>
     </div>
     <div class="mb-3">
         <input type="checkbox" name="finished" id="finished" class="form-check-input" <?= $obj['is_afgerond'] === 1 ? 'checked' : '' ?>>
