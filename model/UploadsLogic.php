@@ -22,7 +22,7 @@ class UploadsLogic extends Main
 
       try {
         #retrieve file title
-        $date = date("Y-m-d h:i:sa");
+        $date = date("Y-m-d h:i:s");
         $upId = 1;
         $filename = rand(1000, 10000) . "-" . $_FILES["file"]["name"];
         $tname = $_FILES["file"]["tmp_name"];
@@ -32,6 +32,7 @@ class UploadsLogic extends Main
         #TO move the uploaded file to specific location
         move_uploaded_file($tname, $uploads_dir . '/' . $filename);
 
+        //$path = '/uploads/';
         $path = SERVER_URL . '/uploads/';
 
         #sql query to insert into database
