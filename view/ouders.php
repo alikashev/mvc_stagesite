@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volgstage - ouders</title>
+    <title>Volgstage</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <div class="content-section">
     <h2>Ouders</h2> <br>
     <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
+    <div class="text-section">
     <p>
         •   Overzicht stagiaires <br><br>
         •	Overzicht lopende stageplekken<br><br>
@@ -20,5 +23,9 @@
         •	Teams en Outlook integratie<br><br>
         •    Bij 18+ toestemming nodig van de student
     </p>
+
+    </div>
+
+    </div>
 </body>
 </html>
