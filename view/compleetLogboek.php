@@ -1,4 +1,5 @@
 <?php
+require_once "sidebar.php";
     $logboekView = new LogboekView();
     $logboekModel = new LogboekModel();
 
@@ -8,6 +9,7 @@
     $url = $_SERVER['REQUEST_URI'];
     $packets = explode('/',$url);
     $server_url = SERVER_URL;
+    require_once "footer.php";
 ?>
 <style>
     * {
@@ -103,17 +105,14 @@
         </div>
     </div>  
 </form>
-
 <script>
-    var my_element = document.getElementById('huidigeDag');
-    
-    my_element.scrollIntoView({
+        var my_element = document.getElementById('huidigeDag');
+        my_element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest'
-    });
+    }); 
 </script>
-
 <?php
     // $url = $_SERVER['REQUEST_URI'];
     // $packets = explode('/',$url);

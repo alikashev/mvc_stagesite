@@ -18,4 +18,4 @@ function loadPage(url) {
     }
     xhttp.open("GET", url);
     xhttp.send();
-  }
+  }  

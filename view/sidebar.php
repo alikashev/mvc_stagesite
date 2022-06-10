@@ -12,7 +12,6 @@ $account = new Account();
     <title>volgstage</title>
     <link rel="stylesheet" href="<?= SERVER_URL ?>/assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <script src="<?= SERVER_URL . "/assets/js/main.js" ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -73,7 +72,7 @@ $account = new Account();
                             <a href="javascript:loadPage1('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
                         </li>
                         <li>
-                            <a id="logboek_btn" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
+                            <a id="logboek_btn" href="<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
                         </li>
                     <?php endif; ?>
                     <?php if ($account->loginCheck()): ?>
@@ -89,3 +88,4 @@ $account = new Account();
             </div>
         </div>
     </nav>
+    <script src="<?= SERVER_URL . "/assets/js/main.js" ?>"></script>
