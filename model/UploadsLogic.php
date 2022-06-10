@@ -32,6 +32,7 @@ class UploadsLogic extends Main
         #TO move the uploaded file to specific location
         move_uploaded_file($tname, $uploads_dir . '/' . $filename);
 
+        //$path = '/uploads/';
         $path = SERVER_URL . '/uploads/';
 
         #sql query to insert into database

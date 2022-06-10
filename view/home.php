@@ -1,25 +1,21 @@
         <?php include_once 'view/sidebar.php'; ?>
 
-        <div class="content-section">
-        <h2>Welkom op Volgstage</h2> <br>
-          <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
-          
-            <div class="text-section">
-            <p>
-            Door vele jaren stagebegeleiding heeft Volgstage de meest overzichtelijke en gebruiksvriendelijke oplossing brgebouwd. <br>
-            Wij hebben geluisterd naar alle knelpunten tijdens de corona tijd en ons platform zowel voor online als offline gebruik geperfectioneerd. <br> <br>
-          •   Voor de school, student, stagebedrijf en ouder! <br> <br>
-          •   Test gratis onze demo omgeving! <br> <br>
-          •   Neem contact op voor een offerte op maat! <br> <br>
-          •   Ons team en systeem ontzorgt u graag! <br> <br>
-          •   Coaching voor nieuwe stagiaires en begeleiders
-          •   Springplank voor de vervolgstap na afronding 
-          </p>
-
-            </div>
-          
-        </div>  
-</div>
+<div class="content-section">
+  <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
+  <div class="text-section">
+    <h2>Welkom op Volgstage</h2> <br>
+    <p>
+      Door vele jaren stagebegeleiding heeft Volgstage de meest overzichtelijke en gebruiksvriendelijke oplossing brgebouwd. <br>
+      Wij hebben geluisterd naar alle knelpunten tijdens de corona tijd en ons platform zowel voor online als offline gebruik geperfectioneerd. <br> <br>
+      •   Voor de school, student, stagebedrijf en ouder! <br> <br>
+      •   Test gratis onze demo omgeving! <br> <br>
+      •   Neem contact op voor een offerte op maat! <br> <br>
+      •   Ons team en systeem ontzorgen u graag! <br> <br>
+      •   Coaching voor nieuwe stagiaires en begeleiders<br> <br>
+      •   Springplank voor de vervolgstap na afronding <br> <br>
+    </p>
+  </div>          
+</div>  
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -49,5 +45,6 @@ AOS.init({
 
 });
 </script>
+<?php require_once 'footer.php'?>
 </body>
 </html>
