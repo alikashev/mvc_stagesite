@@ -29,5 +29,5 @@ function scrollFunctie() {
         block: 'start',
         inline: 'nearest'
       });
-  }, 5000);
+  }, 100);
 }
