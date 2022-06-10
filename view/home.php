@@ -5,7 +5,7 @@
   <div class="text-section">
     <h2>Welkom op Volgstage</h2> <br>
     <p>
-      Door vele jaren stagebegeleiding heeft Volgstage de meest overzichtelijke en gebruiksvriendelijke oplossing brgebouwd. <br>
+      Door vele jaren stagebegeleiding heeft Volgstage de meest overzichtelijke en gebruiksvriendelijke oplossing gebouwd. <br>
       Wij hebben geluisterd naar alle knelpunten tijdens de corona tijd en ons platform zowel voor online als offline gebruik geperfectioneerd. <br> <br>
       •   Voor de school, student, stagebedrijf en ouder! <br> <br>
       •   Test gratis onze demo omgeving! <br> <br>
