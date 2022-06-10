@@ -106,8 +106,6 @@
 
 <!-- <script>
     var my_element = document.getElementById('huidigeDag');
-    console.log(my_element);
-    console.log('test');
     
     my_element.scrollIntoView({
         behavior: 'smooth',

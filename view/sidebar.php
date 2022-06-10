@@ -70,7 +70,7 @@ $account = new Account();
                             <a href="javascript:loadPage1('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
                         </li>
                         <li>
-                            <a id="logboek_btn" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
+                            <a id="logboek_btn" onclick="scrollFunctie();" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
                         </li>
                     <?php endif; ?>
                     <?php if ($account->loginCheck()): ?>
