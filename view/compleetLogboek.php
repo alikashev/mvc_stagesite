@@ -105,17 +105,17 @@ require_once "sidebar.php";
         </div>
     </div>  
 </form>
-<script>
+
+<!-- <script>
     var my_element = document.getElementById('huidigeDag');
-    console.log(my_element);
-    console.log('test');
     
     my_element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest'
-    }); 
-</script>
+    });
+</script> -->
+
 <?php
     // $url = $_SERVER['REQUEST_URI'];
     // $packets = explode('/',$url);
