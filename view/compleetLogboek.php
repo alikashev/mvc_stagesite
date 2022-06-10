@@ -106,8 +106,11 @@ require_once "sidebar.php";
     </div>  
 </form>
 <script>
-        var my_element = document.getElementById('huidigeDag');
-        my_element.scrollIntoView({
+    var my_element = document.getElementById('huidigeDag');
+    console.log(my_element);
+    console.log('test');
+    
+    my_element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest'
