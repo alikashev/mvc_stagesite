@@ -1,7 +1,6 @@
 <?php include_once 'view/sidebar.php'; ?>
-
+<img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
 <div class="content-section">
-  <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
   <div class="text-section">
     <h2>Welkom op Volgstage</h2> <br>
     <p>
