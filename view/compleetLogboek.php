@@ -1,5 +1,4 @@
 <?php
-require_once "sidebar.php";
     $logboekView = new LogboekView();
     $logboekModel = new LogboekModel();
 
@@ -9,7 +8,6 @@ require_once "sidebar.php";
     $url = $_SERVER['REQUEST_URI'];
     $packets = explode('/',$url);
     $server_url = SERVER_URL;
-    require_once "footer.php";
 ?>
 <style>
     * {
