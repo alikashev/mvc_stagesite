@@ -1,4 +1,4 @@
-        <?php include_once 'view/sidebar.php'; ?>
+<?php include_once 'view/sidebar.php'; ?>
 
 <div class="content-section">
   <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
