@@ -8,9 +8,9 @@
 </head>
 <body>
     <div class="content-section">
-    <h2>Student</h2> <br>
     <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
     <div class="text-section">
+    <h2>Student</h2> <br>
     <p>
         •	Lopende stage info (duur enz.) <br><br>
         •	Agenda (terugkomdagen, examens en vakantie)<br><br>
@@ -18,10 +18,10 @@
         •	Uren logboek (corrigeren)<br><br>
         •   Taken kunnen inzien<br><br>
         •	Berichten kunnen versturen<br><br>
-        •   wekelijkse melding van de openstaande stageplaatsen (vervalt bij POK inlevering)
-        •   Standaard werkwijze student (stage zoeken, wensen en leerdoelen, aanvraag POK, ondertekenen POK, gemiddelde huisregels enz.)
-        •   Stage afgerond en wat nu?  (doorstroming tips)
-        •   Inzicht crebo onderdelen en kerntaken via de stage info
+        •   wekelijkse melding van de openstaande stageplaatsen (vervalt bij POK inlevering)<br><br>
+        •   Standaard werkwijze student (stage zoeken, wensen en leerdoelen, aanvraag POK, ondertekenen POK, gemiddelde huisregels enz.)<br><br>
+        •   Stage afgerond en wat nu?  (doorstroming tips)<br><br>
+        •   Inzicht crebo onderdelen en kerntaken via de stage info.<br><br>
     </p>
 
     </div>

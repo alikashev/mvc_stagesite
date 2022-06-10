@@ -8,9 +8,9 @@
 </head>
 <body>
     <div class="content-section">
-    <h2>Bedrijf</h2> <br>
     <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
     <div class="text-section">
+    <h2>Bedrijf</h2> <br>
     <p>
         •	Bedrijfsinformatie (algemeen) <br><br>
         •	Overzicht stageplekken (beschikbaar, tekst en stagemarkt)<br><br>
