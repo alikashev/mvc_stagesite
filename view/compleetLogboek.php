@@ -104,7 +104,7 @@
     </div>  
 </form>
 
-<script>
+<!-- <script>
     var my_element = document.getElementById('huidigeDag');
     
     my_element.scrollIntoView({
@@ -112,7 +112,7 @@
         block: 'start',
         inline: 'nearest'
     });
-</script>
+</script> -->
 
 <?php
     // $url = $_SERVER['REQUEST_URI'];

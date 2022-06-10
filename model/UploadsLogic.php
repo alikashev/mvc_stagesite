@@ -22,7 +22,7 @@ class UploadsLogic extends Main
 
       try {
         #retrieve file title
-        $date = date("Y-m-d h:i:sa");
+        $date = date("Y-m-d h:i:s");
         $upId = 1;
         $filename = rand(1000, 10000) . "-" . $_FILES["file"]["name"];
         $tname = $_FILES["file"]["tmp_name"];
