@@ -1,5 +1,5 @@
 <?php include_once 'view/sidebar.php'; ?>
-<img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
+<img class='balk' src="assets/img/test.png" alt="">
 <div class="content-section">
   <div class="text-section">
     <h2>Welkom op Volgstage</h2> <br>
@@ -13,8 +13,29 @@
       •   Coaching voor nieuwe stagiaires en begeleiders<br> <br>
       •   Springplank voor de vervolgstap na afronding <br> <br>
     </p>
+    <p>
+      Door vele jaren stagebegeleiding heeft Volgstage de meest overzichtelijke en gebruiksvriendelijke oplossing gebouwd. <br>
+      Wij hebben geluisterd naar alle knelpunten tijdens de corona tijd en ons platform zowel voor online als offline gebruik geperfectioneerd. <br> <br>
+      •   Voor de school, student, stagebedrijf en ouder! <br> <br>
+      •   Test gratis onze demo omgeving! <br> <br>
+      •   Neem contact op voor een offerte op maat! <br> <br>
+      •   Ons team en systeem ontzorgen u graag! <br> <br>
+      •   Coaching voor nieuwe stagiaires en begeleiders<br> <br>
+      •   Springplank voor de vervolgstap na afronding <br> <br>
+    </p>
+    <p>
+      Door vele jaren stagebegeleiding heeft Volgstage de meest overzichtelijke en gebruiksvriendelijke oplossing gebouwd. <br>
+      Wij hebben geluisterd naar alle knelpunten tijdens de corona tijd en ons platform zowel voor online als offline gebruik geperfectioneerd. <br> <br>
+      •   Voor de school, student, stagebedrijf en ouder! <br> <br>
+      •   Test gratis onze demo omgeving! <br> <br>
+      •   Neem contact op voor een offerte op maat! <br> <br>
+      •   Ons team en systeem ontzorgen u graag! <br> <br>
+      •   Coaching voor nieuwe stagiaires en begeleiders<br> <br>
+      •   Springplank voor de vervolgstap na afronding <br> <br>
+    </p>
   </div>          
-</div>  
+</div>
+<?php require_once 'footer.php'?>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -44,6 +65,5 @@ AOS.init({
 
 });
 </script>
-<?php require_once 'footer.php'?>
 </body>
 </html>
