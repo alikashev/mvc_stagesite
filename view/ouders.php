@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="content-section">
-    <img class='balk' src="assets/img/blauwe_balk_links.svg" alt="">
     <div class="text-section">
     <h2>Ouders</h2> <br>
     <p>
