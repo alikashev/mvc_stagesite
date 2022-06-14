@@ -53,7 +53,7 @@ $account = new Account();
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="https://www.stennizworkshops.nl/contact.php">Contact</a></li>
                     <?php if ($account->loginCheck()): ?>
                         <?php if ($account->adminCheck() || $account->supervisorCheck() || $account->schoolSupervisorCheck()): ?>
                             <li>
