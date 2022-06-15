@@ -38,7 +38,7 @@ $account = new Account();
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo.png" alt="">
+            <img class="logo" src="<?= SERVER_URL ?>/assets/img/logo.svg" alt="">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navitem list-unstyled components">
                 <li><a href="<?= SERVER_URL ?>/">Home</a></li>
