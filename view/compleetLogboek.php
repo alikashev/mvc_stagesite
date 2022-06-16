@@ -103,7 +103,6 @@
         </div>
     </div>  
 </form>
-
 <!-- <script>
     var my_element = document.getElementById('huidigeDag');
     
