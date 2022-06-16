@@ -3,6 +3,9 @@ include_once "model/Account.php";
 session_start();
 $account = new Account();
 ?>
+<?php if (!$account->loginCheck()) : ?>
+  <?php include_once 'view/navbar.php'; ?>
+<?php endif; ?>
 <?php if ($account->loginCheck()) : ?>
     <?php include_once 'view/sidebar.php'; ?>
 <?php endif; ?>
@@ -24,7 +27,7 @@ $account = new Account();
   </div>
 </div>
 <?php if (!$account->loginCheck()) : ?>
-    <?php require_once 'footer.php'?>
+  <?php include_once 'view/footer.php'; ?>
 <?php endif; ?>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
