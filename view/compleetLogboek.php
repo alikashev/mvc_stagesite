@@ -86,7 +86,7 @@
     }
 
     .logboekDag_beschrijving {
-        height: 65%;
+        height: 74.1%;
         width: 75%;
         float: left;
         text-align: left;
