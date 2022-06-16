@@ -3,8 +3,11 @@ include_once "model/Account.php";
 session_start();
 $account = new Account();
 ?>
-<?php include_once 'view/sidebar.php'; ?>
+<?php if ($account->loginCheck()) : ?>
+    <?php include_once 'view/sidebar.php'; ?>
+<?php endif; ?>
 <img class='balk' src="assets/img/test.png" alt="">
+<link rel="stylesheet" href="assets/css/style.css">
 <div class="content-section">
   <div class="text-section">
     <h2>Welkom op Volgstage</h2> <br>
