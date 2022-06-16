@@ -1,4 +1,3 @@
-
 <nav id="sidebar">
 <div id="dismiss">
     <i class="fas fa-arrow-left"></i>
