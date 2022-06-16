@@ -13,9 +13,9 @@
       •   Coaching voor nieuwe stagiaires en begeleiders!<br> <br>
       •   Springplank voor de vervolgstap na afronding!<br> <br>
     </p>
-  </div>          
+  </div>
 </div>
-<?php require_once 'footer.php'?>
+<?php require_once 'footer.php'?>          
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
