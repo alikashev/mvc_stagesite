@@ -1,3 +1,8 @@
+<?php
+include_once "model/Account.php";
+session_start();
+$account = new Account();
+?>
 <?php include_once 'view/sidebar.php'; ?>
 <img class='balk' src="assets/img/test.png" alt="">
 <div class="content-section">
@@ -15,7 +20,9 @@
     </p>
   </div>
 </div>
-<?php require_once 'footer.php'?>          
+<?php if (!$account->loginCheck()) : ?>
+    <?php require_once 'footer.php'?>
+<?php endif; ?>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
