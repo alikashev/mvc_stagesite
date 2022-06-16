@@ -47,7 +47,7 @@ class Login
         session_start();
         if (!empty($_SESSION["user"])) {
             if ($_SESSION["user"] !== 0) {
-                header('Location: ' . SERVER_URL . '/Home/');
+                header('Location: ' . SERVER_URL . '/');
             } else {
                 header('Location: ' . SERVER_URL . '/Login/');
             }
