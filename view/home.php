@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 <?php include_once 'view/sidebar.php'; ?>
 
+=======
+<?php
+include_once "model/Account.php";
+session_start();
+$account = new Account();
+?>
+<?php if ($account->loginCheck()) : ?>
+    <?php include_once 'view/sidebar.php'; ?>
+<?php endif; ?>
+>>>>>>> f894241fe67a41b738c443cb385db527d8cb8f5b
 <img class='balk' src="assets/img/test.png" alt="">
+<link rel="stylesheet" href="assets/css/style.css">
 <div class="content-section">
   <div class="text-section">
     <h2>Welkom op Volgstage</h2> <br>
@@ -16,6 +28,12 @@
     </p>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+<?php if (!$account->loginCheck()) : ?>
+    <?php require_once 'footer.php'?>
+<?php endif; ?>
+>>>>>>> f894241fe67a41b738c443cb385db527d8cb8f5b
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();

@@ -21,9 +21,22 @@ class Contract extends Main
 
     try {
       $query = "INSERT INTO logboek (aantal_uren, aantal_uren_ingediend)";
-      $query .= " VALUES ('0', '0');";
+      $query .= " VALUES ($mandatoryHours, 0);";
       $this->datahandler->createData($query);
       $logId = $this->datahandler->lastInsertId();
+
+      $start = $startDate->format('Y-m-d');
+      $eind = $endDate->format('Y-m-d');
+      $start_date=strtotime($start);
+      $end_date=strtotime($eind);
+
+      while ($start_date < $end_date) {
+          $start_var = date("Y-m-d", $start_date);
+          $query = "INSERT INTO logboek_dagen(logboek_id, dag, beschrijving_werkzaamheden, uur_gewerkt, ingediend) VALUES($logId, $start_var, '', 0, 0)";
+          $result = $this->datahandler->createData($query);
+          $startdate = strtotime("+1 days", $start_date);
+      }
+
       $query = "INSERT INTO stages (stagiair_id, stage_bedrijven_id, aantal_uren_nodig, aantal_uren_goedgekeurd, start_datum, eind_datum, is_afgerond, stagebegeleider_id, schoolmentor_id, praktijkbegeleider_stage_id, ouder_id, vertrouwenspersoon_id, schoolaccount_id, logboek_id)";
       $query .= " VALUES ('$internId', '$companyId', '$mandatoryHours', '$approvedHours', '$startDate', '$endDate', '$finished', '$schoolSupervisorId', '$teacherId', '$supervisorId', '$parentId', '$humanResourcesId', '$schoolAccountId', '$logId');";
       $result = $this->datahandler->createData($query);
