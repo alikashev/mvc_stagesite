@@ -1,10 +1,7 @@
-<nav id="sidebar">
-<div id="dismiss">
-    <i class="fas fa-arrow-left"></i>
-</div>
-
+<div id="sidebar">
+    
 <div class="sidebar-header">
-    <div class="img-logo">
+    <div class="">
     <img class="img-logo" src="assets/img/logo.svg" alt="">
     </div>
 </div>
@@ -27,5 +24,5 @@
         <a id="logboek_btn" onclick="scrollFunctie();" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
     </li>
 </ul>
-</nav>
+</div>
 <script src="<?= SERVER_URL . "/assets/js/main.js" ?>"></script>
