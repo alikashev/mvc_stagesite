@@ -31,8 +31,18 @@
                 //check of deze dag de huidige dag is
                 if($dag == date('d-m-Y')) {
                     echo "<div id='huidigeDag' class='logboekDag'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving' id='$logboekdag->id' $showFunctie>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt' id='$logboekdag->id' $showFunctie>$uur</div></div>";
-                    echo "<div class='logboekDagExt'>
-                    
+                    echo "<div class='logboekDagExt' id='$logboekdag->id'>
+                            <textarea class='logboekDagExt_beschrijving'>
+                                $logboekdag->beschrijving_werkzaamheden
+                            </textarea>
+                            <div class='logboekDagExt_functies'>
+                                <div class='logboekDagExt_enkele_functies'>
+                                    <a href='#' class='indienen_knop'>Indienen</a>
+                                </div>
+                                <div class='logboekDagExt_enkele_functies'>
+                                    <input class='number_knop' value='$logboekdag->uur_gewerkt' type='number'/>
+                                </div>
+                            </div>
                         </div>";
                 } else {
                     echo "<div class='logboekDag'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving' id='$logboekdag->id' $showFunctie>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt' id='$logboekdag->id' $showFunctie>$uur</div></div>";

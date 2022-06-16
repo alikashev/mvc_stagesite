@@ -37,15 +37,17 @@
     }
 
     .logboekDagExt {
-        background-color: white;
+        background-color: beige;
         border: 1px solid black;
         height: 150px;
         width: 100%;
         margin-bottom: 2px;
         display: none;
+        /* display: block; */
     }
 
     .logboekDagExt_beschrijving {
+        background-color: beige;
         height: 80%;
         width: 100%;
         float: left;
@@ -63,13 +65,14 @@
         float: left;
         height: 100%;
         width: 50%;
-        border: 1px solid black;
         text-align: center;
+        margin-top: 5px;
     }
 
     .number_knop {
         border: none;
         text-align: center;
+        background-color: beige;
     }
 
     .indienen_knop {

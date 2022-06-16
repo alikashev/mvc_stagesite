@@ -40,3 +40,7 @@ function showFunctie() {
   // .style.display = "block";
 
 }
+
+function wijzigFunctie() {
+  //update de dag waar een karakter is gewijzigd
+}
