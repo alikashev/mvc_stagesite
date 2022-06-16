@@ -22,54 +22,85 @@
     #logboek {
         background-color: gray;
         border: 1px solid black;
-        width: 80%;
+        width: 60%;
         padding: 2px;
         float: left;
+        margin-top: 15px;
     }
 
     .logboekDag {
         background-color: beige;
         border: 1px solid black;
-        height: 65px;
+        height: 50px;
         width: 100%;
         margin-bottom: 2px;
     }
 
-    .logboekDag_dag {
-        border: 1px solid red;
-        height: 100%;
-        width: 10%;
+    .logboekDagExt {
+        background-color: white;
+        border: 1px solid black;
+        height: 150px;
+        width: 100%;
+        margin-bottom: 2px;
+        display: none;
+    }
+
+    .logboekDagExt_beschrijving {
+        height: 80%;
+        width: 100%;
         float: left;
+        resize: none;
+    }
+
+    .logboekDagExt_functies {
+        height: 20%;
+        width: 100%;
+        float: left;
+        border-top: 1px solid black;
+    }
+
+    .logboekDagExt_enkele_functies {
+        float: left;
+        height: 100%;
+        width: 50%;
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    .number_knop {
+        border: none;
+        text-align: center;
+    }
+
+    .indienen_knop {
+        color: blue;
+    }
+
+    .logboekDag_dag {
+        border-right: 1px solid black;
+        height: 100%;
+        width: 15%;
+        float: left;
+        padding-top: 14px;
+        padding-left: 5px;
     }
 
     .logboekDag_beschrijving {
-        border: 1px solid red;
-        height: 100%;
-        width: 60%;
+        height: 65%;
+        width: 75%;
         float: left;
         text-align: left;
         overflow: hidden;
+        padding-top: 14px;
+        padding-left: 5px;
     }
 
     .logboekDag_urenGewerkt {
-        border: 1px solid red;
         height: 100%;
-        width: 10%;
+        width: 7%;
         float: left;
-    }
-
-    .logboekDag_urenIngediend {
-        border: 1px solid red;
-        height: 100%;
-        width: 10%;
-        float: left;
-    }
-
-    .logboekDag_wijzig {
-        border: 1px solid red;
-        height: 100%;
-        width: 10%;
-        float: left;
+        text-align: right;
+        padding-top: 14px;
     }
 
     #bewerk_dag {
@@ -96,6 +127,8 @@
 
 <a id="indienAlleDagen" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/indienAlleDagen/<?= $stage->logboek_id ?>')">Dien alle dagen in met uren</a>
 
+<script src="<?= SERVER_URL ?>/assets/js/main.js"></script>
+
 <form method='post'>
     <div id='logboek'>
         <div id='logboekDagenContainer'>
@@ -112,7 +145,6 @@
         inline: 'nearest'
     });
 </script> -->
-
 <?php
     // $url = $_SERVER['REQUEST_URI'];
     // $packets = explode('/',$url);

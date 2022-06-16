@@ -31,3 +31,12 @@ function scrollFunctie() {
       });
   }, 100);
 }
+
+function showFunctie() {
+  //check of de dag al is ingediend
+  console.log('test123');
+  //als de dag nog niet is ingediend laat dan de popup zien
+  // var dag = 
+  // .style.display = "block";
+
+}

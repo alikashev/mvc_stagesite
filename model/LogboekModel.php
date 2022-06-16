@@ -20,7 +20,6 @@
 
         function create_logboek_dagen($logboekId, $start_datum, $eind_datum) {
             // maakt alle logboekdagen aan
-            // student::create_logboek_dagen($stage->logboek_id, $start_datum, $eind_datum);
             $start = $start_datum->format('Y-m-d');
             $eind = $eind_datum->format('Y-m-d');
             $startdate=strtotime($start);
