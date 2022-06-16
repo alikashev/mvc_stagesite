@@ -6,45 +6,28 @@
 </div>
 
 <div class="sidebar-header">
-    <h3>Bootstrap Sidebar</h3>
+    <div class="img-logo">
+    <img class="img-logo" src="assets/img/logo.svg" alt="">
+    </div>
 </div>
 
 <ul class="list-unstyled components">
-    <p>Dummy Heading</p>
-    <li class="active">
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li>
-                <a href="#">Home 1</a>
-            </li>
-            <li>
-                <a href="#">Home 2</a>
-            </li>
-            <li>
-                <a href="#">Home 3</a>
-            </li>
-        </ul>
-    </li>
     <li>
-        <a href="#">About</a>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-            <li>
-                <a href="#">Page 1</a>
-            </li>
-            <li>
-                <a href="#">Page 2</a>
-            </li>
-            <li>
-                <a href="#">Page 3</a>
-            </li>
-        </ul>
+        <a href="javascript:loadPage1('<?= SERVER_URL ?>/UserController/')">Gebruikers</a>
+        <a href="javascript:loadPage1('<?= SERVER_URL ?>/ContractController/')">Stages</a>
     </li>
     <li>
         <a href="#">Portfolio</a>
     </li>
     <li>
-        <a href="#">Contact</a>
+        <a href="https://www.stennizworkshops.nl/contact.php">Contact</a>
+    </li>
+    <li>
+        <a href="javascript:loadPage1('<?= SERVER_URL ?>/UploadsController/collectReadAllFiles')">Uploaden</a>
+    </li>
+    <li>
+        <a id="logboek_btn" onclick="scrollFunctie();" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Logboek</a>
     </li>
 </ul>
 </nav>
+<script src="<?= SERVER_URL . "/assets/js/main.js" ?>"></script>

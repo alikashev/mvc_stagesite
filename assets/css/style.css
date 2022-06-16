@@ -2,6 +2,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .container {
@@ -90,17 +92,25 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
+    min-width: 200px;
     max-width: 250px;
+    height: 100%;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
     margin: 0;
+    left: 0;
+    z-index: 1;
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
     background: #6d7fcc;
+    height: 120px;
+}
+
+.img-logo {
+  width: 150px;
+  height: 120px;
 }
 
 #sidebar ul.components {
@@ -320,7 +330,6 @@ a.register:hover {
     text-align: left;
     font: bold 16px sans-serif;
     padding: 55px 50px;
-    position: absolute;
   }
   
   .footer-distributed .footer-left,

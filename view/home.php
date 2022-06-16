@@ -1,4 +1,5 @@
 <?php include_once 'view/sidebar.php'; ?>
+
 <img class='balk' src="assets/img/test.png" alt="">
 <div class="content-section">
   <div class="text-section">
@@ -15,7 +16,6 @@
     </p>
   </div>
 </div>
-<?php require_once 'footer.php'?>          
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
