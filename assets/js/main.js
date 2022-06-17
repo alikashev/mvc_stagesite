@@ -1,5 +1,3 @@
-console.log("test");
-
 function loadPage(url) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -23,7 +21,6 @@ function loadPage(url) {
 function scrollFunctie() {
   setTimeout(function() {
       var my_element = document.getElementById('huidigeDag');
-      console.log(my_element);
       my_element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -32,15 +29,21 @@ function scrollFunctie() {
   }, 100);
 }
 
-function showFunctie() {
-  //check of de dag al is ingediend
-  console.log('test123');
-  //als de dag nog niet is ingediend laat dan de popup zien
-  // var dag = 
-  // .style.display = "block";
+function showFunctie(dag) {
+    var idName = 'ext' + dag;
+    var dag = document.getElementById(idName);
 
+    // if(dag.classList.contains('ingediend0')) {
+        if(dag.style.display = "none") {
+            dag.style.display = "block";
+        } else {
+            dag.style.display = "none";
+        }
+        console.log(dag);
+        console.log(dag.style.diplay);
+    // }
 }
 
-function wijzigFunctie() {
-  //update de dag waar een karakter is gewijzigd
+function wijzigNummerFunctie(nummer) {
+    
 }
