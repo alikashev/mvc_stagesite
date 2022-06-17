@@ -44,6 +44,15 @@ function showFunctie(dag) {
     // }
 }
 
-function wijzigNummerFunctie(nummer) {
-    
+function wijzigNummerFunctie(id, nummer) {
+    console.log(id, nummer);
+    // $.ajax({
+    //     url: "../../controller/LogboekController/wijzigNummer/" + id + "/" + nummer,    //the page containing php script
+    //     type: "post",
+    //     dataType: 'json',
+    //     data: {registration: "success", name: "xyz", email: "abc@gmail.com"},
+    //     success:function(result){
+    //         console.log(result.abc);
+    //     }
+    // });
 }
