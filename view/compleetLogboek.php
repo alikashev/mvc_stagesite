@@ -20,7 +20,7 @@
     }
 
     #logboek {
-        background-color: gray;
+        background-color: #59c4d8;
         border: 1px solid black;
         width: 60%;
         padding: 2px;
@@ -29,15 +29,15 @@
     }
 
     .logboekDag {
-        background-color: beige;
+        background-color: #59c4d8;
         border: 1px solid black;
-        height: 50px;
+        height: 25px;
         width: 100%;
         margin-bottom: 2px;
     }
 
     .logboekDagExt {
-        background-color: beige;
+        background-color: #59c4d8;
         border: 1px solid black;
         height: 150px;
         width: 100%;
@@ -47,7 +47,7 @@
     }
 
     .logboekDagExt_beschrijving {
-        background-color: beige;
+        background-color: #59c4d8;
         height: 80%;
         width: 100%;
         float: left;
@@ -72,7 +72,7 @@
     .number_knop {
         border: none;
         text-align: center;
-        background-color: beige;
+        background-color: #59c4d8;
     }
 
     .indienen_knop {
@@ -84,17 +84,17 @@
         height: 100%;
         width: 15%;
         float: left;
-        padding-top: 14px;
+        padding-top: 2px;
         padding-left: 5px;
     }
 
     .logboekDag_beschrijving {
-        height: 74.1%;
+        height: 100%;
         width: 75%;
         float: left;
         text-align: left;
         overflow: hidden;
-        padding-top: 14px;
+        padding-top: 2px;
         padding-left: 5px;
     }
 
@@ -103,7 +103,7 @@
         width: 7%;
         float: left;
         text-align: right;
-        padding-top: 14px;
+        padding-top: 2px;
     }
 
     #bewerk_dag {
@@ -129,8 +129,6 @@
 </style>
 
 <a id="indienAlleDagen" href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/indienAlleDagen/<?= $stage->logboek_id ?>')">Dien alle dagen in met uren</a>
-
-<script src="<?= SERVER_URL ?>/assets/js/main.js"></script>
 
 <form method='post'>
     <div id='logboek'>

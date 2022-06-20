@@ -39,11 +39,16 @@
 
                     session_start();
                     $_SESSION["is_bewerkt"] = 1;
-                    
+
                     $url2 = SERVER_URL . "/Home/";
                     header("location: $url2");
                 } 
             }
+        }
+
+        public function wijzigNummer($dagId, $nummer) {
+            $dag = $this->Logboek->logboekDag_ophalen($dagId);
+            $this->Logboek->bewerkDag($dagId, $dag->beschrijving_werkzaamheden, $nummer);
         }
 
         function indienDag($id) {

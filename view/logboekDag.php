@@ -15,7 +15,7 @@
         Beschrijving Werkzaamheden:
         <textarea style="height: 40%; width: 100%;" name="beschrijving"><?php echo $dag->beschrijving_werkzaamheden?></textarea><br/>
         Aantal uur gewerkt:
-        <input type="number" name="uur_gewerkt" value="<?php echo $dag->uur_gewerkt?>"></input><br/><br/>
+        <input type="number" name="uur_gewerkt" value="<?php echo $dag->uur_gewerkt?>" onchange="wijzigNummerFunctie(this.id, this.value);"></input><br/><br/>
         <a href="javascript:loadPage1('<?= SERVER_URL ?>/LogboekController/')">Annuleren</a>
         <input type="submit" name="bewerk" value="Opslaan"></input>
     </form>
