@@ -9,7 +9,7 @@ $account = new Account();
 <?php if ($account->loginCheck()) : ?>
     <?php include_once 'view/sidebar.php'; ?>
 <?php endif; ?>
-<img class='balk' src="assets/img/" alt="">
+<img class='balk' src="assets/img/test.png" alt="">
 <link rel="stylesheet" href="assets/css/style.css">
 <div class="content-section">
   <div class="text-section">

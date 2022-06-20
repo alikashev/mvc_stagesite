@@ -1,8 +1,8 @@
 <div id="sidebar">
     
 <div class="sidebar-header">
-    <div class="">
-    <img class="img-logo" src="assets/img/logo.svg" alt="">
+    <div class="logoimg">
+    <img class="img-logo" src="assets/img/logo.png" alt="">
     </div>
 </div>
 
