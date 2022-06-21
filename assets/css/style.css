@@ -485,4 +485,11 @@ a.register:hover {
       margin-left: 0;
     }
   }
-  
+
+.hidden {
+    display: none;
+}
+
+.open {
+    display: block;
+}

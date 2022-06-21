@@ -31,7 +31,7 @@
                 //check of deze dag de huidige dag is
                 if($dag == date('d-m-Y')) {
                     echo "<div id='huidigeDag' class='logboekDag' class='ingediend$logboekdag->ingediend'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving' id='$logboekdag->id' $showFunctie>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt' id='$logboekdag->id' $showFunctie>$uur</div></div>";
-                    echo "<div class='logboekDagExt' id='ext$logboekdag->id'>
+                    echo "<div class='logboekDagExt hidden' id='ext$logboekdag->id'>
                             <textarea class='logboekDagExt_beschrijving'>
                                 $logboekdag->beschrijving_werkzaamheden
                             </textarea>
@@ -46,7 +46,7 @@
                         </div>";
                 } else {
                     echo "<div class='logboekDag' class='ingediend$logboekdag->ingediend'><div class='logboekDag_dag'>$dag</div><div class='logboekDag_beschrijving' id='$logboekdag->id' $showFunctie>$logboekdag->beschrijving_werkzaamheden</div><div class='logboekDag_urenGewerkt' id='$logboekdag->id' $showFunctie>$uur</div></div>";
-                    echo "<div class='logboekDagExt' id='ext$logboekdag->id'>
+                    echo "<div class='logboekDagExt hidden' id='ext$logboekdag->id'>
                             <textarea class='logboekDagExt_beschrijving'>$logboekdag->beschrijving_werkzaamheden</textarea>
                             <div class='logboekDagExt_functies'>
                                 <div class='logboekDagExt_enkele_functies'>

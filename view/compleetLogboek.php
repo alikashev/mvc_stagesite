@@ -42,8 +42,6 @@
         height: 150px;
         width: 100%;
         margin-bottom: 2px;
-        display: none;
-        /* display: block; */
     }
 
     .logboekDagExt_beschrijving {

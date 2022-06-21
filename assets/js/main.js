@@ -29,19 +29,37 @@ function scrollFunctie() {
   }, 100);
 }
 
-function showFunctie(dag) {
-    var idName = 'ext' + dag;
-    var dag = document.getElementById(idName);
+// function showFunctie(dag) {
+//     var idName = 'ext' + dag;
+//     var dag = document.getElementById(idName);
+//
+//     // if(dag.classList.contains('ingediend0')) {
+//         if(dag.style.display === "none") {
+//             dag.style.display = "block";
+//         } else {
+//             dag.style.display = "none";
+//         }
+//         console.log(dag);
+//         console.log(dag.style.diplay);
+//     // }
+// }
 
-    // if(dag.classList.contains('ingediend0')) {
-        if(dag.style.display = "none") {
-            dag.style.display = "block";
-        } else {
-            dag.style.display = "none";
-        }
-        console.log(dag);
-        console.log(dag.style.diplay);
-    // }
+function showFunctie(dag) {
+  var idName = 'ext' + dag;
+  var dag = document.getElementById(idName);
+
+  // if(dag.classList.contains('ingediend0')) {
+  if(dag.classList.contains('hidden')) {
+    dag.classList.remove('hidden');
+    dag.classList.add('open');
+  } else if (dag.classList.contains('open')) {
+    dag.classList.remove('open');
+    dag.classList.add('hidden');
+  } else {
+    dag.classList.add('open');
+  }
+  console.log(dag);
+  // }
 }
 
 function wijzigNummerFunctie(id, nummer) {
