@@ -34,14 +34,14 @@ $account = new Account();
 
   <div class="container-slider">
   <section class="customer-logos slider">
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
-    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/glr.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/glu.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/el.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/rocmn.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/mboa.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/el.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/rocmn.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/mboa.png"></div>
   </section>
 </div>
   
