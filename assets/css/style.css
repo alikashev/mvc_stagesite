@@ -90,15 +90,17 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 200px;
-    max-width: 250px;
-    height: 100%;
-    background: #2596be;
-    color: #fff;
-    transition: all 0.3s;
-    margin: 0;
-    left: 0;
-    z-index: 1;
+  min-width: 200px;
+  max-width: 250px;
+  position: fixed;
+  background: #2596be;
+  color: #fff;
+  transition: all 0.3s;
+  margin: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  height: 100%;
 }
 
 #sidebar .sidebar-header {
@@ -115,7 +117,6 @@ a:focus {
 }
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -237,6 +238,7 @@ a.register:hover {
     max-height: 100px;
     display: flex;
     margin: 10px;
+    position: relative;
 }
 
 .header-img{
@@ -255,7 +257,6 @@ a.register:hover {
   }
 
   .content-section {
-      width: 100%;
       height: auto;
       color: #000;
       position: relative;
