@@ -48,7 +48,6 @@ function showFunctie(dag) {
   var idName = 'ext' + dag;
   var dag = document.getElementById(idName);
 
-  // if(dag.classList.contains('ingediend0')) {
   if(dag.classList.contains('hidden')) {
     dag.classList.remove('hidden');
     dag.classList.add('open');
@@ -58,8 +57,6 @@ function showFunctie(dag) {
   } else {
     dag.classList.add('open');
   }
-  console.log(dag);
-  // }
 }
 
 function wijzigNummerFunctie(id, nummer) {

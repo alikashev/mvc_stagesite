@@ -10,6 +10,9 @@
     $server_url = SERVER_URL;
 ?>
 <style>
+    :root {
+        --gray: #ccc;
+    }
     * {
         box-sizing: border-box;
     }
@@ -20,7 +23,7 @@
     }
 
     #logboek {
-        background-color: #59c4d8;
+        background-color: var(--gray);
         border: 1px solid black;
         width: 60%;
         padding: 2px;
@@ -29,7 +32,7 @@
     }
 
     .logboekDag {
-        background-color: #59c4d8;
+        background-color: var(--gray);
         border: 1px solid black;
         height: 25px;
         width: 100%;
@@ -37,15 +40,15 @@
     }
 
     .logboekDagExt {
-        background-color: #59c4d8;
+        background-color: var(--gray);
         border: 1px solid black;
-        height: 150px;
+        height: 200px;
         width: 100%;
         margin-bottom: 2px;
     }
 
     .logboekDagExt_beschrijving {
-        background-color: #59c4d8;
+        background-color: var(--gray);
         height: 80%;
         width: 100%;
         float: left;
@@ -55,12 +58,11 @@
     .logboekDagExt_functies {
         height: 20%;
         width: 100%;
-        float: left;
         border-top: 1px solid black;
+        display: flex;
     }
 
     .logboekDagExt_enkele_functies {
-        float: left;
         height: 100%;
         width: 50%;
         text-align: center;
@@ -70,11 +72,10 @@
     .number_knop {
         border: none;
         text-align: center;
-        background-color: #59c4d8;
+        background-color: var(--gray);
     }
 
     .indienen_knop {
-        color: blue;
     }
 
     .logboekDag_dag {
