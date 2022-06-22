@@ -11,6 +11,10 @@ $account = new Account();
 <?php endif; ?>
 <img class='balk' src="assets/img/test.png" alt="">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
 <div class="content-section">
   <div class="text-section">
     <h2>Welkom op Volgstage</h2> <br>
@@ -26,6 +30,22 @@ $account = new Account();
     </p>
   </div>
 </div>
+<?php if (!$account->loginCheck()) : ?>
+
+  <div class="container-slider">
+  <section class="customer-logos slider">
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+    <div class="slide"><img src="assets/img/favicon.png"></div>
+  </section>
+</div>
+  
+<?php endif; ?>
 <?php if (!$account->loginCheck()) : ?>
   <?php include_once 'view/footer.php'; ?>
 <?php endif; ?>

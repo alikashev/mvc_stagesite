@@ -30,7 +30,7 @@
             <p>0624715745</p>
         </div>
 
-        <div>
+        <div id="fm" class="footer-mail">
             <i class="fa fa-envelope"></i>
             <p><a href="mailto:support@company.com">stennizmusic@gmail.com</a></p>
         </div>
