@@ -3,11 +3,11 @@ include_once "model/Account.php";
 session_start();
 $account = new Account();
 ?>
-<?php if (!$account->loginCheck()) : ?>
-  <?php include_once 'view/navbar.php'; ?>
-<?php endif; ?>
 <?php if ($account->loginCheck()) : ?>
     <?php include_once 'view/sidebar.php'; ?>
+<?php endif; ?>
+<?php if (!$account->loginCheck()) : ?>
+  <?php include_once 'view/navbar.php'; ?>
 <?php endif; ?>
 <img class='balk' src="assets/img/test.png" alt="">
 <link rel="stylesheet" href="assets/css/style.css">

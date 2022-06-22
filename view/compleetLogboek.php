@@ -18,8 +18,8 @@
     }
 
     body {
-        padding: 0;
-        margin: 0;
+        margin-left: 500px; 
+        margin-top: 20px;
     }
 
     #logboek {
