@@ -29,25 +29,25 @@ class LogboekController
         $stage = $logboekModel->stageinfo_ophalen($userId);
     }
 
-    public function bewerkDag($id, $test)
+    public function bewerkDag($id)
     {
         self::toonLogboek();
         $dag = $this->Logboek->logboekDag_ophalen($id);
-        var_dump($dag);
 
-        $beschrijving = $_POST["beschrijving"];
-        $uurGewerkt = $_POST["uur_gewerkt"];
-        var_dump($_POST);
+        if (!$dag->ingediend) {
+            include 'view/logboekDag.php';
+            $beschrijving = $_POST["beschrijving"];
+            $uurGewerkt = $_POST["uur_gewerkt"];
+        }
 
-        var_dump($test); die;
+        if (isset($_POST["bewerk"])) {
+            $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
 
-        $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
+            session_start();
+            $_SESSION["is_bewerkt"] = 1;
+            header("location: " . SERVER_URL . '/');
+        }
 
-        session_start();
-        $_SESSION["is_bewerkt"] = 1;
-
-        $url2 = SERVER_URL . "/Home/";
-        header("location: $url2");
     }
 
     public function wijzigNummer($dagId, $nummer)
