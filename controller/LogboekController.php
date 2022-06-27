@@ -35,19 +35,17 @@ class LogboekController
         $dag = $this->Logboek->logboekDag_ophalen($id);
 
         if (!$dag->ingediend) {
-            include 'view/logboekDag.php';
+            // include 'view/logboekDag.php';
             $beschrijving = $_POST["beschrijving"];
             $uurGewerkt = $_POST["uur_gewerkt"];
+            if (isset($_POST["bewerk"])) {
+                $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
+
+                session_start();
+                $_SESSION["is_bewerkt"] = 1;
+                header("location: " . SERVER_URL . '/');
+            }
         }
-
-        if (isset($_POST["bewerk"])) {
-            $this->Logboek->bewerkDag($id, $beschrijving, $uurGewerkt);
-
-            session_start();
-            $_SESSION["is_bewerkt"] = 1;
-            header("location: " . SERVER_URL . '/');
-        }
-
     }
 
     public function wijzigNummer($dagId, $nummer)
@@ -87,5 +85,3 @@ class LogboekController
         header("location: ../../LogboekController");
     }
 }
-
-?>

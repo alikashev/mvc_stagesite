@@ -15,11 +15,14 @@
 
             $aantalDagen = 1;
             $server_url = SERVER_URL;
+            $url = '';
             foreach($logboekdagen as $logboekdag) {
                 $datum = strtotime($logboekdag->dag);
                 $dag = date('d-m-Y', $datum);
                 if (!$logboekdag->ingediend) {
-                    $wijzig = "<a id='btnWijzig' href='javascript:loadPage1(\"$server_url/LogboekController/bewerkDag/$logboekdag->id/\")'>wijzig</a>";
+                    // $wijzig = "<a id='btnWijzig' href='javascript:loadPage1(\"$server_url/LogboekController/bewerkDag/$logboekdag->id/\")'>wijzig</a>";
+                    $url = SERVER_URL . "/LogboekController/bewerkDag/$logboekdag->id";
+                    $wijzig = "<input id='btnWijzig' type='submit' name='bewerk' value='Bewerken'>";
                 } else {
                     $wijzig = "Gewijzigd";
                 }
@@ -33,6 +36,7 @@
                 $showFunctie = "onclick='showFunctie(this.id);'";
 
                 $identical = "<div class='logboekDagExt hidden' id='ext$logboekdag->id'>
+                            <form method='post' action='$url'>
                             <textarea id='logboekBeschrijving' class='logboekDagExt_beschrijving' name='beschrijving' required>
                                 $logboekdag->beschrijving_werkzaamheden
                             </textarea>
@@ -46,6 +50,7 @@
                                 <div class='logboekDagExt_enkele_functies'>
                                     <input id='logboekUren' class='number_knop' value='$logboekdag->uur_gewerkt' name='uur_gewerkt' type='number'/>
                                 </div>
+                                </form>
                             </div>
                         </div>";
 
