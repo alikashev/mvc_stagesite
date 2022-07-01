@@ -6,6 +6,8 @@
         </div>
     </div>
 
+    <a href="logout" class="logout">Uitloggen</a>
+
     <ul class="list-unstyled components">
         <li>
             <a href="javascript:loadPage1('<?= SERVER_URL ?>/UserController/')">Gebruikers</a>
