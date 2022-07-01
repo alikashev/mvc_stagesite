@@ -12,14 +12,15 @@
 <style>
     :root {
         --gray: #ccc;
+        margin-left: 500px; 
+        margin-top: 20px;
     }
     * {
         box-sizing: border-box;
     }
 
     body {
-        margin-left: 500px; 
-        margin-top: 20px;
+      
     }
 
     #logboek {
