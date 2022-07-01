@@ -38,10 +38,13 @@ $account = new Account();
     <div class="slide"><img class="logo-partner" src="assets/img/glu.png"></div>
     <div class="slide"><img class="logo-partner" src="assets/img/el.png"></div>
     <div class="slide"><img class="logo-partner" src="assets/img/rocmn.png"></div>
-    <div class="slide"><img class="logo-partner" src="assets/img/mboa.png"></div>
-    <div class="slide"><img class="logo-partner" src="assets/img/el.png"></div>
-    <div class="slide"><img class="logo-partner" src="assets/img/rocmn.png"></div>
-    <div class="slide"><img class="logo-partner" src="assets/img/mboa.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/jena.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/wissel.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/coenecoop.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/bink.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/beatrix.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/oxfam.png"></div>
+    <div class="slide"><img class="logo-partner" src="assets/img/kunst.png"></div>
   </section>
 </div>
   

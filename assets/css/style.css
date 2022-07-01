@@ -129,6 +129,7 @@ a:focus {
     font-size: 1.1em;
     display: block;
     color: #fff;
+    margin: 10px;
 }
 
 #sidebar ul li a:hover {
@@ -253,6 +254,7 @@ a.logout {
 
 .header-img{
     margin-right: 10px;
+    width: 200px;
 }
 
 .logo {
