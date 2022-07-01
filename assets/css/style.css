@@ -216,6 +216,9 @@ a.logout {
   width: 100px;
   text-align: center;
   text-decoration: none;
+  right: 0;
+  top: 0;
+  position: absolute;
 }
 
 /* ---------------------------------------------------
