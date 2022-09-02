@@ -8,7 +8,7 @@ class StudentModel extends Main
 
   public function __construct()
   {
-    $this->datahandler = new datahandler("localhost", "mysql", "stagesite","root", "");
+    $this->DataHandler = new DataHandler("localhost", "mysql", "stenniz_volgstage", "root", "");
     $this->outputData = new OutputData();
     parent::__construct();
   }
@@ -21,7 +21,7 @@ class StudentModel extends Main
   {
     try {
       $query = "SELECT * FROM stages WHERE id = $stageId";
-      $result = $this->datahandler->readsData($query);
+      $result = $this->DataHandler->readsData($query);
       $results = $result->fetchObject();
 
       return $results;
@@ -37,7 +37,7 @@ class StudentModel extends Main
       $stage = self::StageInfo($stageId);
 
       $query = "SELECT * FROM gebruikers WHERE id = $stage->stagiair_id";
-      $result = $this->datahandler->readsData($query);
+      $result = $this->DataHandler->readsData($query);
       $results = $result->fetchObject();
 
       return $results;
@@ -53,7 +53,7 @@ class StudentModel extends Main
       $stage = self::StageInfo($stageId);
 
       $query = "SELECT * FROM stage_bedrijven WHERE id = $stage->stage_bedrijven_id";
-      $result = $this->datahandler->readsData($query);
+      $result = $this->DataHandler->readsData($query);
       $results = $result->fetchObject();
 
       return $results;
@@ -69,7 +69,7 @@ class StudentModel extends Main
       $stage = self::StageInfo($stageId);
 
       $query = "SELECT * FROM gebruikers WHERE id = $stage->stagebegeleider_id";
-      $result = $this->datahandler->readsData($query);
+      $result = $this->DataHandler->readsData($query);
       $results = $result->fetchObject();
 
       return $results;
@@ -85,7 +85,7 @@ class StudentModel extends Main
       $stage = self::StageInfo($stageId);
 
       $query = "SELECT * FROM gebruikers WHERE id = $stage->praktijkbegeleider_stage_id";
-      $result = $this->datahandler->readsData($query);
+      $result = $this->DataHandler->readsData($query);
       $results = $result->fetchObject();
 
       return $results;
@@ -101,7 +101,7 @@ class StudentModel extends Main
       $stage = self::StageInfo($stageId);
 
       $query = "SELECT * FROM gebruikers WHERE id = $stage->contactpersoon_stage_id";
-      $result = $this->datahandler->readsData($query);
+      $result = $this->DataHandler->readsData($query);
       $results = $result->fetchObject();
 
       return $results;
