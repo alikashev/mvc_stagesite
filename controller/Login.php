@@ -2,6 +2,7 @@
 include_once 'model/User.php';
 include_once 'model/Account.php';
 require_once 'view/OutputData.php';
+include_once 'model/DataHandler.php';
 
 class Login
 {

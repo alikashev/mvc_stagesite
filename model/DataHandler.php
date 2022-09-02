@@ -27,20 +27,6 @@ class DataHandler{
 	}
 
 
-	public function readAllContacts()
-    {
-        try {
-                $sql = "SELECT * FROM bestanden";
-                $result = $this->DataHandler->readsData($sql);
-                //$result->setFetchMode(PDO::FETCH_ASSOC);
-                $res = $result->fetchAll();
-                return $res;
-        } catch (Exception $e) {
-            throw $e;
-        }
-    }
-
-
 	public function createData($sql){
 		$this->dbh->query($sql);
 		return $this->lastInsertId();
